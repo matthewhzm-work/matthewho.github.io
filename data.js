@@ -462,7 +462,7 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "image",
       "description": "Led the creative pitch team to win the Ministry of Home Affairs account. A campaign that found warmth and humanity in Singapore's most authoritative institution.",
       "fullDescription": "When VML was invited to pitch for the Ministry of Home Affairs, I led the creative team from brief to presentation. Home of the Unexpected shaped a platform idea that balanced authority with warmth, finding stories in the people who keep Singapore safe. We won the pitch.",
-      "projectTemplate": "editorial",
+      "projectTemplate": "mha",
       "collaterals": [
         {
           "type": "image",
@@ -484,7 +484,21 @@ const PORTFOLIO_DATA = {
           "caption": "Ministry of Home Affairs — Home of the Unexpected"
         }
       ],
-      "active": true
+      "active": true,
+      "prints": [
+        {
+          "url": "images/mha-home-of-the-unexpected/thumb.webp",
+          "caption": "Home of the Unexpected — Print 1"
+        },
+        {
+          "url": "images/mha-home-of-the-unexpected/collateral-1.webp",
+          "caption": "Home of the Unexpected — Print 2"
+        },
+        {
+          "url": "images/mha-home-of-the-unexpected/collateral-2.webp",
+          "caption": "Home of the Unexpected — Print 3"
+        }
+      ]
     },
     {
       "id": "hsbc-better-is-never-down-to-one-thing",
@@ -504,7 +518,7 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "image",
       "description": "A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.",
       "fullDescription": "Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.",
-      "projectTemplate": "writeup-then-video",
+      "projectTemplate": "writeup-left-video-right",
       "collaterals": [],
       "videos": [
         {
@@ -529,11 +543,11 @@ const PORTFOLIO_DATA = {
       ],
       "placeholderColor": "#0a1f44",
       "gridSpan": 4,
-      "thumbnailUrl": "images/hsbc-choose-what-you-love/thumb.gif",
+      "thumbnailUrl": "images/hsbc-choose-what-you-love/collateral-2.gif",
       "thumbnailType": "gif",
       "description": "HSBC Choose What You Love put passion and personal values at the heart of financial decision-making.",
       "fullDescription": "Choose What You Love repositioned HSBC's rewards proposition around what customers genuinely care about — not just cashback categories, but the things that define how they live. The campaign ran across digital, social and in-branch touchpoints.",
-      "projectTemplate": "grid",
+      "projectTemplate": "cwyl",
       "collaterals": [
         {
           "type": "gif",
@@ -585,7 +599,8 @@ const PORTFOLIO_DATA = {
           "caption": "HSBC — Choose What You Love"
         }
       ],
-      "active": true
+      "active": true,
+      "openingQuestion": "What if your interests could help you choose which credit card suits you best?"
     },
     {
       "id": "hsbc-revolution-credit-card",
@@ -605,9 +620,30 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "gif",
       "description": "A product launch campaign for HSBC's Revolution Credit Card, targeting a younger, digitally-native audience with a bold new rewards proposition.",
       "fullDescription": "The Revolution Credit Card launch needed to cut through in a saturated market. The work spoke directly to how a younger generation actually spends — on experiences, entertainment, and the things that matter to them — rather than defaulting to category clichés.",
-      "projectTemplate": "grid",
+      "projectTemplate": "writeup-left-video-right-row3",
       "collaterals": [],
-      "videos": [],
+      "videos": [
+        {
+          "url": "https://youtu.be/SDYoHuqEoAs",
+          "type": "youtube",
+          "caption": "HSBC Revolution Credit Card — Main"
+        },
+        {
+          "url": "https://youtu.be/tVADyAUtMrk",
+          "type": "youtube",
+          "caption": "Revolution — Film 2"
+        },
+        {
+          "url": "https://youtu.be/tZV3SIV7bgg",
+          "type": "youtube",
+          "caption": "Revolution — Film 3"
+        },
+        {
+          "url": "https://youtu.be/VHT7D30uSUA",
+          "type": "youtube",
+          "caption": "Revolution — Film 4"
+        }
+      ],
       "active": true
     },
     {
@@ -628,7 +664,7 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "gif",
       "description": "HSBC Tap and Go — a product campaign that made contactless payments feel as natural and frictionless as everyday life.",
       "fullDescription": "Tap and Go stripped away the friction from how HSBC talked about contactless payments. Rather than leading with features, the campaign led with moments — the split-second transactions that add up to a life lived at full speed.",
-      "projectTemplate": "grid",
+      "projectTemplate": "video-left-writeup-right-row3",
       "collaterals": [],
       "videos": [
         {
@@ -700,7 +736,7 @@ const PORTFOLIO_DATA = {
           "caption": "Mercedes-Benz — Mercedes me Adapter"
         }
       ],
-      "active": true
+      "active": false
     },
     {
       "id": "mercedes-me-connect",
@@ -720,7 +756,7 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "gif",
       "description": "A campaign for Mercedes me Connect — the app that puts the full intelligence of your Mercedes-Benz at your fingertips, wherever you are.",
       "fullDescription": "Mercedes me Connect extended the luxury experience beyond the car itself. The campaign showed how the app kept drivers connected to their vehicle — remote monitoring, service scheduling, location sharing — in a way that felt less like utility and more like peace of mind.",
-      "projectTemplate": "film",
+      "projectTemplate": "two-videos-side-by-side",
       "collaterals": [],
       "videos": [
         {
@@ -754,7 +790,7 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "image",
       "description": "A launch campaign for the Mercedes-AMG A Class Hatchback — positioning the most powerful A-Class ever made to drivers who refuse to compromise.",
       "fullDescription": "The AMG A Class Hatchback was a performance car hiding in everyday clothes. The campaign leaned into that contradiction — the sleeper aesthetic, the everyday silhouette that held something extraordinary underneath. Work that appealed to drivers who know, without having to explain.",
-      "projectTemplate": "film",
+      "projectTemplate": "prints-side-by-side",
       "collaterals": [
         {
           "type": "image",
@@ -813,7 +849,7 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "gif",
       "description": "A public health campaign for the National Environment Agency urging Singaporeans to take dengue prevention seriously — before the next outbreak hits.",
       "fullDescription": "Dengue Danger had to cut through a famously hard-to-shift public health behaviour. The campaign used urgency without panic, specificity without jargon, and a tone that respected the intelligence of Singaporeans while making the stakes impossible to ignore.",
-      "projectTemplate": "grid",
+      "projectTemplate": "video-left-writeup-right",
       "collaterals": [],
       "videos": [
         {
@@ -887,51 +923,27 @@ const PORTFOLIO_DATA = {
       "projectTemplate": "grid",
       "collaterals": [
         {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-1.webp",
-          "caption": "Blog banner — EN",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-2.webp",
-          "caption": "Blog banner — BR",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-3.webp",
-          "caption": "Blog banner — ES",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-4.webp",
-          "caption": "Interactive results",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-5.webp",
-          "caption": "Interactive results 2",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-6.webp",
-          "caption": "Severance results",
-          "orientation": "square"
-        },
-        {
-          "type": "image",
-          "url": "images/bybit-valentines-day/collateral-7.webp",
-          "caption": "Valentine results TW",
+          "type": "gif",
+          "url": "images/bybit-valentines-day/collateral-blog-banners.gif",
+          "caption": "Blog banners — 10 markets",
           "orientation": "landscape"
         },
         {
           "type": "gif",
-          "url": "images/bybit-valentines-day/collateral-8.gif",
-          "caption": "Support GIF — EN",
+          "url": "images/bybit-valentines-day/support-247.gif",
+          "caption": "24/7 Support",
+          "orientation": "landscape"
+        },
+        {
+          "type": "gif",
+          "url": "images/bybit-valentines-day/support-realtime.gif",
+          "caption": "Real-time trading",
+          "orientation": "landscape"
+        },
+        {
+          "type": "gif",
+          "url": "images/bybit-valentines-day/support-reliable.gif",
+          "caption": "Reliable platform",
           "orientation": "landscape"
         }
       ],
@@ -1062,7 +1074,7 @@ const PORTFOLIO_DATA = {
         }
       ],
       "videos": [],
-      "active": true
+      "active": false
     },
     {
       "id": "vivo-v15",
