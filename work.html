@@ -4,194 +4,705 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Matthew Ho</title>
-<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  :root { --bg:#F0EFEA; --black:#111111; --orange:#E85C1A; --gray-mid:#C8C7C0; --gray-dark:#555550; --white:#FFFFFF; --nav-h:72px; }
-  html { scroll-behavior:smooth; }
-  body { background:var(--bg); color:var(--black); font-family:'DM Sans',sans-serif; font-size:16px; line-height:1.6; overflow-x:hidden; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F5F4EF;--ink:#0A0A0A;--red:#E8200C;
+  --mid:#888;--light:#E2E1DC;--white:#FFFFFF;
+  --nav-h:68px;--pad:60px;
+  --display:'Lexend',sans-serif;
+  --body:'Inter',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-  nav { position:fixed; top:0; left:0; right:0; height:var(--nav-h); display:flex; align-items:center; justify-content:space-between; padding:0 48px; background:var(--bg); border-bottom:1.5px solid var(--black); z-index:100; }
-  .nav-logo { font-family:'Caprasimo',cursive; font-size:26px; color:var(--black); text-decoration:none; }
-  .nav-logo span { color:var(--orange); }
-  .nav-back { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--black); text-decoration:none; display:flex; align-items:center; gap:8px; transition:color 0.2s; }
-  .nav-back::before { content:'←'; }
-  .nav-back:hover { color:var(--orange); }
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--pad);background:var(--paper);z-index:200;gap:28px;transition:background 0.3s}
+nav.scrolled{background:rgba(245,244,239,0.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-name{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:0.01em;text-decoration:none;color:var(--ink);white-space:nowrap;flex-shrink:0}
+.nav-name em{color:var(--red);font-style:normal}
+.nav-meta{flex:1;min-width:0;display:flex;align-items:center;white-space:nowrap;overflow:hidden}
+.nav-meta-main{font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:#333;font-weight:500;flex-shrink:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-meta-sep{font-family:var(--mono);font-size:12px;color:#bbb;padding:0 10px;flex-shrink:0}
+.nav-meta-awards{font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--red);font-weight:400;flex-shrink:0;white-space:nowrap}
+.nav-back{font-family:var(--mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;flex-shrink:0;transition:color 0.2s;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--red)}
+.nav-back-arrow{display:inline-block;transition:transform 0.2s}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
 
-  .work-hero { margin-top:var(--nav-h); padding:64px 48px 48px; border-bottom:1px solid var(--gray-mid); }
-  .work-meta { display:flex; align-items:center; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
-  .work-brand { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--orange); font-weight:500; }
-  .work-award-pill { background:var(--black); color:var(--bg); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:100px; }
-  .work-title { font-family:'Caprasimo',cursive; font-size:clamp(32px,5vw,64px); line-height:1.05; color:var(--black); margin-bottom:16px; }
-  .work-subtitle { font-size:18px; font-weight:300; color:var(--gray-dark); max-width:640px; margin-bottom:28px; }
-  .work-tags { display:flex; flex-wrap:wrap; gap:8px; }
-  .tag { font-size:11px; font-family:'DM Mono',monospace; padding:5px 12px; border-radius:100px; border:1px solid var(--gray-mid); color:var(--gray-dark); }
+/* ── PROJECT HEADER (shared) ── */
+.work-header{margin-top:var(--nav-h);padding:72px var(--pad) 56px}
+.work-header-meta{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.work-brand{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red)}
+.work-award{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 11px}
+.work-title{font-family:var(--display);font-size:clamp(36px,5.5vw,72px);font-weight:700;line-height:1.0;letter-spacing:-0.02em;margin-bottom:18px;color:var(--ink)}
+.work-subtitle{font-size:17px;font-weight:300;color:#555;max-width:560px;line-height:1.7;margin-bottom:22px}
+.work-tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--light);color:#888;padding:4px 10px}
 
-  .work-content { padding:64px 48px; }
+/* ── SHARED LABELS ── */
+.c-label{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);margin-bottom:16px}
 
-  /* VIDEO */
-  .video-block { margin-bottom:64px; }
-  .video-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
-  .video-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:20px; background:var(--black); }
-  .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:20px; }
-  .video-wrap video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; border-radius:20px; }
-  .video-caption { font-size:13px; color:var(--gray-dark); margin-top:12px; font-weight:300; }
+/* ── SHARED VIDEO (centred, not full bleed) ── */
+.vid-section{padding:0 var(--pad) 72px}
+.vid-centred{max-width:860px;margin:0 auto}
+.vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--ink)}
+.vid-wrap iframe,.vid-wrap video{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.vid-cap{font-family:var(--mono);font-size:11px;color:var(--mid);margin-top:12px;text-align:center;letter-spacing:0.06em}
+/* multiple videos stacked */
+.vid-item{margin-bottom:48px}
+.vid-item:last-child{margin-bottom:0}
+.vid-item-label{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:12px}
 
-  /* COLLATERALS */
-  .collaterals-block { }
-  .collaterals-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--orange); margin-bottom:24px; }
-  .collaterals-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:16px; }
-  .collateral-item { border-radius:16px; overflow:hidden; background:var(--black); position:relative; }
-  .collateral-item img { width:100%; height:100%; object-fit:cover; display:block; }
-  .collateral-item.portrait { aspect-ratio:4/5; }
-  .collateral-item.landscape { aspect-ratio:16/9; }
-  .collateral-item.square { aspect-ratio:1/1; }
-  .collateral-item video { width:100%; display:block; }
-  .col-caption { font-size:12px; color:var(--gray-dark); margin-top:8px; font-weight:300; font-family:'DM Mono',monospace; letter-spacing:0.04em; }
-  .col-placeholder { width:100%; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; background:var(--black); color:rgba(255,255,255,0.15); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; border-radius:16px; }
+/* ── SHARED WRITE-UP ── */
+.writeup-section{padding:0 var(--pad) 72px}
+.writeup-inner{max-width:680px}
+.writeup-text{font-size:17px;font-weight:300;line-height:1.9;color:#222}
 
-  /* DESCRIPTION */
-  .desc-block { max-width:680px; margin-bottom:64px; }
-  .desc-text { font-size:17px; font-weight:300; line-height:1.85; color:var(--black); }
+/* ────────────────────────────────────────
+   TEMPLATE: LUX — In Her Name
+   Video (centred) → write-up → 2-col image grid
+──────────────────────────────────────── */
+.lux-grid{
+  padding:0 var(--pad) 80px;
+}
+.lux-grid-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.lux-img-wrap{
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  background:var(--ink);
+}
+.lux-img-wrap img{
+  width:100%;height:auto;display:block;
+  transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.lux-img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:var(--red);opacity:0;
+  transition:opacity 0.35s;pointer-events:none;
+}
+.lux-img-wrap:hover::after{opacity:0.14}
+.lux-img-wrap:hover img{transform:scale(1.03)}
+/* mobile: single image slider */
+.lux-mobile-slider{display:none;position:relative;overflow:hidden}
+.lux-mobile-track{display:flex;transition:transform 0.4s cubic-bezier(0.22,1,0.36,1)}
+.lux-mobile-slide{flex:0 0 100%;position:relative;cursor:pointer}
+.lux-mobile-slide img{width:100%;height:auto;display:block}
+.lux-mobile-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;background:var(--paper);
+}
+.lux-mobile-btn{
+  font-family:var(--mono);font-size:20px;color:var(--ink);
+  background:none;border:none;cursor:pointer;padding:4px 10px;
+  transition:color 0.2s;
+}
+.lux-mobile-btn:hover{color:var(--red)}
+.lux-mobile-counter{font-family:var(--mono);font-size:11px;color:var(--mid);letter-spacing:0.1em}
 
-  /* NEXT PROJECT */
-  .next-project { padding:64px 48px; border-top:1.5px solid var(--black); background:var(--black); }
-  .next-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange); margin-bottom:20px; }
-  .next-link { text-decoration:none; display:inline-flex; align-items:baseline; gap:16px; }
-  .next-title { font-family:'Caprasimo',cursive; font-size:clamp(24px,3.5vw,44px); color:var(--bg); transition:color 0.2s; }
-  .next-link:hover .next-title { color:var(--orange); }
-  .next-arrow { font-size:clamp(24px,3.5vw,44px); color:var(--orange); }
+/* ── SHARED: remaining templates (film / editorial / grid) ── */
+/* FILM */
+.film-body{display:grid;grid-template-columns:5fr 3fr;gap:80px;padding:0 var(--pad) 80px}
+.film-desc{font-size:17px;font-weight:300;line-height:1.9;color:#222;max-width:560px}
+.film-meta-item{margin-bottom:32px}
+.film-meta-key{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#555;margin-bottom:7px}
+.film-meta-val{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:-0.01em;line-height:1.4}
+.film-collaterals{padding:0 var(--pad) 80px}
+.film-col-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;margin-top:16px}
+.col-item{overflow:hidden;background:var(--ink);cursor:pointer;position:relative}
+.col-item img,.col-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1)}
+.col-item::after{content:'';position:absolute;inset:0;background:var(--red);opacity:0;transition:opacity 0.35s;pointer-events:none}
+.col-item:hover::after{opacity:0.15}
+.col-item:hover img{transform:scale(1.04)}
+.col-item.land{aspect-ratio:16/9}.col-item.port{aspect-ratio:4/5}.col-item.sq{aspect-ratio:1/1}
+.col-cap{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--mid);margin-top:8px}
+/* EDITORIAL */
+.ed-hero{width:100%;max-height:72vh;object-fit:cover;display:block}
+.ed-intro{display:grid;grid-template-columns:1fr minmax(0,620px) 1fr;padding:72px 0}
+.ed-intro-pad{border-right:1px solid var(--light)}
+.ed-intro-pad:last-child{border-right:none;border-left:1px solid var(--light)}
+.ed-intro-col{padding:0 var(--pad)}
+.ed-text{font-size:18px;font-weight:300;line-height:1.9;color:#222}
+.ed-alt-row{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.ed-alt-row:nth-child(even) .ed-alt-img{order:2}
+.ed-alt-row:nth-child(even) .ed-alt-text{order:1}
+.ed-alt-img{overflow:hidden;background:var(--ink);cursor:pointer;position:relative}
+.ed-alt-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1)}
+.ed-alt-img::after{content:'';position:absolute;inset:0;background:var(--red);opacity:0;transition:opacity 0.35s;pointer-events:none}
+.ed-alt-img:hover::after{opacity:0.15}
+.ed-alt-img:hover img{transform:scale(1.03)}
+.ed-alt-text{display:flex;flex-direction:column;justify-content:center;padding:64px 56px;background:var(--white)}
+.ed-alt-num{font-family:var(--display);font-size:80px;font-weight:700;color:var(--light);line-height:1;margin-bottom:16px;letter-spacing:-0.03em}
+.ed-alt-caption{font-size:15px;font-weight:300;color:#555;line-height:1.7;max-width:300px}
+/* GRID */
+.gc-canvas{display:grid;gap:4px;background:var(--light)}
+.gc-item{overflow:hidden;background:var(--ink);cursor:pointer;position:relative}
+.gc-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1)}
+.gc-item::after{content:'';position:absolute;inset:0;background:var(--red);opacity:0;transition:opacity 0.35s;pointer-events:none}
+.gc-item:hover::after{opacity:0.15}
+.gc-item:hover img{transform:scale(1.04)}
+.gc-item.land{aspect-ratio:16/9}.gc-item.port{aspect-ratio:4/5}.gc-item.sq{aspect-ratio:1/1}
+.gc-desc{display:grid;grid-template-columns:5fr 3fr;gap:80px;padding:72px var(--pad) 80px}
+.gc-text{font-size:17px;font-weight:300;line-height:1.9;max-width:560px;color:#222}
+.gc-meta-item{padding:16px 0;border-bottom:1px solid var(--light)}
+.gc-meta-item:first-child{border-top:1px solid var(--light)}
+.gc-meta-key{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:5px}
+.gc-meta-val{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:-0.01em}
 
-  footer { background:var(--black); color:var(--gray-mid); padding:28px 48px; display:flex; align-items:center; justify-content:space-between; font-size:12px; font-family:'DM Mono',monospace; border-top:1px solid rgba(200,199,192,0.15); }
-  .footer-logo { font-family:'Caprasimo',cursive; font-size:18px; color:var(--bg); }
-  .footer-logo span { color:var(--orange); }
+/* ── PROJECT NAV RAIL ── */
+.proj-rail{
+  background:var(--ink);
+  padding:32px 0 28px;
+  position:relative;
+}
+.proj-rail-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(255,255,255,0.3);
+  padding:0 var(--pad);margin-bottom:20px;
+}
+.proj-rail-outer{
+  position:relative;
+  display:flex;align-items:center;
+}
+.rail-btn{
+  position:absolute;z-index:10;
+  background:none;border:none;cursor:pointer;
+  font-size:24px;color:rgba(255,255,255,0.4);
+  padding:10px 16px;transition:color 0.2s;
+  flex-shrink:0;
+}
+.rail-btn:hover{color:var(--white)}
+.rail-btn-prev{left:calc(var(--pad) - 16px)}
+.rail-btn-next{right:calc(var(--pad) - 16px)}
+.rail-btn.hidden{opacity:0;pointer-events:none}
+.proj-rail-scroll{
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  -ms-overflow-style:none;scrollbar-width:none;
+  padding:0 var(--pad);
+  display:flex;gap:10px;
+  /* fade edges */
+  -webkit-mask:linear-gradient(to right,transparent 0%,black 60px,black calc(100% - 60px),transparent 100%);
+  mask:linear-gradient(to right,transparent 0%,black 60px,black calc(100% - 60px),transparent 100%);
+}
+.proj-rail-scroll::-webkit-scrollbar{display:none}
+.rail-card{
+  flex-shrink:0;width:140px;
+  text-decoration:none;
+  transition:opacity 0.2s,transform 0.2s;
+}
+.rail-card:hover{transform:translateY(-3px)}
+.rail-card.current{opacity:0.35;pointer-events:none}
+.rail-card:not(.current):hover{opacity:1}
+.rail-thumb{
+  width:140px;height:88px;
+  overflow:hidden;background:#1a1a1a;
+  flex-shrink:0;margin-bottom:8px;
+}
+.rail-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.rail-thumb-ph{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+}
+.rail-thumb-ph span{font-family:var(--display);font-size:10px;font-weight:600;color:rgba(255,255,255,0.12);letter-spacing:0.06em;text-align:center;padding:4px}
+.rail-title{font-family:var(--display);font-size:11px;font-weight:500;color:rgba(255,255,255,0.65);line-height:1.3;letter-spacing:-0.01em}
+.rail-brand{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:3px}
 
-  .not-found { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:60vh; gap:16px; text-align:center; }
-  .not-found h2 { font-family:'Caprasimo',cursive; font-size:40px; }
-  .not-found a { font-family:'DM Mono',monospace; font-size:13px; color:var(--orange); text-decoration:none; }
+/* ── FOOTER ── */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding:22px var(--pad);display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.28)}
 
-  @media(max-width:900px){
-    nav{padding:0 24px;}
-    .work-hero,.work-content{padding:40px 24px;}
-    .next-project{padding:48px 24px;}
-    footer{padding:20px 24px;flex-direction:column;gap:8px;text-align:center;}
-    .collaterals-grid{grid-template-columns:1fr;}
+/* ── NOT FOUND ── */
+.not-found{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;margin-top:var(--nav-h);gap:20px;text-align:center}
+.not-found h2{font-family:var(--display);font-size:52px;font-weight:700;letter-spacing:-0.02em}
+.not-found a{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);text-decoration:none}
+
+/* ── LIGHTBOX ── */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,0.93);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity 0.22s ease}
+.lb.open{opacity:1;pointer-events:all}
+.lb-inner{max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center}
+.lb-inner img,.lb-inner video{max-width:90vw;max-height:88vh;object-fit:contain;display:block}
+.lb-close{position:fixed;top:22px;right:28px;font-size:32px;color:rgba(255,255,255,0.65);cursor:pointer;user-select:none;z-index:1001;line-height:1;transition:color 0.15s;font-family:sans-serif}
+.lb-close:hover{color:#fff}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);font-size:32px;color:rgba(255,255,255,0.45);cursor:pointer;user-select:none;z-index:1001;padding:20px;transition:color 0.15s;line-height:1}
+.lb-prev{left:0}.lb-next{right:0}
+.lb-prev:hover,.lb-next:hover{color:#fff}
+.lb-cap{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38);text-align:center;pointer-events:none;white-space:nowrap}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  :root{--pad:24px}
+  nav{flex-wrap:wrap;height:auto;padding:12px var(--pad) 0;gap:0}
+  .nav-name{flex:1;padding-bottom:10px}
+  .nav-back{padding-bottom:10px}
+  .nav-meta{flex:0 0 100%;padding:7px 0 10px;border-top:1px solid rgba(10,10,10,0.07);overflow:hidden}
+  .nav-meta-awards,.nav-meta-sep{display:none}
+  .work-header{padding:56px var(--pad) 40px;margin-top:0}
+  /* LUX mobile: hide grid, show slider */
+  .lux-grid-inner{display:none}
+  .lux-mobile-slider{display:block}
+  /* film/editorial/grid mobile */
+  .film-body{grid-template-columns:1fr;gap:40px;padding:0 var(--pad) 56px}
+  .ed-intro{grid-template-columns:1fr;padding:48px 0}
+  .ed-intro-pad{display:none}
+  .ed-alt-row{grid-template-columns:1fr;min-height:auto}
+  .ed-alt-row:nth-child(even) .ed-alt-img,.ed-alt-row:nth-child(even) .ed-alt-text{order:0}
+  .ed-alt-text{padding:32px var(--pad)}
+  .gc-desc{grid-template-columns:1fr;gap:40px;padding:48px var(--pad)}
+  /* rail */
+  .rail-btn{display:none}
+  .proj-rail-scroll{
+    -webkit-mask:none;mask:none;
+    padding:0 var(--pad);
   }
+  footer{flex-direction:column;gap:6px;text-align:center}
+}
+
+/* ────────────────────────────────────────
+   TEMPLATE: HSBC MIND ATHLETES
+   Quote → Video → Write-up → 2-col images → thumbnail row
+──────────────────────────────────────── */
+
+/* Opening quote */
+.ma-quote-section{
+  padding:96px var(--pad);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.ma-quote{
+  font-family:var(--display);
+  font-size:clamp(24px,3.5vw,44px);
+  font-weight:600;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  max-width:800px;
+}
+
+/* Supporting 2-col grid — reuses lux styles */
+
+/* Additional thumbnail row */
+.ma-thumb-section{padding:0 var(--pad) 80px}
+.ma-thumb-row{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  -ms-overflow-style:none;scrollbar-width:none;
+  padding-bottom:4px;
+}
+.ma-thumb-row::-webkit-scrollbar{display:none}
+.ma-thumb-item{
+  flex-shrink:0;
+  width:160px;height:106px;
+  overflow:hidden;background:var(--ink);
+  cursor:pointer;position:relative;
+}
+.ma-thumb-item img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.ma-thumb-item::after{
+  content:'';position:absolute;inset:0;
+  background:var(--red);opacity:0;
+  transition:opacity 0.3s;pointer-events:none;
+}
+.ma-thumb-item:hover::after{opacity:0.18}
+.ma-thumb-item:hover img{transform:scale(1.06)}
+
+@media(max-width:900px){
+  .ma-quote-section{padding:64px var(--pad)}
+  .ma-quote{font-size:clamp(20px,5vw,32px)}
+  /* Mobile: thumbnail grid instead of row */
+  .ma-thumb-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    overflow-x:visible;
+    gap:6px;
+  }
+  .ma-thumb-item{
+    width:100%;height:auto;
+    aspect-ratio:3/2;
+  }
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">Matthew Ho<span>.</span></a>
-  <a href="index.html#work" class="nav-back">All Work</a>
+<nav id="main-nav">
+  <a href="index.html" class="nav-name">Matthew Ho <em>—</em></a>
+  <div class="nav-meta">
+    <span class="nav-meta-main" id="nav-main"></span>
+    <span class="nav-meta-sep">·</span>
+    <span class="nav-meta-awards" id="nav-awards"></span>
+  </div>
+  <a href="index.html#work" class="nav-back"><span class="nav-back-arrow">←</span> All Work</a>
 </nav>
 
-<div id="page-root"></div>
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="lbOut(event)">
+  <span class="lb-close" onclick="lbClose()">×</span>
+  <span class="lb-prev" onclick="lbNav(-1)">‹</span>
+  <div class="lb-inner" id="lb-inner"></div>
+  <span class="lb-next" onclick="lbNav(1)">›</span>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<div id="root"></div>
+
+<!-- PROJECT RAIL -->
+<div class="proj-rail" id="proj-rail" style="display:none">
+  <p class="proj-rail-label">More Work</p>
+  <div class="proj-rail-outer">
+    <button class="rail-btn rail-btn-prev" id="rail-prev" onclick="railScroll(-1)">‹</button>
+    <div class="proj-rail-scroll" id="rail-scroll"></div>
+    <button class="rail-btn rail-btn-next" id="rail-next" onclick="railScroll(1)">›</button>
+  </div>
+</div>
 
 <footer>
-  <span class="footer-logo">Matthew Ho<span>.</span></span>
-  <span id="footer-contact"></span>
-  <span id="footer-year"></span>
+  <span id="f-left"></span>
+  <span id="f-year"></span>
 </footer>
 
 <script src="data.js"></script>
 <script>
-const D = PORTFOLIO_DATA;
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
-const idx = D.projects.findIndex(p => p.id === id);
-const project = D.projects[idx];
-const root = document.getElementById('page-root');
+(function(){
+  const D   = PORTFOLIO_DATA;
+  const $   = id => document.getElementById(id);
+  const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
-document.getElementById('footer-contact').textContent = D.email;
-document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear();
+  // Only active projects shown in rail + navigation
+  const activeProjects = D.projects.filter(p => p.active !== false);
 
-if (!project) {
-  root.innerHTML = `<div class="not-found" style="margin-top:72px"><h2>Project not found<span style="color:var(--orange)">.</span></h2><a href="index.html#work">← Back to all work</a></div>`;
-} else {
-  document.title = project.title + ' — Matthew Ho';
+  $('nav-main').textContent   = D.title + '  ·  ' + D.tagline;
+  $('nav-awards').textContent = D.awardStrip;
+  $('f-left').textContent     = D.name + '  ·  ' + D.email;
+  $('f-year').textContent     = '© ' + new Date().getFullYear();
 
-  // Build video embed
-  let videoHTML = '';
-  if (project.videoUrl) {
-    let embedSrc = '';
-    if (project.videoType === 'youtube') {
-      const ytId = extractYouTubeId(project.videoUrl);
-      if (ytId) embedSrc = `https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`;
-    } else if (project.videoType === 'vimeo') {
-      const vmId = project.videoUrl.match(/vimeo\.com\/(\d+)/);
-      if (vmId) embedSrc = `https://player.vimeo.com/video/${vmId[1]}?byline=0&portrait=0&title=0`;
-    }
-    if (embedSrc) {
-      videoHTML = `<div class="video-block">
-        <p class="video-label">Campaign Video</p>
-        <div class="video-wrap"><iframe src="${embedSrc}" allowfullscreen loading="lazy"></iframe></div>
-        ${project.videoCaption ? `<p class="video-caption">${project.videoCaption}</p>` : ''}
-      </div>`;
-    } else if (project.videoType === 'file') {
-      videoHTML = `<div class="video-block">
-        <p class="video-label">Campaign Video</p>
-        <div class="video-wrap"><video src="${project.videoUrl}" controls playsinline></video></div>
-      </div>`;
-    }
+  window.addEventListener('scroll', () =>
+    $('main-nav').classList.toggle('scrolled', window.scrollY > 20), {passive:true});
+
+  // ── ROUTING ──
+  const params = new URLSearchParams(window.location.search);
+  const pid    = params.get('id');
+  const idx    = activeProjects.findIndex(p => p.id === pid);
+  const P      = idx > -1 ? activeProjects[idx] : null;
+  const root   = $('root');
+
+  if (!P) {
+    root.innerHTML = `<div class="not-found"><h2>Not found.</h2><a href="index.html#work">← Back to work</a></div>`;
+    return;
   }
 
-  // Build collaterals
-  let colHTML = '';
-  const cols = (project.collaterals || []).filter(c => c.url);
-  if (cols.length) {
-    colHTML = `<div class="collaterals-block">
-      <p class="collaterals-label">Campaign Collaterals</p>
-      <div class="collaterals-grid">
-        ${cols.map(c => {
-          const orient = c.orientation || 'landscape';
-          if (c.type === 'image') {
-            return `<div><div class="collateral-item ${orient}"><img src="${c.url}" alt="${c.caption||''}" loading="lazy"></div>${c.caption?`<p class="col-caption">${c.caption}</p>`:''}</div>`;
-          } else if (c.type === 'gif') {
-            return `<div><div class="collateral-item ${orient}"><img src="${c.url}" alt="${c.caption||''}" loading="lazy"></div>${c.caption?`<p class="col-caption">${c.caption}</p>`:''}</div>`;
-          } else if (c.type === 'video') {
-            return `<div><div class="collateral-item ${orient}"><video src="${c.url}" autoplay muted loop playsinline></video></div>${c.caption?`<p class="col-caption">${c.caption}</p>`:''}</div>`;
-          }
-          return '';
-        }).join('')}
+  document.title = P.title + ' — ' + D.name;
+  const cols  = (P.collaterals || []).filter(c => c.url && c.url.trim());
+  const vids  = (P.videos || []).filter(v => v.url && v.url.trim());
+  const tmpl  = P.projectTemplate || 'film';
+  const oc    = o => o === 'portrait' ? 'port' : o === 'square' ? 'sq' : 'land';
+
+  // ── SHARED: project header ──
+  const hdr = `<div class="work-header">
+    <div class="work-header-meta">
+      <span class="work-brand">${esc(P.brand)}</span>
+      ${P.award ? `<span class="work-award">${esc(P.award)}</span>` : ''}
+    </div>
+    <h1 class="work-title">${esc(P.title)}</h1>
+    <p class="work-subtitle">${esc(P.subtitle)}</p>
+    <div class="work-tags">${(P.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+  </div>`;
+
+  // ── SHARED: videos block (centred, not full bleed) ──
+  function mkVideosBlock() {
+    if (!vids.length) return '';
+    const multi = vids.length > 1;
+    const items = vids.map((v, i) => {
+      let src = '';
+      if (v.type === 'youtube') {
+        const m = v.url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+        if (m) src = 'https://www.youtube.com/embed/' + m[1] + '?rel=0&modestbranding=1';
+      } else if (v.type === 'vimeo') {
+        const m = v.url.match(/vimeo\.com\/(\d+)/);
+        if (m) src = 'https://player.vimeo.com/video/' + m[1] + '?byline=0&portrait=0&title=0';
+      }
+      if (!src && v.type !== 'file') return '';
+      const player = src
+        ? `<div class="vid-wrap"><iframe src="${src}" allowfullscreen loading="lazy"></iframe></div>`
+        : `<div class="vid-wrap"><video src="${v.url}" controls playsinline></video></div>`;
+      const labelHTML = multi ? `<p class="vid-item-label">${esc(v.caption || `Video ${i+1}`)}</p>` : '';
+      const capHTML   = !multi && v.caption ? `<p class="vid-cap">${esc(v.caption)}</p>` : '';
+      return `<div class="vid-item">${labelHTML}${player}${capHTML}</div>`;
+    }).filter(Boolean).join('');
+    if (!items) return '';
+    return `<div class="vid-section">
+      <div class="vid-centred">${items}</div>
+    </div>`;
+  }
+
+  // ── SHARED: write-up block ──
+  function mkWriteup() {
+    return `<div class="writeup-section">
+      <div class="writeup-inner">
+        <p class="c-label">About the Work</p>
+        <p class="writeup-text">${esc(P.fullDescription)}</p>
       </div>
     </div>`;
   }
 
-  // Next project
-  const nextProject = D.projects[(idx + 1) % D.projects.length];
-  const nextHTML = `<div class="next-project">
-    <p class="next-label">Next Project</p>
-    <a class="next-link" href="work.html?id=${nextProject.id}">
-      <span class="next-title">${nextProject.title}</span>
-      <span class="next-arrow">→</span>
-    </a>
-  </div>`;
+  // ── SHARED: meta sidebar items ──
+  function mkMetaSidebar() {
+    return `<div class="film-meta-item"><div class="film-meta-key">Client</div><div class="film-meta-val">${esc(P.brand)}</div></div>
+    <div class="film-meta-item"><div class="film-meta-key">Discipline</div><div class="film-meta-val" style="font-family:var(--body);font-weight:300;font-size:14px">${esc((P.tags||[]).join(', '))}</div></div>
+    ${P.award ? `<div class="film-meta-item"><div class="film-meta-key">Recognition</div><div class="film-meta-val" style="color:var(--red)">${esc(P.award)}</div></div>` : ''}`;
+  }
 
-  root.innerHTML = `
-    <div class="work-hero">
-      <div class="work-meta">
-        <span class="work-brand">${project.brand}</span>
-        ${project.award ? `<span class="work-award-pill">${project.award}</span>` : ''}
-      </div>
-      <h1 class="work-title">${project.title}</h1>
-      <p class="work-subtitle">${project.subtitle}</p>
-      <div class="work-tags">${project.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    </div>
-    <div class="work-content">
-      <div class="desc-block">
-        <p class="desc-text">${project.fullDescription}</p>
-      </div>
-      ${videoHTML}
-      ${colHTML}
-    </div>
-    ${nextHTML}`;
-}
+  let body = '';
 
-function extractYouTubeId(url) {
-  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
-  return m ? m[1] : null;
-}
+  /* ═══════════════════════════════════════
+     TEMPLATE: HSBC MIND ATHLETES
+     Quote → Video (centred) → Write-up → 2-col images → thumbnail row
+  ═══════════════════════════════════════ */
+  if (tmpl === 'hsbc-mind-athletes') {
+    const quote = P.quote || '';
+    const thumbs = (P.thumbnails || []).filter(t => t.url && t.url.trim() && t.active !== false);
+
+    // 2-col supporting images (same as LUX)
+    const gridItems = cols.map((c, i) => `
+      <div class="lux-img-wrap" onclick="lbOpen(${i})">
+        <img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy">
+      </div>`).join('');
+
+    // Mobile slider for supporting images
+    const slideItems = cols.map((c, i) => `
+      <div class="lux-mobile-slide" onclick="lbOpen(${i})">
+        <img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy">
+      </div>`).join('');
+
+    // Thumbnail row — all items, lightbox opens into combined pool (cols + thumbs)
+    const thumbItems = thumbs.map((t, i) => `
+      <div class="ma-thumb-item" onclick="lbOpenThumb(${i})">
+        <img src="${t.url}" alt="${esc(t.caption||'')}" loading="lazy">
+      </div>`).join('');
+
+    body = `<div class="ma-quote-section">
+        <p class="ma-quote">${esc(quote)}</p>
+      </div>`
+      + mkVideosBlock()
+      + mkWriteup()
+      + `<div class="lux-grid">
+          <p class="c-label" style="padding:0 var(--pad);margin-bottom:20px">Supporting Images</p>
+          <div class="lux-grid-inner">${gridItems}</div>
+          <div class="lux-mobile-slider">
+            <div class="lux-mobile-track" id="lux-track">${slideItems}</div>
+            <div class="lux-mobile-nav">
+              <button class="lux-mobile-btn" onclick="luxSlide(-1)">←</button>
+              <span class="lux-mobile-counter" id="lux-counter">1 / ${cols.length}</span>
+              <button class="lux-mobile-btn" onclick="luxSlide(1)">→</button>
+            </div>
+          </div>
+        </div>`
+      + (thumbItems ? `<div class="ma-thumb-section">
+          <p class="c-label" style="margin-bottom:16px">Campaign Gallery</p>
+          <div class="ma-thumb-row">${thumbItems}</div>
+        </div>` : '');
+  }
+
+  /* ═══════════════════════════════════════
+     TEMPLATE: LUX — In Her Name
+     Video (centred) → write-up → 2-col image grid + mobile slider
+  ═══════════════════════════════════════ */
+  if (tmpl === 'lux') {
+    // Desktop 2-col grid
+    const gridItems = cols.map((c, i) => `
+      <div class="lux-img-wrap" onclick="lbOpen(${i})">
+        <img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy">
+      </div>`).join('');
+
+    // Mobile slider
+    const slideItems = cols.map((c, i) => `
+      <div class="lux-mobile-slide" onclick="lbOpen(${i})">
+        <img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy">
+      </div>`).join('');
+
+    body = mkVideosBlock()
+      + mkWriteup()
+      + `<div class="lux-grid">
+          <p class="c-label" style="padding:0 var(--pad);margin-bottom:20px">Supporting Images</p>
+          <div class="lux-grid-inner">${gridItems}</div>
+          <div class="lux-mobile-slider">
+            <div class="lux-mobile-track" id="lux-track">${slideItems}</div>
+            <div class="lux-mobile-nav">
+              <button class="lux-mobile-btn" onclick="luxSlide(-1)">←</button>
+              <span class="lux-mobile-counter" id="lux-counter">1 / ${cols.length}</span>
+              <button class="lux-mobile-btn" onclick="luxSlide(1)">→</button>
+            </div>
+          </div>
+        </div>`;
+  }
+
+  /* ═══════════════════════════════════════
+     TEMPLATE: FILM
+  ═══════════════════════════════════════ */
+  else if (tmpl === 'film') {
+    const colItems = cols.map((c,i) => `<div>
+      <div class="col-item ${oc(c.orientation)}" onclick="lbOpen(${i})">
+        <img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy">
+      </div>
+      ${c.caption ? `<p class="col-cap">${esc(c.caption)}</p>` : ''}
+    </div>`).join('');
+
+    body = mkVideosBlock()
+      + `<div class="film-body">
+          <div><p class="c-label">About the Work</p><p class="film-desc">${esc(P.fullDescription)}</p></div>
+          <div>${mkMetaSidebar()}</div>
+        </div>`
+      + (cols.length ? `<div class="film-collaterals">
+          <p class="c-label">Campaign Collaterals</p>
+          <div class="film-col-grid">${colItems}</div>
+        </div>` : '');
+  }
+
+  /* ═══════════════════════════════════════
+     TEMPLATE: EDITORIAL
+  ═══════════════════════════════════════ */
+  else if (tmpl === 'editorial') {
+    const heroSrc  = (cols[0] && cols[0].url) ? cols[0].url : P.thumbnailUrl;
+    const heroBlock = heroSrc ? `<img class="ed-hero" src="${heroSrc}" alt="${esc(P.title)}">` : '';
+    const startIdx  = (cols[0] && cols[0].url) ? 1 : 0;
+    const altRows = cols.slice(startIdx).map((c, i) => {
+      const ri = startIdx + i;
+      return `<div class="ed-alt-row">
+        <div class="ed-alt-img" onclick="lbOpen(${ri})"><img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy"></div>
+        <div class="ed-alt-text">
+          <div class="ed-alt-num">0${i+2}</div>
+          <p class="ed-alt-caption">${esc(c.caption||'')}</p>
+        </div>
+      </div>`;
+    }).join('');
+
+    body = mkVideosBlock()
+      + heroBlock
+      + `<div class="ed-intro">
+          <div class="ed-intro-pad"></div>
+          <div class="ed-intro-col"><p class="c-label" style="margin-bottom:20px">About the Work</p><p class="ed-text">${esc(P.fullDescription)}</p></div>
+          <div class="ed-intro-pad"></div>
+        </div>`
+      + altRows;
+  }
+
+  /* ═══════════════════════════════════════
+     TEMPLATE: GRID
+  ═══════════════════════════════════════ */
+  else {
+    const n = cols.length;
+    const gcols = n <= 2 ? 2 : n <= 6 ? 3 : 4;
+    const gcItems = cols.map((c,i) =>
+      `<div class="gc-item ${oc(c.orientation)}" onclick="lbOpen(${i})"><img src="${c.url}" alt="${esc(c.caption||'')}" loading="lazy"></div>`
+    ).join('');
+
+    body = mkVideosBlock()
+      + (cols.length ? `<div class="gc-canvas" style="grid-template-columns:repeat(${gcols},1fr)">${gcItems}</div>` : '')
+      + `<div class="gc-desc">
+          <div><p class="c-label">About the Work</p><p class="gc-text">${esc(P.fullDescription)}</p></div>
+          <div>${mkMetaSidebar().replace(/film-meta/g,'gc-meta')}</div>
+        </div>`;
+  }
+
+  root.innerHTML = hdr + body;
+
+  /* ── LUX MOBILE SLIDER ── */
+  let luxCur = 0;
+  window.luxSlide = d => {
+    luxCur = (luxCur + d + cols.length) % cols.length;
+    const track = $('lux-track');
+    if (track) track.style.transform = `translateX(-${luxCur * 100}%)`;
+    const counter = $('lux-counter');
+    if (counter) counter.textContent = `${luxCur + 1} / ${cols.length}`;
+  };
+
+  /* ── PROJECT RAIL ── */
+  const rail = $('proj-rail');
+  const railScroll = $('rail-scroll');
+  if (activeProjects.length > 1) {
+    rail.style.display = 'block';
+    activeProjects.forEach((proj, i) => {
+      const isCurrent = proj.id === pid;
+      const card = document.createElement('a');
+      card.className = 'rail-card' + (isCurrent ? ' current' : '');
+      card.href = isCurrent ? '#' : `work.html?id=${proj.id}`;
+      const thumb = proj.thumbnailUrl
+        ? `<img src="${proj.thumbnailUrl}" alt="${esc(proj.title)}" loading="lazy">`
+        : `<div class="rail-thumb-ph"><span>${esc(proj.brand)}</span></div>`;
+      card.innerHTML = `<div class="rail-thumb">${thumb}</div>
+        <div class="rail-brand">${esc(proj.brand)}</div>
+        <div class="rail-title">${esc(proj.title)}</div>`;
+      card.dataset.idx = i;
+      railScroll.appendChild(card);
+    });
+
+    // Auto-scroll to centre current card
+    requestAnimationFrame(() => {
+      const currentCard = railScroll.querySelector('.current');
+      if (currentCard) {
+        const scrollLeft = currentCard.offsetLeft - (railScroll.clientWidth / 2) + (currentCard.clientWidth / 2);
+        railScroll.scrollLeft = Math.max(0, scrollLeft);
+      }
+      updateRailBtns();
+    });
+
+    railScroll.addEventListener('scroll', updateRailBtns, {passive:true});
+  }
+
+  function updateRailBtns() {
+    const s = railScroll;
+    $('rail-prev').classList.toggle('hidden', s.scrollLeft < 10);
+    $('rail-next').classList.toggle('hidden', s.scrollLeft >= s.scrollWidth - s.clientWidth - 10);
+  }
+
+  window.railScroll = d => {
+    railScroll.scrollLeft += d * 320;
+  };
+
+  /* ── LIGHTBOX ── */
+  let lbCur = 0;
+  // Thumbnail lightbox — separate pool from collaterals
+  const thumbsAll = (P.thumbnails || []).filter(t => t.url && t.url.trim() && t.active !== false);
+  let lbPool = cols; // default pool
+  let lbCurThumb = 0;
+
+  window.lbOpenThumb = i => {
+    lbPool = thumbsAll;
+    lbCur = i;
+    lbRenderPool();
+    $('lb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.lbOpen = i => { lbPool=cols; lbCur=i; lbRender(); $('lb').classList.add('open'); document.body.style.overflow='hidden'; };
+  window.lbClose = () => { $('lb').classList.remove('open'); document.body.style.overflow=''; const v=document.querySelector('#lb-inner video'); if(v)v.pause(); };
+  window.lbNav = d => { const v=document.querySelector('#lb-inner video'); if(v)v.pause(); lbCur=(lbCur+d+lbPool.length)%lbPool.length; lbRenderPool(); };
+  window.lbOut = e => { if(e.target===$('lb'))lbClose(); };
+
+  function lbRenderPool() {
+    const c = lbPool[lbCur]; if(!c) return;
+    $('lb-inner').innerHTML = `<img src="${c.url}" alt="${esc(c.caption||'')}">`;
+    $('lb-cap').textContent = c.caption||'';
+  }
+  function lbRender() { lbPool = cols; lbRenderPool(); }
+
+  document.addEventListener('keydown', e => {
+    if(!$('lb').classList.contains('open')) return;
+    if(e.key==='Escape') lbClose();
+    if(e.key==='ArrowRight') lbNav(1);
+    if(e.key==='ArrowLeft') lbNav(-1);
+  });
+})();
 </script>
 </body>
 </html>

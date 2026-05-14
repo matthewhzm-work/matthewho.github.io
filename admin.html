@@ -3,371 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CMS — Matthew Ho Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>CMS — Matthew Ho</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  :root { --bg:#F0EFEA; --black:#111111; --orange:#E85C1A; --gray-mid:#C8C7C0; --gray-dark:#555550; --white:#FFFFFF; --panel:#FFFFFF; --danger:#c0392b; }
-  body { background:var(--bg); font-family:'DM Sans',sans-serif; font-size:14px; color:var(--black); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F5F4EF;--ink:#0A0A0A;--red:#E8200C;
+  --mid:#777;--light:#E2E1DC;--panel:#fff;--danger:#C0392B;
+  --display:'Lexend',sans-serif;
+  --body:'Inter',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--paper);font-family:var(--body);font-size:14px;color:var(--ink);-webkit-font-smoothing:antialiased}
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
 
-  /* LAYOUT */
-  .cms-layout { display:grid; grid-template-columns:220px 1fr; min-height:100vh; }
-  .sidebar { background:var(--black); padding:0; position:sticky; top:0; height:100vh; overflow-y:auto; }
-  .sidebar-header { padding:24px 20px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
-  .sidebar-logo { font-family:'Caprasimo',cursive; font-size:18px; color:white; }
-  .sidebar-logo span { color:var(--orange); }
-  .sidebar-sub { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#666; margin-top:4px; }
-  .sidebar nav { padding:16px 0; }
-  .nav-section { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#444; padding:12px 20px 6px; }
-  .nav-item { display:block; padding:10px 20px; color:#aaa; text-decoration:none; font-size:13px; cursor:pointer; transition:all 0.15s; border-left:3px solid transparent; }
-  .nav-item:hover { color:white; background:rgba(255,255,255,0.04); }
-  .nav-item.active { color:white; border-left-color:var(--orange); background:rgba(232,92,26,0.08); }
-  .sidebar-footer { padding:16px 20px; border-top:1px solid rgba(255,255,255,0.08); margin-top:auto; }
-  .preview-btn { display:block; text-align:center; background:var(--orange); color:white; padding:10px; border-radius:8px; text-decoration:none; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; transition:opacity 0.2s; }
-  .preview-btn:hover { opacity:0.85; }
+/* SIDEBAR */
+.sidebar{background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.sb-name{font-family:var(--display);font-size:17px;font-weight:700;color:#fff}
+.sb-name em{color:var(--red);font-style:normal}
+.sb-sub{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-top:4px}
+.sb-nav{padding:12px 0;flex:1}
+.sb-section{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:12px 20px 5px}
+.sb-item{display:block;padding:10px 20px;color:rgba(255,255,255,0.52);font-size:13px;cursor:pointer;transition:all 0.15s;border-left:3px solid transparent;user-select:none;font-family:var(--body)}
+.sb-item:hover{color:#fff;background:rgba(255,255,255,0.04)}
+.sb-item.active{color:#fff;border-left-color:var(--red);background:rgba(232,32,12,0.08)}
+.sb-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.07)}
+.preview-btn{display:block;text-align:center;background:var(--red);color:#fff;padding:10px;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s}
+.preview-btn:hover{opacity:0.82}
 
-  .main { padding:40px; overflow-y:auto; }
-  .page-title { font-family:'Caprasimo',cursive; font-size:28px; margin-bottom:6px; }
-  .page-title span { color:var(--orange); }
-  .page-desc { font-size:13px; color:var(--gray-dark); margin-bottom:32px; }
+/* MAIN */
+.main{padding:40px;overflow-y:auto}
+.pg-title{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:-0.02em;margin-bottom:5px}
+.pg-title em{color:var(--red);font-style:normal}
+.pg-desc{font-size:13px;color:var(--mid);margin-bottom:28px;font-weight:400}
 
-  /* CARDS */
-  .card { background:var(--panel); border-radius:16px; padding:28px; margin-bottom:20px; }
-  .card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
-  .card-title { font-size:15px; font-weight:600; }
-  .card-count { font-family:'DM Mono',monospace; font-size:11px; color:var(--orange); }
+/* CARDS */
+.card{background:var(--panel);padding:28px;margin-bottom:16px}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.card-label{font-size:14px;font-weight:600;font-family:var(--display)}
 
-  /* FORM */
-  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .form-grid.cols3 { grid-template-columns:1fr 1fr 1fr; }
-  .form-group { display:flex; flex-direction:column; gap:6px; }
-  .form-group.full { grid-column:1/-1; }
-  label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gray-dark); }
-  input[type=text], input[type=email], input[type=tel], input[type=url], select, textarea {
-    width:100%; padding:10px 12px; border:1.5px solid var(--gray-mid); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--black); background:var(--bg); outline:none; transition:border-color 0.2s;
-  }
-  input:focus, select:focus, textarea:focus { border-color:var(--orange); }
-  textarea { resize:vertical; min-height:80px; line-height:1.5; }
-  select { cursor:pointer; }
+/* FORMS */
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid)}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:9px 11px;border:1.5px solid var(--light);
+  font-family:var(--body);font-size:13px;color:var(--ink);
+  background:var(--paper);outline:none;transition:border-color 0.18s;border-radius:0;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red)}
+.fg textarea{resize:vertical;min-height:76px;line-height:1.5}
+.fg select{cursor:pointer}
+.fg .hint{font-family:var(--mono);font-size:10px;color:var(--mid);margin-top:3px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.full{grid-column:1/-1}
+.divider{height:1px;background:var(--light);margin:16px 0}
+.mini-label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin:14px 0 10px}
 
-  /* BUTTONS */
-  .btn { display:inline-flex; align-items:center; gap:6px; padding:9px 16px; border-radius:8px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; border:none; transition:all 0.15s; }
-  .btn-primary { background:var(--orange); color:white; }
-  .btn-primary:hover { opacity:0.85; }
-  .btn-secondary { background:var(--bg); color:var(--black); border:1.5px solid var(--gray-mid); }
-  .btn-secondary:hover { border-color:var(--black); }
-  .btn-danger { background:transparent; color:var(--danger); border:1.5px solid var(--danger); }
-  .btn-danger:hover { background:var(--danger); color:white; }
-  .btn-sm { padding:6px 12px; font-size:10px; }
-  .btn-group { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.15s;border-radius:0;font-weight:500}
+.btn-primary{background:var(--red);color:#fff}.btn-primary:hover{opacity:0.85}
+.btn-secondary{background:var(--paper);color:var(--ink);border:1.5px solid var(--light)}.btn-secondary:hover{border-color:var(--ink)}
+.btn-success{background:#1a7a3a;color:#fff}.btn-success:hover{opacity:0.85}
+.btn-danger{background:transparent;color:var(--danger);border:1.5px solid var(--danger)}.btn-danger:hover{background:var(--danger);color:#fff}
+.btn-sm{padding:5px 11px;font-size:9px}
+.btn-group{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 
-  /* LIST ITEMS */
-  .list-item { background:var(--bg); border-radius:10px; padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:12px; }
-  .list-item-drag { color:var(--gray-mid); cursor:grab; font-size:18px; line-height:1; }
-  .list-item-main { flex:1; }
-  .list-item-title { font-weight:600; font-size:13px; margin-bottom:2px; }
-  .list-item-sub { font-size:12px; color:var(--gray-dark); }
-  .list-item-badge { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; background:var(--black); color:var(--bg); padding:3px 8px; border-radius:100px; }
-  .list-item-actions { display:flex; gap:8px; }
+/* LIST ITEMS */
+.list-item{background:var(--paper);padding:13px 16px;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.li-main{flex:1}
+.li-title{font-weight:600;font-size:13px;margin-bottom:2px;font-family:var(--display)}
+.li-sub{font-size:11px;color:var(--mid)}
+.li-badge{font-family:var(--mono);font-size:9px;background:var(--ink);color:var(--paper);padding:3px 9px}
 
-  /* COLLATERAL ROW */
-  .col-row { background:var(--bg); border-radius:10px; padding:12px 14px; margin-bottom:8px; }
-  .col-row-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .col-row-num { font-family:'DM Mono',monospace; font-size:11px; color:var(--orange); min-width:20px; }
-  .col-row-grid { display:grid; grid-template-columns:120px 1fr 1fr auto; gap:10px; align-items:end; }
+/* TABS */
+.tab-bar{display:flex;border-bottom:1.5px solid var(--light);margin-bottom:22px}
+.tab{padding:9px 18px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1.5px;color:var(--mid);transition:all 0.15s}
+.tab.active{color:var(--red);border-bottom-color:var(--red)}
 
-  /* TABS */
-  .tab-bar { display:flex; gap:0; border-bottom:1.5px solid var(--gray-mid); margin-bottom:28px; }
-  .tab { padding:10px 20px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1.5px; color:var(--gray-dark); transition:all 0.15s; }
-  .tab.active { color:var(--orange); border-bottom-color:var(--orange); }
+/* COL ROWS */
+.col-row{background:var(--paper);padding:12px 14px;margin-bottom:8px}
+.col-row-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.col-row-num{font-family:var(--mono);font-size:10px;color:var(--red)}
+.col-grid{display:grid;grid-template-columns:100px 1fr 1fr 100px;gap:10px;align-items:end}
 
-  /* EXPORT */
-  .export-box { background:var(--black); border-radius:12px; padding:20px; }
-  .export-box pre { color:#7ee787; font-family:'DM Mono',monospace; font-size:12px; line-height:1.6; white-space:pre-wrap; word-break:break-all; max-height:400px; overflow-y:auto; }
+/* COLOR */
+.color-row{display:flex;align-items:center;gap:10px}
+.swatch-box{width:34px;height:34px;flex-shrink:0;border:1.5px solid var(--light);cursor:pointer;position:relative;overflow:hidden}
+.swatch-box input[type=color]{position:absolute;inset:-4px;width:calc(100%+8px);height:calc(100%+8px);opacity:0;cursor:pointer;border:none}
 
-  /* TOAST */
-  .toast { position:fixed; bottom:24px; right:24px; background:var(--black); color:white; padding:14px 20px; border-radius:10px; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.06em; transform:translateY(80px); opacity:0; transition:all 0.3s; z-index:999; }
-  .toast.show { transform:translateY(0); opacity:1; }
-  .toast.success { border-left:4px solid #27ae60; }
-  .toast.error { border-left:4px solid var(--danger); }
+/* SECTIONS */
+.cms-sec{display:none}.cms-sec.active{display:block}
 
-  /* PAGE SECTIONS */
-  .cms-section { display:none; }
-  .cms-section.active { display:block; }
+/* EXPORT */
+.export-box{background:var(--ink);padding:20px;margin-bottom:16px}
+.export-box pre{color:#7ee787;font-family:var(--mono);font-size:11px;line-height:1.6;white-space:pre-wrap;word-break:break-all;max-height:360px;overflow-y:auto}
+.export-info{font-family:var(--mono);font-size:10px;color:var(--mid);margin-top:12px;line-height:1.6}
 
-  .divider { height:1px; background:var(--gray-mid); margin:20px 0; opacity:0.4; }
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:#fff;padding:13px 20px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;transform:translateY(80px);opacity:0;transition:all 0.28s;z-index:9999;pointer-events:none}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{border-left:4px solid #27ae60}
+.toast.error{border-left:4px solid var(--danger)}
+.toast.info{border-left:4px solid #2980b9}
 
-  .help-text { font-size:12px; color:var(--gray-dark); margin-top:4px; }
+/* GATE */
+.gate{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:99999}
+.gate-inner{width:360px}
+.gate-logo{font-family:var(--display);font-size:26px;font-weight:700;color:#fff;margin-bottom:6px}
+.gate-logo em{color:var(--red);font-style:normal}
+.gate-sub{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:32px}
+.gate-wrap{position:relative;margin-bottom:12px}
+.gate-wrap input{width:100%;padding:13px 48px 13px 16px;background:#1a1a1a;border:1.5px solid #333;font-family:var(--body);font-size:15px;color:#fff;outline:none;transition:border-color 0.2s;border-radius:0}
+.gate-wrap input:focus{border-color:var(--red)}
+.gate-wrap input.shake{animation:shake 0.35s ease;border-color:var(--danger)}
+.gate-eye{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.3);cursor:pointer;user-select:none;font-size:18px}
+.gate-eye:hover{color:rgba(255,255,255,0.7)}
+.gate-btn{width:100%;padding:13px;background:var(--red);color:#fff;border:none;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;border-radius:0}
+.gate-btn:hover{opacity:0.85}
+.gate-err{font-family:var(--mono);font-size:10px;color:#e74c3c;margin-top:10px;min-height:15px;letter-spacing:0.06em}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
 
-  /* color swatch */
-  .color-wrap { position:relative; }
-  .color-wrap input[type=text] { padding-left:40px; }
-  .color-swatch { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:18px; height:18px; border-radius:4px; border:1px solid var(--gray-mid); cursor:pointer; }
-  input[type=color] { opacity:0; position:absolute; width:18px; height:18px; left:12px; top:50%; transform:translateY(-50%); cursor:pointer; border:none; }
-
-  @media(max-width:768px){
-    .cms-layout{grid-template-columns:1fr;}
-    .sidebar{position:static;height:auto;}
-    .form-grid{grid-template-columns:1fr;}
-    .col-row-grid{grid-template-columns:1fr 1fr;}
-  }
-  /* PASSWORD GATE */
-  .gate { position:fixed; inset:0; background:var(--black); display:flex; align-items:center; justify-content:center; z-index:9999; flex-direction:column; gap:0; }
-  .gate-inner { width:360px; }
-  .gate-logo { font-family:'Caprasimo',cursive; font-size:28px; color:white; margin-bottom:6px; }
-  .gate-logo span { color:var(--orange); }
-  .gate-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#555; margin-bottom:32px; }
-  .gate-input-wrap { position:relative; margin-bottom:12px; }
-  .gate-input-wrap input { width:100%; padding:14px 48px 14px 16px; background:#1a1a1a; border:1.5px solid #333; border-radius:10px; font-family:'DM Sans',sans-serif; font-size:15px; color:white; outline:none; transition:border-color 0.2s; }
-  .gate-input-wrap input:focus { border-color:var(--orange); }
-  .gate-input-wrap input.shake { animation:shake 0.35s ease; border-color:var(--danger); }
-  .gate-eye { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#555; cursor:pointer; font-size:18px; user-select:none; }
-  .gate-eye:hover { color:#aaa; }
-  .gate-btn { width:100%; padding:13px; background:var(--orange); color:white; border:none; border-radius:10px; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; transition:opacity 0.2s; }
-  .gate-btn:hover { opacity:0.85; }
-  .gate-error { font-family:'DM Mono',monospace; font-size:11px; color:#e74c3c; margin-top:10px; min-height:16px; letter-spacing:0.06em; }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+@media(max-width:768px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:static;height:auto}
+  .g2,.g3{grid-template-columns:1fr}
+  .col-grid{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- PASSWORD GATE -->
 <div class="gate" id="gate">
   <div class="gate-inner">
-    <div class="gate-logo">Matthew Ho<span>.</span></div>
-    <div class="gate-label">CMS — Admin Access</div>
-    <div class="gate-input-wrap">
+    <div class="gate-logo">Matthew Ho <em>—</em></div>
+    <div class="gate-sub">CMS Admin Access</div>
+    <div class="gate-wrap">
       <input type="password" id="gate-pw" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()">
       <span class="gate-eye" id="gate-eye" onclick="toggleEye()">👁</span>
     </div>
     <button class="gate-btn" onclick="checkPw()">Enter</button>
-    <div class="gate-error" id="gate-error"></div>
+    <div class="gate-err" id="gate-err"></div>
   </div>
 </div>
 
-<div class="cms-layout" id="cms-wrap" style="display:none">
-  <!-- SIDEBAR -->
+<div class="layout" id="cms" style="display:none">
   <aside class="sidebar">
-    <div class="sidebar-header">
-      <div class="sidebar-logo">Matthew Ho<span>.</span></div>
-      <div class="sidebar-sub">Portfolio CMS</div>
+    <div class="sb-logo">
+      <div class="sb-name">Matthew Ho <em>—</em></div>
+      <div class="sb-sub">Portfolio CMS</div>
     </div>
-    <nav>
-      <div class="nav-section">Content</div>
-      <div class="nav-item active" onclick="showSection('profile')">Profile & Bio</div>
-      <div class="nav-item" onclick="showSection('projects')">Work Projects</div>
-      <div class="nav-item" onclick="showSection('experience')">Experience</div>
-      <div class="nav-item" onclick="showSection('awards')">Awards</div>
-      <div class="nav-section">Export</div>
-      <div class="nav-item" onclick="showSection('export')">Export data.js</div>
+    <nav class="sb-nav">
+      <div class="sb-section">Content</div>
+      <div class="sb-item active" onclick="showSec('profile',this)">Profile &amp; Bio</div>
+      <div class="sb-item" onclick="showSec('projects',this)">Work Projects</div>
+      <div class="sb-item" onclick="showSec('experience',this)">Experience</div>
+      <div class="sb-item" onclick="showSec('awards',this)">Awards</div>
+      <div class="sb-section">Publish</div>
+      <div class="sb-item" onclick="showSec('export',this)">Export &amp; Download</div>
     </nav>
-    <div class="sidebar-footer">
+    <div class="sb-footer">
       <a href="index.html" target="_blank" class="preview-btn">↗ Preview Site</a>
     </div>
   </aside>
 
-  <!-- MAIN -->
   <main class="main">
 
     <!-- PROFILE -->
-    <div id="sec-profile" class="cms-section active">
-      <h1 class="page-title">Profile<span>.</span></h1>
-      <p class="page-desc">Your personal details, contact info and bio paragraphs.</p>
-
+    <div id="sec-profile" class="cms-sec active">
+      <h1 class="pg-title">Profile<em>.</em></h1>
+      <p class="pg-desc">Personal details and bio shown in the About section.</p>
       <div class="card">
-        <div class="card-header"><span class="card-title">Personal Details</span></div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" id="p-name">
-          </div>
-          <div class="form-group">
-            <label>Title</label>
-            <input type="text" id="p-title">
-          </div>
-          <div class="form-group">
-            <label>Location</label>
-            <input type="text" id="p-location">
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="p-email">
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" id="p-phone">
-          </div>
-          <div class="form-group">
-            <label>Website</label>
-            <input type="text" id="p-website">
-          </div>
-          <div class="form-group">
-            <label>Hero Tagline</label>
-            <input type="text" id="p-tagline">
-          </div>
-          <div class="form-group">
-            <label>Award Strip (nav bar)</label>
-            <input type="text" id="p-awardstrip">
-          </div>
+        <div class="card-head"><span class="card-label">Identity</span></div>
+        <div class="g2">
+          <div class="fg"><label>Full Name</label><input type="text" id="p-name"></div>
+          <div class="fg"><label>Title</label><input type="text" id="p-title"></div>
+          <div class="fg"><label>Location</label><input type="text" id="p-location"></div>
+          <div class="fg"><label>Email</label><input type="email" id="p-email"></div>
+          <div class="fg"><label>Website (no https://)</label><input type="text" id="p-website"></div>
+          <div class="fg full"><label>Tagline (nav bar — title · tagline portion)</label><input type="text" id="p-tagline"></div>
+          <div class="fg full"><label>Award Strip (nav bar — shown in red)</label><input type="text" id="p-awards"></div>
         </div>
       </div>
-
       <div class="card">
-        <div class="card-header">
-          <span class="card-title">Bio Paragraphs</span>
-          <button class="btn btn-secondary btn-sm" onclick="addBioParagraph()">+ Add Paragraph</button>
+        <div class="card-head">
+          <span class="card-label">Bio Paragraphs</span>
+          <button class="btn btn-secondary btn-sm" onclick="addBio()">+ Add Paragraph</button>
         </div>
         <div id="bio-list"></div>
       </div>
-
       <div class="btn-group">
         <button class="btn btn-primary" onclick="saveProfile()">Save Profile</button>
       </div>
     </div>
 
     <!-- PROJECTS -->
-    <div id="sec-projects" class="cms-section">
-      <h1 class="page-title">Work<span>.</span></h1>
-      <p class="page-desc">Add, edit or reorder your portfolio projects.</p>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">Projects</span>
-          <span class="card-count" id="proj-count"></span>
-        </div>
-        <div id="project-list"></div>
-        <div class="btn-group">
-          <button class="btn btn-primary" onclick="addProject()">+ Add Project</button>
+    <div id="sec-projects" class="cms-sec">
+      <h1 class="pg-title">Work<em>.</em></h1>
+      <p class="pg-desc">Add, edit and reorder portfolio projects.</p>
+      <div id="view-list">
+        <div class="card">
+          <div class="card-head">
+            <span class="card-label">Projects</span>
+            <span style="font-family:var(--mono);font-size:10px;color:var(--red)" id="proj-count"></span>
+          </div>
+          <div id="project-list"></div>
+          <div class="btn-group"><button class="btn btn-primary" onclick="addProject()">+ Add Project</button></div>
         </div>
       </div>
-
-      <!-- PROJECT EDITOR -->
-      <div id="project-editor" style="display:none">
+      <div id="view-editor" style="display:none">
         <div class="card">
-          <div class="card-header">
-            <span class="card-title" id="editor-title">Edit Project</span>
-            <button class="btn btn-secondary btn-sm" onclick="closeProjectEditor()">← Back to list</button>
+          <div class="card-head">
+            <span class="card-label" id="editor-heading">Edit Project</span>
+            <button class="btn btn-secondary btn-sm" onclick="closeEditor()">← Back to list</button>
           </div>
-
           <div class="tab-bar">
-            <div class="tab active" onclick="switchTab('tab-basic', this)">Basic Info</div>
-            <div class="tab" onclick="switchTab('tab-media', this)">Media</div>
-            <div class="tab" onclick="switchTab('tab-collaterals', this)">Collaterals</div>
+            <div class="tab active" id="tbb-basic" onclick="switchTab('basic',this)">Basic Info</div>
+            <div class="tab" id="tbb-thumb" onclick="switchTab('thumb',this)">Thumbnail</div>
+            <div class="tab" id="tbb-media" onclick="switchTab('media',this)">Video</div>
+            <div class="tab" id="tbb-cols"  onclick="switchTab('cols',this)">Collaterals</div>
+            <div class="tab" id="tbb-thumbs" onclick="switchTab('thumbs',this)">Gallery Thumbs</div>
           </div>
-
-          <!-- BASIC INFO -->
           <div id="tab-basic">
-            <div class="form-grid">
-              <div class="form-group">
-                <label>Brand / Client</label>
-                <input type="text" id="e-brand">
-              </div>
-              <div class="form-group">
-                <label>Award Label (optional)</label>
-                <input type="text" id="e-award" placeholder="e.g. 5× MEA Gold 2025">
-              </div>
-              <div class="form-group full">
-                <label>Project Title</label>
-                <input type="text" id="e-title">
-              </div>
-              <div class="form-group full">
-                <label>Subtitle (shown on project page)</label>
-                <input type="text" id="e-subtitle">
-              </div>
-              <div class="form-group full">
-                <label>Card Description (shown on homepage)</label>
-                <textarea id="e-desc" rows="2"></textarea>
-              </div>
-              <div class="form-group full">
-                <label>Full Description (shown on project page)</label>
-                <textarea id="e-fulldesc" rows="4"></textarea>
-              </div>
-              <div class="form-group">
-                <label>Grid Size</label>
-                <select id="e-gridclass">
-                  <option value="featured">Featured (large, 7/12)</option>
-                  <option value="tall">Tall (portrait, 5/12)</option>
-                  <option value="half">Half (6/12)</option>
-                  <option value="third">Third (4/12)</option>
+            <div class="g2">
+              <div class="fg"><label>Brand / Client</label><input type="text" id="e-brand"></div>
+              <div class="fg"><label>Award Label (optional)</label><input type="text" id="e-award" placeholder="e.g. 5× MEA Gold 2025"></div>
+              <div class="fg full"><label>Project Title</label><input type="text" id="e-title"></div>
+              <div class="fg full"><label>Subtitle (project page)</label><input type="text" id="e-subtitle"></div>
+              <div class="fg full"><label>Card Description (homepage)</label><textarea id="e-desc" rows="2"></textarea></div>
+              <div class="fg full"><label>Full Description (project page)</label><textarea id="e-fulldesc" rows="4"></textarea></div>
+              <div class="fg"><label>Grid Span (columns out of 12)</label>
+                <select id="e-span">
+                  <option value="7">Wide — 7/12</option>
+                  <option value="5">Narrow — 5/12</option>
+                  <option value="6">Half — 6/12</option>
+                  <option value="4">Third — 4/12</option>
+                  <option value="8">Large — 8/12</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label>Placeholder Background Color</label>
-                <div class="color-wrap" style="position:relative;display:flex;align-items:center;">
-                  <div id="e-swatch" class="color-swatch" style="background:#111111"></div>
-                  <input type="color" id="e-colorpicker" value="#111111" oninput="syncColor(this.value)">
-                  <input type="text" id="e-color" value="#111111" oninput="syncSwatch(this.value)" style="padding-left:40px">
-                </div>
+              <div class="fg"><label>Project Page Template</label>
+                <select id="e-template">
+                  <option value="film">Film — video hero, description, collateral grid</option>
+                  <option value="editorial">Editorial — hero image, centred text, alternating rows</option>
+                  <option value="grid">Grid — photo mosaic first, description below</option>
+                </select>
               </div>
-              <div class="form-group full">
-                <label>Tags (comma-separated)</label>
-                <input type="text" id="e-tags" placeholder="Social, Integrated, Brand">
-              </div>
+              <div class="fg full"><label>Tags (comma-separated)</label><input type="text" id="e-tags" placeholder="Social, Integrated, Brand"></div>
             </div>
-            <div class="divider"></div>
-            <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:14px">Card Thumbnail</p>
-            <div class="form-grid">
-              <div class="form-group full">
-                <label>Thumbnail URL (image or GIF shown on homepage card)</label>
-                <input type="url" id="e-thumburl" placeholder="images/hsbc-golf-thumb.webp  or  https://...">
-                <p class="help-text">Use a relative path like <code>images/myfile.webp</code> for files in your repo, or paste any full URL. Leave blank to show a colour placeholder.</p>
+          </div>
+          <div id="tab-thumb" style="display:none">
+            <div class="g2">
+              <div class="fg full">
+                <label>Thumbnail URL</label>
+                <input type="text" id="e-thumburl" placeholder="images/project-thumb.webp  or  https://...">
+                <span class="hint">Relative path (e.g. images/file.webp) or full URL. Leave blank for colour placeholder.</span>
               </div>
-              <div class="form-group">
-                <label>Thumbnail Type</label>
+              <div class="fg"><label>Thumbnail Type</label>
                 <select id="e-thumbtype">
                   <option value="image">Image (JPG / WebP / PNG)</option>
                   <option value="gif">GIF (animated)</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label>Fallback Background Color</label>
-                <div class="color-wrap" style="position:relative;display:flex;align-items:center;">
-                  <div id="e-swatch" class="color-swatch" style="background:#111111"></div>
-                  <input type="color" id="e-colorpicker" value="#111111" oninput="syncColor(this.value)">
-                  <input type="text" id="e-color" value="#111111" oninput="syncSwatch(this.value)" style="padding-left:40px">
+              <div class="fg"><label>Fallback Background Colour</label>
+                <div class="color-row">
+                  <div class="swatch-box" id="e-swatch"><input type="color" id="e-colorpicker" value="#111111" oninput="syncColor(this.value)"></div>
+                  <input type="text" id="e-color" value="#111111" oninput="syncSwatch(this.value)" style="flex:1">
                 </div>
               </div>
-              <div class="form-group">
-                <label>Grid Size</label>
-                <select id="e-gridclass">
-                  <option value="featured">Featured (large, 7/12)</option>
-                  <option value="tall">Tall (portrait, 5/12)</option>
-                  <option value="half">Half (6/12)</option>
-                  <option value="third">Third (4/12)</option>
-                </select>
             </div>
           </div>
-
-          <!-- MEDIA -->
           <div id="tab-media" style="display:none">
-            <div class="form-grid">
-              <div class="form-group full">
-                <label>Campaign Video URL</label>
-                <input type="url" id="e-videourl" placeholder="https://www.youtube.com/watch?v=... or Vimeo or direct file URL">
-                <p class="help-text">Paste a YouTube or Vimeo URL and it will embed automatically. For a direct video file, use the full URL to the .mp4.</p>
-              </div>
-              <div class="form-group">
-                <label>Video Type</label>
-                <select id="e-videotype">
-                  <option value="youtube">YouTube</option>
-                  <option value="vimeo">Vimeo</option>
-                  <option value="file">Direct file (.mp4)</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Video Caption (optional)</label>
-                <input type="text" id="e-videocaption" placeholder="e.g. Hero Campaign Film, 2024">
-              </div>
-            </div>
+            <p style="font-size:12px;color:var(--mid);margin-bottom:16px;font-family:var(--mono)">Add one or more videos. They display in order — first video appears first on the project page, before the write-up and collaterals.</p>
+            <div id="videos-list"></div>
+            <button class="btn btn-secondary btn-sm" onclick="addVideo()" style="margin-top:8px">+ Add Video</button>
           </div>
-
-          <!-- COLLATERALS -->
-          <div id="tab-collaterals" style="display:none">
-            <p class="help-text" style="margin-bottom:16px">Add images, GIFs or short video clips. These appear below the main video on the project page.</p>
-            <div id="collaterals-list"></div>
-            <button class="btn btn-secondary btn-sm" onclick="addCollateral()" style="margin-top:8px">+ Add Collateral</button>
+          <div id="tab-thumbs" style="display:none">
+            <p style="font-size:12px;color:var(--mid);margin-bottom:16px;font-family:var(--mono)">Toggle individual thumbnails on/off. Active ones appear in the Campaign Gallery row on the project page. Add new ones with a URL and caption.</p>
+            <div id="thumbs-list"></div>
+            <button class="btn btn-secondary btn-sm" onclick="addThumb()" style="margin-top:8px">+ Add Thumbnail</button>
           </div>
-
+          <div id="tab-cols" style="display:none">
+            <p style="font-size:12px;color:var(--mid);margin-bottom:14px;font-family:var(--mono)">Add images, GIFs or short clips. Each opens in a lightbox on the live site.</p>
+            <div id="cols-list"></div>
+            <button class="btn btn-secondary btn-sm" onclick="addCol()" style="margin-top:8px">+ Add Collateral</button>
+          </div>
           <div class="btn-group">
             <button class="btn btn-primary" onclick="saveProject()">Save Project</button>
             <button class="btn btn-danger" onclick="deleteProject()">Delete Project</button>
@@ -377,15 +297,15 @@
     </div>
 
     <!-- EXPERIENCE -->
-    <div id="sec-experience" class="cms-section">
-      <h1 class="page-title">Experience<span>.</span></h1>
-      <p class="page-desc">Your employment history, shown in the About section.</p>
+    <div id="sec-experience" class="cms-sec">
+      <h1 class="pg-title">Experience<em>.</em></h1>
+      <p class="pg-desc">Employment history shown in the About section.</p>
       <div class="card">
-        <div class="card-header">
-          <span class="card-title">Roles</span>
+        <div class="card-head">
+          <span class="card-label">Roles</span>
           <button class="btn btn-secondary btn-sm" onclick="addExp()">+ Add Role</button>
         </div>
-        <div id="exp-list-cms"></div>
+        <div id="exp-cms"></div>
       </div>
       <div class="btn-group">
         <button class="btn btn-primary" onclick="saveExp()">Save Experience</button>
@@ -393,15 +313,15 @@
     </div>
 
     <!-- AWARDS -->
-    <div id="sec-awards" class="cms-section">
-      <h1 class="page-title">Awards<span>.</span></h1>
-      <p class="page-desc">Your award history. Displayed chronologically on the site.</p>
+    <div id="sec-awards" class="cms-sec">
+      <h1 class="pg-title">Awards<em>.</em></h1>
+      <p class="pg-desc">Award history shown in the Recognition section.</p>
       <div class="card">
-        <div class="card-header">
-          <span class="card-title">Awards</span>
+        <div class="card-head">
+          <span class="card-label">Awards</span>
           <button class="btn btn-secondary btn-sm" onclick="addAward()">+ Add Award</button>
         </div>
-        <div id="awards-list-cms"></div>
+        <div id="awards-cms"></div>
       </div>
       <div class="btn-group">
         <button class="btn btn-primary" onclick="saveAwards()">Save Awards</button>
@@ -409,19 +329,21 @@
     </div>
 
     <!-- EXPORT -->
-    <div id="sec-export" class="cms-section">
-      <h1 class="page-title">Export<span>.</span></h1>
-      <p class="page-desc">Copy the generated <code>data.js</code> below and replace the file in your GitHub repository. That's it — your site will update.</p>
+    <div id="sec-export" class="cms-sec">
+      <h1 class="pg-title">Export<em>.</em></h1>
+      <p class="pg-desc">Generate your updated data.js, then copy or download it. Replace the file in your GitHub repo — site updates in ~60 seconds.</p>
       <div class="card">
-        <div class="card-header"><span class="card-title">Generated data.js</span></div>
-        <div class="export-box">
-          <pre id="export-output">Click "Generate" to preview your data.js file.</pre>
-        </div>
+        <div class="card-head"><span class="card-label">Generated data.js</span></div>
+        <div class="export-box"><pre id="export-out">Click "Generate" to preview your data.js.</pre></div>
         <div class="btn-group">
-          <button class="btn btn-primary" onclick="generateExport()">Generate data.js</button>
+          <button class="btn btn-primary" onclick="doExport()">Generate data.js</button>
           <button class="btn btn-secondary" onclick="copyExport()">Copy to Clipboard</button>
+          <button class="btn btn-success" onclick="downloadExport()">↓ Download data.js</button>
         </div>
-        <p class="help-text" style="margin-top:12px">After copying: go to your GitHub repo → click <strong>data.js</strong> → click the pencil ✏️ icon → paste → commit. Your live site updates within ~60 seconds.</p>
+        <p class="export-info">
+          GitHub workflow: open your repo → click <strong>data.js</strong> → pencil ✏️ → select all → paste → Commit changes.<br>
+          Or drag the downloaded file onto the GitHub upload page to replace it directly.
+        </p>
       </div>
     </div>
 
@@ -432,360 +354,484 @@
 
 <script src="data.js"></script>
 <script>
-// ───────────────────────── PASSWORD GATE ─────────────────────────
-const PW_HASH = '7a4e6b2f9c1d8e3f5b0a2c4d6e8f1a3b5c7d9e0f2a4b6c8d0e2f4a6b8c0d2e4';
-function hashStr(s) {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) { h = Math.imul(31, h) + s.charCodeAt(i) | 0; }
-  return Math.abs(h).toString(16).padStart(8,'0');
-}
-const CORRECT = hashStr('Righttingz2026!');
-const SESSION_KEY = 'mh_cms_auth';
+(function(){
 
-function checkPw() {
-  const val = document.getElementById('gate-pw').value;
+/* ═══════════════════════════════════════
+   GATE
+═══════════════════════════════════════ */
+const SK = 'mh_cms_v5';
+function h(s){let r=0;for(let i=0;i<s.length;i++)r=Math.imul(31,r)+s.charCodeAt(i)|0;return Math.abs(r).toString(16)}
+const CORRECT = h('Righttingz2026!');
+
+window.checkPw = function(){
   const inp = document.getElementById('gate-pw');
-  if (hashStr(val) === CORRECT) {
-    sessionStorage.setItem(SESSION_KEY, CORRECT);
+  if(h(inp.value) === CORRECT){
+    sessionStorage.setItem(SK, CORRECT);
     document.getElementById('gate').style.display = 'none';
-    document.getElementById('cms-wrap').style.display = 'grid';
+    document.getElementById('cms').style.display  = 'grid';
   } else {
-    inp.classList.remove('shake');
-    void inp.offsetWidth;
-    inp.classList.add('shake');
-    document.getElementById('gate-error').textContent = 'Incorrect password. Try again.';
-    document.getElementById('gate-pw').value = '';
-    setTimeout(() => inp.classList.remove('shake'), 400);
+    inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake');
+    document.getElementById('gate-err').textContent = 'Incorrect password.';
+    inp.value = '';
+    setTimeout(()=>inp.classList.remove('shake'), 380);
   }
-}
-
-function toggleEye() {
+};
+window.toggleEye = function(){
   const inp = document.getElementById('gate-pw');
-  const eye = document.getElementById('gate-eye');
   inp.type = inp.type === 'password' ? 'text' : 'password';
-  eye.textContent = inp.type === 'password' ? '👁' : '🙈';
-}
-
-// Auto-unlock if already authenticated this session
-if (sessionStorage.getItem(SESSION_KEY) === CORRECT) {
+  document.getElementById('gate-eye').textContent = inp.type === 'password' ? '👁' : '🙈';
+};
+if(sessionStorage.getItem(SK) === CORRECT){
   document.getElementById('gate').style.display = 'none';
-  document.getElementById('cms-wrap').style.display = 'grid';
-}
-</script>
-<script>
-// ───────────────────────── STATE ─────────────────────────
-let state = JSON.parse(JSON.stringify(PORTFOLIO_DATA));
-let editingProjectIdx = -1;
-
-// ───────────────────────── NAV ─────────────────────────
-function showSection(key) {
-  document.querySelectorAll('.cms-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('sec-' + key).classList.add('active');
-  event.currentTarget.classList.add('active');
-  if (key === 'profile') renderProfile();
-  if (key === 'projects') { renderProjectList(); closeProjectEditor(); }
-  if (key === 'experience') renderExp();
-  if (key === 'awards') renderAwards();
-  if (key === 'export') generateExport();
+  document.getElementById('cms').style.display  = 'grid';
 }
 
-// ───────────────────────── PROFILE ─────────────────────────
-function renderProfile() {
-  document.getElementById('p-name').value = state.name;
-  document.getElementById('p-title').value = state.title;
-  document.getElementById('p-location').value = state.location;
-  document.getElementById('p-email').value = state.email;
-  document.getElementById('p-phone').value = state.phone;
-  document.getElementById('p-website').value = state.website;
-  document.getElementById('p-tagline').value = state.tagline;
-  document.getElementById('p-awardstrip').value = state.awardStrip;
+/* ═══════════════════════════════════════
+   STATE — deep clone so we don't mutate the original constant
+═══════════════════════════════════════ */
+let S = JSON.parse(JSON.stringify(PORTFOLIO_DATA));
+let editIdx = -1;
+const $ = id => document.getElementById(id);
+
+/* ═══════════════════════════════════════
+   UTILS
+═══════════════════════════════════════ */
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escA(s){ return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+function toast(msg, type='success'){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className   = 'toast ' + type + ' show';
+  clearTimeout(t._tid);
+  t._tid = setTimeout(()=>t.classList.remove('show'), 3200);
+}
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════ */
+window.showSec = function(key, el){
+  document.querySelectorAll('.cms-sec').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(n => n.classList.remove('active'));
+  $('sec-'+key).classList.add('active');
+  if(el) el.classList.add('active');
+  // Always flush DOM → S before switching away from projects editor
+  ({
+    profile:    renderProfile,
+    projects:   ()=>{ renderList(); closeEditor(); },
+    experience: renderExp,
+    awards:     renderAwards,
+    export:     doExport
+  })[key]?.();
+};
+
+/* ═══════════════════════════════════════
+   PROFILE
+
+   FIX: saveProfile reads ALL fields from the DOM into S every time.
+   No reliance on oninput for the final state — DOM is the source of truth on save.
+═══════════════════════════════════════ */
+function renderProfile(){
+  $('p-name').value     = S.name     || '';
+  $('p-title').value    = S.title    || '';
+  $('p-location').value = S.location || '';
+  $('p-email').value    = S.email    || '';
+  $('p-website').value  = S.website  || '';
+  $('p-tagline').value  = S.tagline  || '';
+  $('p-awards').value   = S.awardStrip || '';
   renderBioList();
 }
 
-function renderBioList() {
-  const el = document.getElementById('bio-list');
-  el.innerHTML = state.bio.map((p, i) => `
-    <div class="list-item" style="flex-direction:column;align-items:stretch;gap:8px">
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--orange);letter-spacing:0.1em;text-transform:uppercase">Paragraph ${i+1}</span>
+function renderBioList(){
+  $('bio-list').innerHTML = (S.bio||[]).map((p,i) => `
+    <div style="background:var(--paper);padding:14px;margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:0.1em;text-transform:uppercase">Paragraph ${i+1}</span>
         <button class="btn btn-danger btn-sm" onclick="removeBio(${i})">Remove</button>
       </div>
-      <textarea rows="3" oninput="state.bio[${i}]=this.value">${p}</textarea>
+      <textarea id="bio-${i}" rows="3">${esc(p)}</textarea>
     </div>`).join('');
 }
 
-function addBioParagraph() { state.bio.push(''); renderBioList(); }
-function removeBio(i) { state.bio.splice(i,1); renderBioList(); }
-function saveProfile() {
-  state.name = document.getElementById('p-name').value;
-  state.title = document.getElementById('p-title').value;
-  state.location = document.getElementById('p-location').value;
-  state.email = document.getElementById('p-email').value;
-  state.phone = document.getElementById('p-phone').value;
-  state.website = document.getElementById('p-website').value;
-  state.tagline = document.getElementById('p-tagline').value;
-  state.awardStrip = document.getElementById('p-awardstrip').value;
-  toast('Profile saved!', 'success');
+window.addBio    = ()=>{ flushBioFromDOM(); S.bio.push(''); renderBioList(); };
+window.removeBio = i =>{ flushBioFromDOM(); S.bio.splice(i,1); renderBioList(); };
+
+/* Flush bio textareas → S.bio before any operation */
+function flushBioFromDOM(){
+  (S.bio||[]).forEach((_,i)=>{
+    const el = $('bio-'+i);
+    if(el) S.bio[i] = el.value;
+  });
 }
 
-// ───────────────────────── PROJECTS ─────────────────────────
-function renderProjectList() {
-  const el = document.getElementById('project-list');
-  document.getElementById('proj-count').textContent = state.projects.length + ' projects';
-  if (!state.projects.length) { el.innerHTML = '<p style="color:var(--gray-dark);font-size:13px;padding:8px 0">No projects yet.</p>'; return; }
-  el.innerHTML = state.projects.map((p,i) => `
-    <div class="list-item">
-      <span class="list-item-drag" title="drag to reorder">⠿</span>
-      <div class="list-item-main">
-        <div class="list-item-title">${p.title}</div>
-        <div class="list-item-sub">${p.brand} · ${p.gridClass} · ${(p.collaterals||[]).length} collaterals${p.videoUrl?' · video':''}</div>
-      </div>
-      ${p.award?`<span class="list-item-badge">${p.award}</span>`:''}
-      <div class="list-item-actions">
+window.saveProfile = ()=>{
+  /* Read every field directly from DOM — no reliance on oninput */
+  S.name       = $('p-name').value.trim();
+  S.title      = $('p-title').value.trim();
+  S.location   = $('p-location').value.trim();
+  S.email      = $('p-email').value.trim();
+  S.website    = $('p-website').value.trim();
+  S.tagline    = $('p-tagline').value.trim();
+  S.awardStrip = $('p-awards').value.trim();
+  flushBioFromDOM();
+  toast('Profile saved — generate data.js to publish.');
+};
+
+/* ═══════════════════════════════════════
+   PROJECT LIST
+═══════════════════════════════════════ */
+function renderList(){
+  $('proj-count').textContent = S.projects.length + ' projects';
+  $('project-list').innerHTML = !S.projects.length
+    ? '<p style="font-size:13px;color:var(--mid);padding:8px 0">No projects yet.</p>'
+    : S.projects.map((p,i) => `
+      <div class="list-item">
+        <div class="li-main">
+          <div class="li-title">${esc(p.title)}</div>
+          <div class="li-sub">${esc(p.brand)} · ${p.projectTemplate||'film'} · ${(p.collaterals||[]).length} collateral(s)${p.videoUrl?' · video':''}</div>
+        </div>
+        ${p.award ? `<span class="li-badge">${esc(p.award)}</span>` : ''}
+        <button class="btn btn-secondary btn-sm" onclick="toggleActive(${i})" style="background:${p.active===false?'#555':'#1a7a3a'};color:#fff;border:none" title="${p.active===false?'Hidden — click to show':'Visible — click to hide'}">${p.active===false?'Hidden':'Live'}</button>
         <button class="btn btn-secondary btn-sm" onclick="editProject(${i})">Edit</button>
-      </div>
-    </div>`).join('');
+      </div>`).join('');
 }
 
-function addProject() {
-  const newP = { id:'project-'+Date.now(), brand:'', title:'New Project', subtitle:'', award:'', tags:[], placeholderColor:'#111111', gridClass:'half', description:'', fullDescription:'', videoUrl:'', videoType:'youtube', videoCaption:'', collaterals:[] };
-  state.projects.push(newP);
-  editProject(state.projects.length-1);
-}
+/* ═══════════════════════════════════════
+   PROJECT EDITOR
 
-function editProject(i) {
-  editingProjectIdx = i;
-  const p = state.projects[i];
-  document.getElementById('project-list').style.display = 'none';
-  document.querySelector('.card .btn-group') && (document.querySelector('#sec-projects > .card .btn-group button').style.display='none');
-  document.getElementById('project-editor').style.display = 'block';
-  document.getElementById('editor-title').textContent = 'Editing: ' + (p.title||'New Project');
+   FIX: saveProject() reads every editor field directly from DOM.
+   Never uses stale closure values. Works correctly regardless of
+   which tab the user is on when they click Save.
+═══════════════════════════════════════ */
+window.toggleActive = i => {
+  S.projects[i].active = S.projects[i].active === false ? true : false;
+  renderList();
+  toast((S.projects[i].active ? 'Project set to Live' : 'Project hidden') + ' — export to publish.');
+};
 
-  document.getElementById('e-brand').value = p.brand||'';
-  document.getElementById('e-award').value = p.award||'';
-  document.getElementById('e-title').value = p.title||'';
-  document.getElementById('e-subtitle').value = p.subtitle||'';
-  document.getElementById('e-desc').value = p.description||'';
-  document.getElementById('e-fulldesc').value = p.fullDescription||'';
-  document.getElementById('e-gridclass').value = p.gridClass||'half';
-  document.getElementById('e-color').value = p.placeholderColor||'#111111';
-  document.getElementById('e-colorpicker').value = p.placeholderColor||'#111111';
-  document.getElementById('e-swatch').style.background = p.placeholderColor||'#111111';
-  document.getElementById('e-tags').value = (p.tags||[]).join(', ');
-  document.getElementById('e-thumburl').value = p.thumbnailUrl||'';
-  document.getElementById('e-thumbtype').value = p.thumbnailType||'image';
-  document.getElementById('e-videourl').value = p.videoUrl||'';
-  document.getElementById('e-videotype').value = p.videoType||'youtube';
-  document.getElementById('e-videocaption').value = p.videoCaption||'';
-  renderCollaterals();
-  switchTab('tab-basic', document.querySelector('.tab-bar .tab'));
-}
+window.addProject = ()=>{
+  S.projects.push({
+    id:'project-'+Date.now(), brand:'', title:'New Project', subtitle:'', award:'',
+    tags:[], placeholderColor:'#111111', gridSpan:6,
+    thumbnailUrl:'', thumbnailType:'image', projectTemplate:'film',
+    description:'', fullDescription:'',
+    videoUrl:'', videoType:'youtube', videoCaption:'', collaterals:[]
+  });
+  editProject(S.projects.length-1);
+};
 
-function closeProjectEditor() {
-  document.getElementById('project-editor').style.display = 'none';
-  document.getElementById('project-list').style.display = 'block';
-  renderProjectList();
-}
+window.editProject = i => {
+  editIdx = i;
+  const p = S.projects[i];
+  $('view-list').style.display   = 'none';
+  $('view-editor').style.display = 'block';
+  $('editor-heading').textContent = 'Editing: ' + (p.title || 'New Project');
+  /* Populate all tabs */
+  $('e-brand').value     = p.brand           || '';
+  $('e-award').value     = p.award           || '';
+  $('e-title').value     = p.title           || '';
+  $('e-subtitle').value  = p.subtitle        || '';
+  $('e-desc').value      = p.description     || '';
+  $('e-fulldesc').value  = p.fullDescription || '';
+  $('e-span').value      = String(p.gridSpan || 6);
+  $('e-template').value  = p.projectTemplate || 'film';
+  $('e-tags').value      = (p.tags||[]).join(', ');
+  $('e-thumburl').value  = p.thumbnailUrl    || '';
+  $('e-thumbtype').value = p.thumbnailType   || 'image';
+  const col = p.placeholderColor || '#111111';
+  $('e-color').value = $('e-colorpicker').value = col;
+  $('e-swatch').style.background = col;
+  renderVideos();
+  renderCols();
+  renderThumbs();
+  switchTab('basic', $('tbb-basic'));
+};
 
-function saveProject() {
-  const i = editingProjectIdx;
-  const p = state.projects[i];
-  p.brand = document.getElementById('e-brand').value;
-  p.award = document.getElementById('e-award').value;
-  p.title = document.getElementById('e-title').value;
-  p.subtitle = document.getElementById('e-subtitle').value;
-  p.description = document.getElementById('e-desc').value;
-  p.fullDescription = document.getElementById('e-fulldesc').value;
-  p.gridClass = document.getElementById('e-gridclass').value;
-  p.placeholderColor = document.getElementById('e-color').value;
-  p.thumbnailUrl = document.getElementById('e-thumburl').value;
-  p.thumbnailType = document.getElementById('e-thumbtype').value;
-  p.videoUrl = document.getElementById('e-videourl').value;
-  p.videoType = document.getElementById('e-videotype').value;
-  p.videoCaption = document.getElementById('e-videocaption').value;
-  p.tags = document.getElementById('e-tags').value.split(',').map(t=>t.trim()).filter(Boolean);
-  // collect collaterals
+window.closeEditor = ()=>{
+  $('view-editor').style.display = 'none';
+  $('view-list').style.display   = 'block';
+  renderList();
+};
+
+window.saveProject = ()=>{
+  if(editIdx < 0){ toast('No project selected.','error'); return; }
+  const p = S.projects[editIdx];
+  /* Read directly from every DOM field */
+  p.brand           = $('e-brand').value.trim();
+  p.award           = $('e-award').value.trim();
+  p.title           = $('e-title').value.trim();
+  p.subtitle        = $('e-subtitle').value.trim();
+  p.description     = $('e-desc').value.trim();
+  p.fullDescription = $('e-fulldesc').value.trim();
+  p.gridSpan        = parseInt($('e-span').value) || 6;
+  p.projectTemplate = $('e-template').value;
+  p.tags            = $('e-tags').value.split(',').map(t=>t.trim()).filter(Boolean);
+  p.thumbnailUrl    = $('e-thumburl').value.trim();
+  p.thumbnailType   = $('e-thumbtype').value;
+  p.placeholderColor= $('e-color').value.trim() || '#111111';
+  // Flush thumbnails from DOM
+  flushThumbsFromDOM();
+  // Collect videos from DOM
+  p.videos = [];
+  document.querySelectorAll('#videos-list .vid-row').forEach(row => {
+    const url = row.querySelector('.vid-url').value.trim();
+    if (url) {
+      p.videos.push({
+        url,
+        type:    row.querySelector('.vid-type').value,
+        caption: row.querySelector('.vid-cap-inp').value.trim()
+      });
+    }
+  });
+  /* Collaterals: read from DOM rows */
   p.collaterals = [];
-  document.querySelectorAll('.col-row').forEach(row => {
+  document.querySelectorAll('#cols-list .col-row').forEach(row => {
     p.collaterals.push({
-      type: row.querySelector('.col-type').value,
-      url: row.querySelector('.col-url').value,
-      caption: row.querySelector('.col-caption-inp').value,
+      type:        row.querySelector('.col-type').value,
+      url:         row.querySelector('.col-url').value.trim(),
+      caption:     row.querySelector('.col-cap-inp').value.trim(),
       orientation: row.querySelector('.col-orient').value
     });
   });
-  // Auto-generate id from title if new
-  if (!p.id || p.id.startsWith('project-')) {
-    p.id = p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  /* Auto-generate slug id if still placeholder */
+  if(!p.id || p.id.startsWith('project-')){
+    const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    if(slug) p.id = slug;
   }
-  document.getElementById('editor-title').textContent = 'Editing: ' + p.title;
-  toast('Project saved!', 'success');
-}
+  $('editor-heading').textContent = 'Editing: ' + p.title;
+  toast('Project "' + p.title + '" saved — generate data.js to publish.');
+};
 
-function deleteProject() {
-  if (!confirm('Delete this project? This cannot be undone.')) return;
-  state.projects.splice(editingProjectIdx, 1);
-  closeProjectEditor();
-  toast('Project deleted.', 'success');
-}
+window.deleteProject = ()=>{
+  if(editIdx < 0) return;
+  if(!confirm('Delete "' + S.projects[editIdx].title + '"? This cannot be undone.')) return;
+  S.projects.splice(editIdx, 1);
+  editIdx = -1;
+  closeEditor();
+  toast('Project deleted.');
+};
 
-function renderCollaterals() {
-  const el = document.getElementById('collaterals-list');
-  const cols = (state.projects[editingProjectIdx]||{}).collaterals || [];
-  el.innerHTML = cols.map((c,i) => `
-    <div class="col-row" data-i="${i}">
-      <div class="col-row-header">
+/* ═══════════════════════════════════════
+   COLLATERALS
+═══════════════════════════════════════ */
+function renderCols(){
+  const cols = editIdx >= 0 ? (S.projects[editIdx].collaterals||[]) : [];
+  $('cols-list').innerHTML = cols.map((c,i) => `
+    <div class="col-row">
+      <div class="col-row-head">
         <span class="col-row-num">#${i+1}</span>
-        <button class="btn btn-danger btn-sm" onclick="removeCollateral(${i})">Remove</button>
+        <button class="btn btn-danger btn-sm" onclick="removeCol(${i})">Remove</button>
       </div>
-      <div class="col-row-grid">
-        <div class="form-group">
-          <label>Type</label>
+      <div class="col-grid">
+        <div class="fg"><label>Type</label>
           <select class="col-type">
             <option value="image" ${c.type==='image'?'selected':''}>Image</option>
-            <option value="gif" ${c.type==='gif'?'selected':''}>GIF</option>
+            <option value="gif"   ${c.type==='gif'  ?'selected':''}>GIF</option>
             <option value="video" ${c.type==='video'?'selected':''}>Video clip</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>URL / File Path</label>
-          <input type="url" class="col-url" value="${c.url||''}" placeholder="images/campaign-visual.jpg">
-        </div>
-        <div class="form-group">
-          <label>Caption</label>
-          <input type="text" class="col-caption-inp" value="${c.caption||''}" placeholder="e.g. Hero visual">
-        </div>
-        <div class="form-group">
-          <label>Orientation</label>
+          </select></div>
+        <div class="fg"><label>URL / File Path</label>
+          <input type="text" class="col-url" value="${escA(c.url||'')}" placeholder="images/file.webp"></div>
+        <div class="fg"><label>Caption</label>
+          <input type="text" class="col-cap-inp" value="${escA(c.caption||'')}" placeholder="e.g. Key visual"></div>
+        <div class="fg"><label>Orientation</label>
           <select class="col-orient">
             <option value="landscape" ${(c.orientation||'landscape')==='landscape'?'selected':''}>Landscape 16:9</option>
-            <option value="portrait" ${c.orientation==='portrait'?'selected':''}>Portrait 4:5</option>
-            <option value="square" ${c.orientation==='square'?'selected':''}>Square 1:1</option>
-          </select>
-        </div>
+            <option value="portrait"  ${c.orientation==='portrait' ?'selected':''}>Portrait 4:5</option>
+            <option value="square"    ${c.orientation==='square'   ?'selected':''}>Square 1:1</option>
+          </select></div>
       </div>
     </div>`).join('');
 }
 
-function addCollateral() {
-  if (editingProjectIdx < 0) return;
-  state.projects[editingProjectIdx].collaterals.push({type:'image',url:'',caption:'',orientation:'landscape'});
-  renderCollaterals();
-}
-
-function removeCollateral(i) {
-  state.projects[editingProjectIdx].collaterals.splice(i,1);
-  renderCollaterals();
-}
-
-function switchTab(tabId, btn) {
-  ['tab-basic','tab-media','tab-collaterals'].forEach(t => {
-    const el = document.getElementById(t);
-    if (el) el.style.display = t===tabId?'block':'none';
+window.addCol = ()=>{
+  if(editIdx < 0) return;
+  S.projects[editIdx].collaterals.push({type:'image',url:'',caption:'',orientation:'landscape'});
+  renderCols();
+};
+window.removeCol = i=>{
+  if(editIdx < 0) return;
+  /* Read current DOM state first so we don't lose unsaved edits in other rows */
+  document.querySelectorAll('#cols-list .col-row').forEach((row,ri)=>{
+    if(ri < S.projects[editIdx].collaterals.length){
+      S.projects[editIdx].collaterals[ri] = {
+        type:        row.querySelector('.col-type').value,
+        url:         row.querySelector('.col-url').value,
+        caption:     row.querySelector('.col-cap-inp').value,
+        orientation: row.querySelector('.col-orient').value
+      };
+    }
   });
-  document.querySelectorAll('.tab-bar .tab').forEach(t => t.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-}
+  S.projects[editIdx].collaterals.splice(i, 1);
+  renderCols();
+};
 
-function syncColor(v) { document.getElementById('e-color').value=v; document.getElementById('e-swatch').style.background=v; }
-function syncSwatch(v) { if(/^#[0-9a-f]{6}$/i.test(v)){document.getElementById('e-colorpicker').value=v; document.getElementById('e-swatch').style.background=v;} }
+/* ═══════════════════════════════════════
+   TABS
+═══════════════════════════════════════ */
+window.switchTab = (key, btn)=>{
+  ['basic','thumb','media','cols','thumbs'].forEach(t=>{
+    const el = $('tab-'+t); if(el) el.style.display = t===key ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab-bar .tab').forEach(t=>t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+};
 
-// ───────────────────────── EXPERIENCE ─────────────────────────
-function renderExp() {
-  const el = document.getElementById('exp-list-cms');
-  el.innerHTML = state.experience.map((e,i) => `
-    <div style="background:var(--bg);border-radius:10px;padding:16px;margin-bottom:12px">
+window.syncColor  = v=>{ $('e-color').value=v; $('e-swatch').style.background=v; };
+window.syncSwatch = v=>{ if(/^#[0-9a-f]{6}$/i.test(v)){ $('e-colorpicker').value=v; $('e-swatch').style.background=v; } };
+
+/* ═══════════════════════════════════════
+   EXPERIENCE
+
+   FIX: renderExp uses individual IDs (exp-co-N etc) so saveExp() can
+   read them back reliably from the DOM, not from oninput closures.
+═══════════════════════════════════════ */
+function renderExp(){
+  $('exp-cms').innerHTML = (S.experience||[]).map((e,i) => `
+    <div style="background:var(--paper);padding:16px;margin-bottom:10px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:0.1em;text-transform:uppercase">Role ${i+1}</span>
+        <span style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:0.12em;text-transform:uppercase">Role ${i+1}</span>
         <button class="btn btn-danger btn-sm" onclick="removeExp(${i})">Remove</button>
       </div>
-      <div class="form-grid cols3">
-        <div class="form-group">
-          <label>Company</label>
-          <input type="text" value="${e.company}" oninput="state.experience[${i}].company=this.value">
-        </div>
-        <div class="form-group">
-          <label>Period</label>
-          <input type="text" value="${e.period}" oninput="state.experience[${i}].period=this.value">
-        </div>
-        <div class="form-group">
-          <label>Role / Title</label>
-          <input type="text" value="${e.role}" oninput="state.experience[${i}].role=this.value">
-        </div>
-        <div class="form-group full">
-          <label>Clients / Notes</label>
-          <input type="text" value="${e.clients}" oninput="state.experience[${i}].clients=this.value">
-        </div>
+      <div class="g3">
+        <div class="fg"><label>Company</label>
+          <input type="text" id="exp-co-${i}" value="${escA(e.company||'')}"></div>
+        <div class="fg"><label>Period</label>
+          <input type="text" id="exp-per-${i}" value="${escA(e.period||'')}"></div>
+        <div class="fg"><label>Role / Title</label>
+          <input type="text" id="exp-role-${i}" value="${escA(e.role||'')}"></div>
+        <div class="fg full"><label>Clients / Notes</label>
+          <input type="text" id="exp-cli-${i}" value="${escA(e.clients||'')}"></div>
       </div>
     </div>`).join('');
 }
 
-function addExp() { state.experience.push({company:'',role:'',clients:'',period:''}); renderExp(); }
-function removeExp(i) { state.experience.splice(i,1); renderExp(); }
-function saveExp() { toast('Experience saved!','success'); }
+window.addExp = ()=>{
+  flushExpFromDOM();
+  S.experience.push({company:'',role:'',clients:'',period:''});
+  renderExp();
+};
 
-// ───────────────────────── AWARDS ─────────────────────────
-function renderAwards() {
-  const el = document.getElementById('awards-list-cms');
-  el.innerHTML = state.awards.map((a,i) => `
-    <div style="background:var(--bg);border-radius:8px;padding:12px 14px;margin-bottom:8px">
-      <div class="form-grid" style="grid-template-columns:70px 1fr 1fr 1fr 1fr auto;gap:10px;align-items:end">
-        <div class="form-group">
-          <label>Year</label>
-          <input type="text" value="${a.year}" oninput="state.awards[${i}].year=+this.value" style="padding:8px">
-        </div>
-        <div class="form-group">
-          <label>Show</label>
-          <input type="text" value="${a.show}" oninput="state.awards[${i}].show=this.value" style="padding:8px">
-        </div>
-        <div class="form-group">
-          <label>Tier</label>
-          <select oninput="state.awards[${i}].tier=this.value" style="padding:8px">
-            ${['Gold','Silver','Bronze','Shortlist','Finalist','Merit','Graphite Pencil','Most Creative'].map(t=>`<option ${a.tier===t?'selected':''}>${t}</option>`).join('')}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Category</label>
-          <input type="text" value="${a.category}" oninput="state.awards[${i}].category=this.value" style="padding:8px">
-        </div>
-        <div class="form-group">
-          <label>Brand</label>
-          <input type="text" value="${a.brand||''}" oninput="state.awards[${i}].brand=this.value" style="padding:8px">
-        </div>
-        <div class="form-group" style="padding-bottom:2px">
-          <label style="opacity:0">Del</label>
+window.removeExp = i=>{
+  flushExpFromDOM();
+  S.experience.splice(i,1);
+  renderExp();
+};
+
+function flushExpFromDOM(){
+  (S.experience||[]).forEach((_,i)=>{
+    const co   = $('exp-co-'+i),   per  = $('exp-per-'+i);
+    const role = $('exp-role-'+i), cli  = $('exp-cli-'+i);
+    if(co)   S.experience[i].company = co.value;
+    if(per)  S.experience[i].period  = per.value;
+    if(role) S.experience[i].role    = role.value;
+    if(cli)  S.experience[i].clients = cli.value;
+  });
+}
+
+window.saveExp = ()=>{
+  flushExpFromDOM();
+  toast('Experience saved — generate data.js to publish.');
+};
+
+/* ═══════════════════════════════════════
+   AWARDS
+
+   FIX: same pattern — individual IDs, DOM-read on save.
+═══════════════════════════════════════ */
+const TIERS = ['Gold','Silver','Bronze','Shortlist','Finalist','Merit','Graphite Pencil','Most Creative'];
+
+function renderAwards(){
+  $('awards-cms').innerHTML = (S.awards||[]).map((a,i) => `
+    <div style="background:var(--paper);padding:12px 14px;margin-bottom:8px">
+      <div style="display:grid;grid-template-columns:64px 1fr 130px 1fr 80px auto;gap:10px;align-items:end">
+        <div class="fg"><label>Year</label>
+          <input type="text" id="aw-yr-${i}" value="${esc(String(a.year||''))}" style="padding:7px"></div>
+        <div class="fg"><label>Show / Festival</label>
+          <input type="text" id="aw-sh-${i}" value="${escA(a.show||'')}" style="padding:7px"></div>
+        <div class="fg"><label>Tier</label>
+          <select id="aw-ti-${i}" style="padding:7px">
+            ${TIERS.map(t=>`<option value="${t}" ${a.tier===t?'selected':''}>${t}</option>`).join('')}
+          </select></div>
+        <div class="fg"><label>Category</label>
+          <input type="text" id="aw-ca-${i}" value="${escA(a.category||'')}" style="padding:7px"></div>
+        <div class="fg"><label>Brand</label>
+          <input type="text" id="aw-br-${i}" value="${escA(a.brand||'')}" style="padding:7px"></div>
+        <div class="fg" style="padding-bottom:2px">
+          <label style="opacity:0">x</label>
           <button class="btn btn-danger btn-sm" onclick="removeAward(${i})">✕</button>
         </div>
       </div>
     </div>`).join('');
 }
 
-function addAward() { state.awards.unshift({year:new Date().getFullYear(),show:'',tier:'Gold',category:'',brand:''}); renderAwards(); }
-function removeAward(i) { state.awards.splice(i,1); renderAwards(); }
-function saveAwards() { toast('Awards saved!','success'); }
-
-// ───────────────────────── EXPORT ─────────────────────────
-function generateExport() {
-  const out = 'const PORTFOLIO_DATA = ' + JSON.stringify(state, null, 2) + ';\n\nif (typeof module !== \'undefined\') module.exports = PORTFOLIO_DATA;';
-  document.getElementById('export-output').textContent = out;
+function flushAwardsFromDOM(){
+  (S.awards||[]).forEach((_,i)=>{
+    const yr = $('aw-yr-'+i), sh = $('aw-sh-'+i), ti = $('aw-ti-'+i);
+    const ca = $('aw-ca-'+i), br = $('aw-br-'+i);
+    if(yr) S.awards[i].year     = yr.value;
+    if(sh) S.awards[i].show     = sh.value;
+    if(ti) S.awards[i].tier     = ti.value;
+    if(ca) S.awards[i].category = ca.value;
+    if(br) S.awards[i].brand    = br.value;
+  });
 }
 
-function copyExport() {
-  const text = document.getElementById('export-output').textContent;
-  if (!text || text.startsWith('Click')) { toast('Generate first!','error'); return; }
-  navigator.clipboard.writeText(text).then(() => toast('Copied to clipboard!','success')).catch(() => toast('Select + copy manually','error'));
+window.addAward = ()=>{
+  flushAwardsFromDOM();
+  S.awards.unshift({year:new Date().getFullYear(),show:'',tier:'Gold',category:'',brand:''});
+  renderAwards();
+};
+
+window.removeAward = i=>{
+  flushAwardsFromDOM();
+  S.awards.splice(i,1);
+  renderAwards();
+};
+
+window.saveAwards = ()=>{
+  flushAwardsFromDOM();
+  toast('Awards saved — generate data.js to publish.');
+};
+
+/* ═══════════════════════════════════════
+   EXPORT + DOWNLOAD
+═══════════════════════════════════════ */
+function buildOutput(){
+  return 'const PORTFOLIO_DATA = ' + JSON.stringify(S, null, 2)
+       + ";\n\nif (typeof module !== 'undefined') module.exports = PORTFOLIO_DATA;";
 }
 
-// ───────────────────────── TOAST ─────────────────────────
-function toast(msg, type='success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast ' + type + ' show';
-  setTimeout(() => t.classList.remove('show'), 2800);
-}
+window.doExport = ()=>{
+  $('export-out').textContent = buildOutput();
+};
 
-// ───────────────────────── INIT ─────────────────────────
+window.copyExport = ()=>{
+  const txt = $('export-out').textContent;
+  if(!txt || txt.startsWith('Click')){ toast('Click Generate first.','error'); return; }
+  navigator.clipboard.writeText(txt)
+    .then(()  => toast('Copied — paste into GitHub data.js and commit.'))
+    .catch(()  => toast('Select all text and copy manually.','error'));
+};
+
+window.downloadExport = ()=>{
+  const txt = buildOutput();
+  const blob = new Blob([txt], {type:'text/javascript'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'data.js';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('data.js downloaded — upload to your GitHub repo.', 'info');
+  $('export-out').textContent = txt;
+};
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
 renderProfile();
+
+})();
 </script>
 </body>
 </html>
