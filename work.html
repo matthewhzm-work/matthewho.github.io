@@ -331,6 +331,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
     aspect-ratio:3/2;
   }
 }
+
+/* ────────────────────────────────────────
+   TEMPLATE: WRITEUP-THEN-VIDEO
+   Write-up → Video (centred) — no collaterals
+──────────────────────────────────────── */
+/* No additional CSS needed — reuses
+   .writeup-section and .vid-section already defined */
 </style>
 </head>
 <body>
@@ -544,6 +551,14 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
             </div>
           </div>
         </div>`;
+  }
+
+  /* ═══════════════════════════════════════
+     TEMPLATE: WRITEUP-THEN-VIDEO
+     Write-up → Video centred — no collaterals
+  ═══════════════════════════════════════ */
+  if (tmpl === 'writeup-then-video') {
+    body = mkWriteup() + mkVideosBlock();
   }
 
   /* ═══════════════════════════════════════

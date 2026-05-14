@@ -504,27 +504,8 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "image",
       "description": "A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.",
       "fullDescription": "Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.",
-      "projectTemplate": "film",
-      "collaterals": [
-        {
-          "type": "image",
-          "url": "images/hsbc-better-is-never-down-to-one-thing/collateral-1.webp",
-          "caption": "Brand visual",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/hsbc-better-is-never-down-to-one-thing/collateral-2.webp",
-          "caption": "Campaign execution",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/hsbc-better-is-never-down-to-one-thing/collateral-3.webp",
-          "caption": "Digital",
-          "orientation": "square"
-        }
-      ],
+      "projectTemplate": "writeup-then-video",
+      "collaterals": [],
       "videos": [
         {
           "url": "https://vimeo.com/1191945466",
