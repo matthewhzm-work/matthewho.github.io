@@ -1,16 +1,13 @@
 const PORTFOLIO_DATA = {
   "name": "Matthew Ho",
-  "title": "Senior Creative",
+  "title": "Copy-based Creative",
   "location": "Singapore",
   "email": "matthewhzm@gmail.com",
   "website": "matthewho.work",
-  "linkedin": "https://www.linkedin.com/in/matthew-ho-4947016a/",
-  "tagline": "Copywriter · Strategist · Campaign Lead",
+  "tagline": "Creative Direction · Copywriting · Strategy",
   "awardStrip": "Cannes · D&AD · Epica · One Show",
   "bio": [
-    "What would a kid who grew up being the last to touch the family computer know about being creative? Quite a bit, actually. When you grow up negotiating for screen time with two older brothers, you learn fast — how to pitch your case, how to sweeten the deal, how to spot opportunities like a tiny strategist.",
-    "Today, I'm a senior creative with close to a decade of copywriting under my belt. I've led integrated campaigns across regional and global brands, shaping ideas that travel across platforms, markets, and audiences without losing their spark or commercial intent.",
-    "I care about the craft as much as I care about the people in the room. Big thinking, sharp execution, ideas that actually work beyond a PDF."
+    "<p>I’m a Senior Creative and copywriter with close to a decade of experience building integrated campaigns for global and regional brands across finance, beauty, automotive, government, tech, and lifestyle. Over the years, I’ve worked on brands including HSBC, Mercedes-Benz, Caltex, Temasek, and Singapore’s Ministry of Home Affairs, creating work across social, experiential, digital, content, and brand storytelling.</p><p>I believe the best creative ideas should do more than look good on a slide. They should move people, shape culture, and create real impact for brands. That mindset has helped me contribute to award-winning work recognised at the Cannes Lions, Spikes Asia, and The One Show.</p><p>At my core, I’m a strategist-minded creative who enjoys turning human truths into ideas that are sharp, culturally relevant, and commercially effective. Interested in building ideas beyond the pdf? Let's talk!</p><p><br></p>"
   ],
   "experience": [
     {
@@ -21,8 +18,8 @@ const PORTFOLIO_DATA = {
     },
     {
       "company": "Bybit",
-      "role": "Senior Copywriter · Marketing Comms Team Lead · Social Media Strategist",
-      "clients": "Global crypto exchange — direct to CEO",
+      "role": "Senior Copywriter · Marketing Comms Team Lead",
+      "clients": "Global crypto exchange ",
       "period": "2021 – 2022"
     },
     {
@@ -33,7 +30,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "company": "DDB Group Singapore",
-      "role": "Copywriter · Main Pitch Team",
+      "role": "Copywriter ",
       "clients": "McDonald's, DBS, Volkswagen, StarHub, NEA, Lufthansa, KPMG, ION",
       "period": "2018 – 2019"
     },
@@ -46,238 +43,238 @@ const PORTFOLIO_DATA = {
   ],
   "awards": [
     {
-      "year": 2025,
+      "year": "2025",
       "show": "ADFEST",
       "tier": "Finalist",
       "category": "Social Media for Good",
       "brand": "LUX"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Spikes Asia",
       "tier": "Bronze",
       "category": "PR & Social Engagement",
       "brand": "LUX"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "The One Show",
       "tier": "Merit",
       "category": "Social Media for Good",
       "brand": "LUX"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Event Marketing",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Experiential Marketing",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Gaming",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Marketing Innovation",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Sponsorship Activation",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "Marketing Excellence Awards",
       "tier": "Silver",
       "category": "CSR",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "MARKies",
       "tier": "Most Creative",
       "category": "Cause Marketing",
       "brand": "HSBC"
     },
     {
-      "year": 2025,
+      "year": "2025",
       "show": "MARKies",
       "tier": "Most Creative",
       "category": "Immersive Brand Activation",
       "brand": "HSBC"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Epica Awards",
       "tier": "Gold",
       "category": "Health & Beauty",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Epica Awards",
       "tier": "Silver",
       "category": "Corporate Image",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Epica Awards",
       "tier": "Silver",
       "category": "Cultural Insights",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Epica Awards",
       "tier": "Silver",
       "category": "Social Networks",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Gong Awards",
       "tier": "Silver",
       "category": "Direct",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Gong Awards",
       "tier": "Silver",
       "category": "PR",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Gong Awards",
       "tier": "Silver",
       "category": "Social & Influencer",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "London International Awards",
       "tier": "Bronze",
       "category": "Creative Strategy",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Cannes Lions",
       "tier": "Shortlist",
       "category": "Social & Influencer",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Cannes Lions",
       "tier": "Shortlist",
       "category": "Culture & Context",
       "brand": "LUX"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "New York Festivals",
       "tier": "Finalist",
       "category": "Social / Environment Good",
       "brand": "HSBC"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Experiential Marketing",
       "brand": "HSBC"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Gaming",
       "brand": "HSBC"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Marketing Excellence Awards",
       "tier": "Gold",
       "category": "Marketing Innovation",
       "brand": "HSBC"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "Marketing Excellence Awards",
       "tier": "Bronze",
       "category": "CSR",
       "brand": "HSBC"
     },
     {
-      "year": 2024,
+      "year": "2024",
       "show": "MOB-EX Awards",
       "tier": "Gold",
       "category": "Best Campaign – B2C",
       "brand": "HSBC"
     },
     {
-      "year": 2021,
+      "year": "2021",
       "show": "MOB-EX Awards",
       "tier": "Silver",
       "category": "Best Use of Mobile Integration",
       "brand": "HSBC"
     },
     {
-      "year": 2021,
+      "year": "2021",
       "show": "Loyalty & Engagement Awards",
       "tier": "Gold",
       "category": "Gold × 2, Bronze × 1",
       "brand": "HSBC"
     },
     {
-      "year": 2018,
+      "year": "2018",
       "show": "Effies Awards",
       "tier": "Silver",
       "category": "Effectiveness",
       "brand": "HSBC"
     },
     {
-      "year": 2013,
+      "year": "2013",
       "show": "D&AD New Blood",
       "tier": "Graphite Pencil",
       "category": "Student Awards",
       "brand": "Yamaha"
     },
     {
-      "year": 2013,
+      "year": "2013",
       "show": "Crowbar Student Awards",
       "tier": "Silver",
       "category": "Online Advertising",
       "brand": ""
     },
     {
-      "year": 2013,
+      "year": "2013",
       "show": "Crowbar Student Awards",
       "tier": "Silver",
       "category": "Direct Advertising",
       "brand": ""
     },
     {
-      "year": 2013,
+      "year": "2013",
       "show": "Crowbar Student Awards",
       "tier": "Bronze",
       "category": "Social Media",
@@ -517,8 +514,8 @@ const PORTFOLIO_DATA = {
       "gridSpan": 6,
       "thumbnailUrl": "images/hsbc-better-is-never-down-to-one-thing/thumb.webp",
       "thumbnailType": "image",
-      "description": "A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.",
-      "fullDescription": "Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.",
+      "description": "<p>A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.</p>",
+      "fullDescription": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
       "projectTemplate": "writeup-left-video-right",
       "collaterals": [],
       "videos": [
@@ -528,7 +525,11 @@ const PORTFOLIO_DATA = {
           "caption": "HSBC — Better Is Never Down To One Thing"
         }
       ],
-      "active": true
+      "active": true,
+      "fullDescription2": "",
+      "fullDescription3": "",
+      "quote": "",
+      "openingQuestion": ""
     },
     {
       "id": "hsbc-choose-what-you-love",
@@ -1138,23 +1139,84 @@ const PORTFOLIO_DATA = {
       "fullDescription": "Volkswagen Prints was a lesson in restraint. The campaign trusted the idea over the asset, letting a strong visual concept carry the brand message without defaulting to the usual glamour shots. Work that rewarded the people paying attention.",
       "projectTemplate": "vw-prints",
       "collaterals": [
-        { "type": "image", "url": "images/volkswagen-prints/print-01.webp", "caption": "Print 01", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-02.webp", "caption": "Print 02", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-03.webp", "caption": "Print 03", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-04.webp", "caption": "Print 04", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-05.webp", "caption": "Print 05", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-06.webp", "caption": "Print 06", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-07.webp", "caption": "Print 07", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-08.webp", "caption": "Print 08", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-09.webp", "caption": "Print 09", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-10.webp", "caption": "Print 10", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-11.webp", "caption": "Print 11", "orientation": "landscape" },
-        { "type": "image", "url": "images/volkswagen-prints/print-12.webp", "caption": "Print 12", "orientation": "landscape" }
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-01.webp",
+          "caption": "Print 01",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-02.webp",
+          "caption": "Print 02",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-03.webp",
+          "caption": "Print 03",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-04.webp",
+          "caption": "Print 04",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-05.webp",
+          "caption": "Print 05",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-06.webp",
+          "caption": "Print 06",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-07.webp",
+          "caption": "Print 07",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-08.webp",
+          "caption": "Print 08",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-09.webp",
+          "caption": "Print 09",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-10.webp",
+          "caption": "Print 10",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-11.webp",
+          "caption": "Print 11",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/volkswagen-prints/print-12.webp",
+          "caption": "Print 12",
+          "orientation": "landscape"
+        }
       ],
       "videos": [],
       "active": true
     }
-  ]
+  ],
+  "linkedin": "https://www.linkedin.com/in/matthew-ho-4947016a/"
 };
 
 if (typeof module !== 'undefined') module.exports = PORTFOLIO_DATA;
