@@ -133,8 +133,10 @@ img{max-width:100%;height:auto;display:block}
 .cwyl-question{padding:72px var(--pad) 48px;max-width:1100px;margin:0 auto;text-align:center}
 .cwyl-question p{font-family:var(--display);font-size:clamp(26px,3.5vw,48px);font-weight:600;line-height:1.2;letter-spacing:-0.02em;color:var(--ink)}
 .cwyl-viewer{padding:0 var(--pad) 64px}
+.cwyl-viewer-inner{max-width:75%;margin:0 auto;width:100%}
 .cwyl-viewer-wrap{display:flex;align-items:center;justify-content:center;gap:20px}
 .cwyl-viewer-img-wrap{max-width:75%;flex-shrink:1}
+.cwyl-gif-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:0 var(--pad) 64px;align-items:start}
 .cwyl-viewer-img{width:100%;height:auto;display:block;cursor:pointer}
 .cwyl-arrow{display:flex;align-items:center;justify-content:center;width:44px;height:44px;font-size:20px;font-family:var(--mono);background:var(--ink);border:none;color:var(--paper);flex-shrink:0;cursor:pointer;transition:background 0.2s;line-height:1;user-select:none}
 .cwyl-arrow:hover{background:var(--red)}
@@ -180,6 +182,19 @@ img{max-width:100%;height:auto;display:block}
 .ofnoah-banner img{display:block;width:100%;max-width:728px;height:auto}
 .ofnoah-last{padding:0 var(--pad) 80px}
 .ofnoah-last img{width:100%;max-width:25%;height:auto;display:block;margin:0 auto;cursor:pointer}
+
+/* ── VW PRINTS ── */
+.vw-split{display:grid;grid-template-columns:2fr 3fr;gap:64px;padding:0 var(--pad) 80px;align-items:start}
+.vw-writeup{font-size:16px;font-weight:300;line-height:1.9;color:#222}
+.vw-writeup-label{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);margin-bottom:16px}
+.vw-gallery{position:relative}
+.vw-gallery-img-wrap{overflow:hidden;line-height:0}
+.vw-gallery-img-wrap img{width:100%;height:auto;display:block;cursor:pointer}
+.vw-gallery-controls{display:flex;align-items:center;gap:12px;margin-top:16px}
+.vw-gallery-arrow{display:flex;align-items:center;justify-content:center;width:44px;height:44px;font-size:20px;font-family:var(--mono);background:var(--ink);border:none;color:var(--paper);flex-shrink:0;cursor:pointer;transition:background 0.2s;line-height:1;user-select:none}
+.vw-gallery-arrow:hover{background:var(--red)}
+.vw-gallery-counter{font-family:var(--mono);font-size:11px;color:var(--mid);letter-spacing:0.1em}
+.vw-gallery-cap{font-family:var(--mono);font-size:11px;color:var(--mid);letter-spacing:0.06em;margin-left:auto}
 
 /* ── RICH TEXT OUTPUT ── */
 .rte p{margin-bottom:0.75em}
@@ -271,6 +286,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
   .mha-prints-row{flex-direction:column;align-items:center}
   .mha-print-item{width:100%;max-width:400px}
   .cwyl-bottom{grid-template-columns:1fr}
+  .cwyl-gif-split{grid-template-columns:1fr}
+  .vw-split{grid-template-columns:1fr;gap:32px}
   .vivo-3pink-row{grid-template-columns:1fr}
   .vivo-2col-writeup{grid-template-columns:1fr}
   .vivo-4social-row{grid-template-columns:repeat(2,1fr)}
@@ -599,22 +616,31 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
     const firstSrc = viewerImgs[0]?viewerImgs[0].url:'';
     const viewerBlock = viewerImgs.length ? `<div class="cwyl-viewer">
       <p class="c-label" style="margin-bottom:16px">Campaign Execution</p>
-      <div class="cwyl-viewer-wrap">
-        <button class="cwyl-arrow" onclick="cwylSlide(-1)">←</button>
-        <div class="cwyl-viewer-img-wrap">
-          <img id="cwyl-img" class="cwyl-viewer-img" src="${firstSrc}" alt="" onclick="lbOpen('cwylImgs',__CWYL_CUR__)">
+      <div class="cwyl-viewer-inner">
+        <div class="cwyl-viewer-wrap">
+          <button class="cwyl-arrow" onclick="cwylSlide(-1)">←</button>
+          <div class="cwyl-viewer-img-wrap">
+            <img id="cwyl-img" class="cwyl-viewer-img" src="${firstSrc}" alt="" onclick="lbOpen('cwylImgs',__CWYL_CUR__)">
+          </div>
+          <button class="cwyl-arrow" onclick="cwylSlide(1)">→</button>
         </div>
-        <button class="cwyl-arrow" onclick="cwylSlide(1)">→</button>
+        <div class="cwyl-viewer-nav">
+          <span class="cwyl-counter" id="cwyl-counter">1 / ${viewerImgs.length}</span>
+          <span class="cwyl-cap-text" id="cwyl-cap-text">${esc(viewerImgs[0]&&viewerImgs[0].caption||'')}</span>
+        </div>
       </div>
-      <div class="cwyl-viewer-nav">
-        <span class="cwyl-counter" id="cwyl-counter">1 / ${viewerImgs.length}</span>
-        <span class="cwyl-cap-text" id="cwyl-cap-text">${esc(viewerImgs[0]&&viewerImgs[0].caption||'')}</span>
-      </div>
+    </div>` : '';
+
+    const gifCol = cols[0];
+    const gifSection = gifCol ? `<div class="cwyl-gif-split">
+      <div><img src="${gifCol.url}" alt="${esc(gifCol.caption||'')}" style="width:100%;height:auto;display:block"></div>
+      <div class="rte">${renderHtml(P.fullDescription)}</div>
     </div>` : '';
 
     const v0 = vids[0]; const s0 = v0?src(v0):null;
     body = `<div class="cwyl-question"><p>${esc(P.openingQuestion||'')}</p></div>`
       + viewerBlock
+      + gifSection
       + `<div class="cwyl-bottom">
           <div><p class="cwyl-writeup-label">About the Work</p><div class="cwyl-writeup rte">${renderHtml(P.fullDescription)}</div></div>
           <div>${s0?`<div class="split-vid-wrap">${iframe(v0)}</div>`:''}</div>
@@ -700,6 +726,37 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
       + `<div class="ofnoah-last"><img src="${base}outdoor2.webp" loading="lazy" onclick="lbOpen('ofnoahLast',0)"></div>`;
   }
 
+  /* VW PRINTS: writeup left 2/5 · image gallery right 3/5 */
+  else if (tmpl === 'vw-prints') {
+    LB_POOLS['vwPrints'] = cols;
+    let vwCur = 0;
+    const firstImg = cols[0] ? cols[0].url : '';
+    body = `<div class="vw-split">
+      <div>
+        <p class="vw-writeup-label">About the Work</p>
+        <div class="vw-writeup rte">${renderHtml(P.fullDescription)}</div>
+      </div>
+      <div class="vw-gallery">
+        <div class="vw-gallery-img-wrap">
+          <img id="vw-img" src="${firstImg}" alt="${esc(cols[0]&&cols[0].caption||'')}" loading="lazy">
+        </div>
+        <div class="vw-gallery-controls">
+          <button class="vw-gallery-arrow" onclick="vwSlide(-1)">←</button>
+          <button class="vw-gallery-arrow" onclick="vwSlide(1)">→</button>
+          <span class="vw-gallery-counter" id="vw-counter">1 / ${cols.length}</span>
+          <span class="vw-gallery-cap" id="vw-cap">${esc(cols[0]&&cols[0].caption||'')}</span>
+        </div>
+      </div>
+    </div>`;
+    window.vwSlide = d => {
+      vwCur = (vwCur + d + cols.length) % cols.length;
+      const img = $('vw-img');
+      if (img) { img.src = cols[vwCur].url; img.alt = esc(cols[vwCur].caption||''); img.onclick = ()=>lbOpen('vwPrints',vwCur); }
+      const ctr = $('vw-counter'); if (ctr) ctr.textContent = `${vwCur+1} / ${cols.length}`;
+      const cap = $('vw-cap'); if (cap) cap.textContent = cols[vwCur].caption||'';
+    };
+  }
+
   /* DEFAULT: video → writeup → collaterals grid */
   else {
     LB_POOLS['cols'] = cols;
@@ -708,10 +765,14 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
 
   root.innerHTML = mkHeader() + body;
 
-  // After root.innerHTML set — fix CWYL img onclick (was a placeholder)
+  // After root.innerHTML set — fix img onclicks (closures can't go in template literals)
   if (tmpl === 'cwyl') {
     const img=$('cwyl-img');
     if(img) img.onclick = ()=>lbOpen('cwylImgs',cwylCur);
+  }
+  if (tmpl === 'vw-prints') {
+    const img=$('vw-img');
+    if(img) img.onclick = ()=>lbOpen('vwPrints',0);
   }
 
   // ── LUX/MA mobile slider ──

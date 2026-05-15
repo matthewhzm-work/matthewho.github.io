@@ -1135,26 +1135,20 @@ const PORTFOLIO_DATA = {
       "thumbnailType": "image",
       "description": "A print campaign for Volkswagen that let the idea do the driving — proving that the best automotive advertising doesn't always need to show the car.",
       "fullDescription": "Volkswagen Prints was a lesson in restraint. The campaign trusted the idea over the asset, letting a strong visual concept carry the brand message without defaulting to the usual glamour shots. Work that rewarded the people paying attention.",
-      "projectTemplate": "default",
+      "projectTemplate": "vw-prints",
       "collaterals": [
-        {
-          "type": "image",
-          "url": "images/volkswagen-prints/collateral-1.webp",
-          "caption": "Print execution 01",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/volkswagen-prints/collateral-2.webp",
-          "caption": "Print execution 02",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/volkswagen-prints/collateral-3.webp",
-          "caption": "Print execution 03",
-          "orientation": "landscape"
-        }
+        { "type": "image", "url": "images/volkswagen-prints/print-01.webp", "caption": "Print 01", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-02.webp", "caption": "Print 02", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-03.webp", "caption": "Print 03", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-04.webp", "caption": "Print 04", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-05.webp", "caption": "Print 05", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-06.webp", "caption": "Print 06", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-07.webp", "caption": "Print 07", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-08.webp", "caption": "Print 08", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-09.webp", "caption": "Print 09", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-10.webp", "caption": "Print 10", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-11.webp", "caption": "Print 11", "orientation": "landscape" },
+        { "type": "image", "url": "images/volkswagen-prints/print-12.webp", "caption": "Print 12", "orientation": "landscape" }
       ],
       "videos": [],
       "active": true
