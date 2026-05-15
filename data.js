@@ -449,6 +449,62 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
+      "id": "mha-home-of-the-unexpected",
+      "brand": "Ministry of Home Affairs",
+      "title": "Home of the Unexpected",
+      "subtitle": "Led the pitch and won Singapore's most prominent government creative account",
+      "award": "",
+      "tags": [
+        "Pitch Lead",
+        "Government",
+        "Integrated",
+        "Campaign"
+      ],
+      "placeholderColor": "#0f1a2e",
+      "gridSpan": 6,
+      "thumbnailUrl": "images/mha-home-of-the-unexpected/thumb.webp",
+      "thumbnailType": "image",
+      "description": "Led the creative pitch team to win the Ministry of Home Affairs account. A campaign that found warmth and humanity in Singapore's most authoritative institution.",
+      "fullDescription": "When VML was invited to pitch for the Ministry of Home Affairs, I led the creative team from brief to presentation. Home of the Unexpected shaped a platform idea that balanced authority with warmth, finding stories in the people who keep Singapore safe. We won the pitch.",
+      "projectTemplate": "mha",
+      "collaterals": [
+        {
+          "type": "image",
+          "url": "images/mha-home-of-the-unexpected/collateral-1.webp",
+          "caption": "Print 2",
+          "orientation": "portrait"
+        },
+        {
+          "type": "image",
+          "url": "images/mha-home-of-the-unexpected/collateral-2.webp",
+          "caption": "Print 3",
+          "orientation": "portrait"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://vimeo.com/1190043722",
+          "type": "vimeo",
+          "caption": "Ministry of Home Affairs — Home of the Unexpected"
+        }
+      ],
+      "active": true,
+      "prints": [
+        {
+          "url": "images/mha-home-of-the-unexpected/thumb.webp",
+          "caption": "Home of the Unexpected — Print 1"
+        },
+        {
+          "url": "images/mha-home-of-the-unexpected/collateral-1.webp",
+          "caption": "Home of the Unexpected — Print 2"
+        },
+        {
+          "url": "images/mha-home-of-the-unexpected/collateral-2.webp",
+          "caption": "Home of the Unexpected — Print 3"
+        }
+      ]
+    },
+    {
       "id": "bybit-valentines-day",
       "brand": "Bybit",
       "title": "Valentine's Day",
@@ -593,62 +649,6 @@ const PORTFOLIO_DATA = {
       "fullDescription3": "",
       "quote": "",
       "openingQuestion": ""
-    },
-    {
-      "id": "mha-home-of-the-unexpected",
-      "brand": "Ministry of Home Affairs",
-      "title": "Home of the Unexpected",
-      "subtitle": "Led the pitch and won Singapore's most prominent government creative account",
-      "award": "",
-      "tags": [
-        "Pitch Lead",
-        "Government",
-        "Integrated",
-        "Campaign"
-      ],
-      "placeholderColor": "#0f1a2e",
-      "gridSpan": 6,
-      "thumbnailUrl": "images/mha-home-of-the-unexpected/thumb.webp",
-      "thumbnailType": "image",
-      "description": "Led the creative pitch team to win the Ministry of Home Affairs account. A campaign that found warmth and humanity in Singapore's most authoritative institution.",
-      "fullDescription": "When VML was invited to pitch for the Ministry of Home Affairs, I led the creative team from brief to presentation. Home of the Unexpected shaped a platform idea that balanced authority with warmth, finding stories in the people who keep Singapore safe. We won the pitch.",
-      "projectTemplate": "mha",
-      "collaterals": [
-        {
-          "type": "image",
-          "url": "images/mha-home-of-the-unexpected/collateral-1.webp",
-          "caption": "Print 2",
-          "orientation": "portrait"
-        },
-        {
-          "type": "image",
-          "url": "images/mha-home-of-the-unexpected/collateral-2.webp",
-          "caption": "Print 3",
-          "orientation": "portrait"
-        }
-      ],
-      "videos": [
-        {
-          "url": "https://vimeo.com/1190043722",
-          "type": "vimeo",
-          "caption": "Ministry of Home Affairs — Home of the Unexpected"
-        }
-      ],
-      "active": true,
-      "prints": [
-        {
-          "url": "images/mha-home-of-the-unexpected/thumb.webp",
-          "caption": "Home of the Unexpected — Print 1"
-        },
-        {
-          "url": "images/mha-home-of-the-unexpected/collateral-1.webp",
-          "caption": "Home of the Unexpected — Print 2"
-        },
-        {
-          "url": "images/mha-home-of-the-unexpected/collateral-2.webp",
-          "caption": "Home of the Unexpected — Print 3"
-        }
-      ]
     },
     {
       "id": "hsbc-choose-what-you-love",
