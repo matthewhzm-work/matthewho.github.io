@@ -264,21 +264,21 @@ const PORTFOLIO_DATA = {
       "show": "Crowbar Student Awards",
       "tier": "Silver",
       "category": "Online Advertising",
-      "brand": ""
+      "brand": "Dettol"
     },
     {
       "year": "2013",
       "show": "Crowbar Student Awards",
       "tier": "Silver",
       "category": "Direct Advertising",
-      "brand": ""
+      "brand": "Skype"
     },
     {
       "year": "2013",
       "show": "Crowbar Student Awards",
       "tier": "Bronze",
       "category": "Social Media",
-      "brand": ""
+      "brand": "Dettol"
     }
   ],
   "projects": [
@@ -449,6 +449,152 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
+      "id": "bybit-valentines-day",
+      "brand": "Bybit",
+      "title": "Valentine's Day",
+      "subtitle": "Making crypto feel warm — a seasonal campaign that traded on love, not just liquidity",
+      "award": "",
+      "tags": [
+        "Social",
+        "Seasonal",
+        "Crypto",
+        "Content"
+      ],
+      "placeholderColor": "#1a0a1a",
+      "gridSpan": 4,
+      "thumbnailUrl": "images/bybit-valentines-day/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "A Valentine's Day campaign for Bybit that found the human side of a crypto exchange — proving that even in a world of wallets and trades, love is still the strongest currency.",
+      "fullDescription": "Valentine's Day is a tough brief for a crypto exchange. The work found a genuine insight — that the best thing you can give someone you love is a better future — and turned it into a campaign that was warm, witty, and completely on-brand for Bybit's irreverent personality.",
+      "projectTemplate": "default",
+      "collaterals": [
+        {
+          "type": "gif",
+          "url": "images/bybit-valentines-day/collateral-blog-banners.gif",
+          "caption": "Blog banners — 10 markets",
+          "orientation": "landscape"
+        },
+        {
+          "type": "gif",
+          "url": "images/bybit-valentines-day/support-247.gif",
+          "caption": "24/7 Support",
+          "orientation": "landscape"
+        },
+        {
+          "type": "gif",
+          "url": "images/bybit-valentines-day/support-realtime.gif",
+          "caption": "Real-time trading",
+          "orientation": "landscape"
+        },
+        {
+          "type": "gif",
+          "url": "images/bybit-valentines-day/support-reliable.gif",
+          "caption": "Reliable platform",
+          "orientation": "landscape"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://vimeo.com/718310698",
+          "type": "vimeo",
+          "caption": "Bybit — Valentine's Day (30s)"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "mercedes-amg-a-class",
+      "brand": "Mercedes-AMG",
+      "title": "A Class Hatchback",
+      "subtitle": "The most powerful A-Class ever — a campaign built for a different kind of driver",
+      "award": "",
+      "tags": [
+        "Auto",
+        "Launch",
+        "Digital",
+        "Brand"
+      ],
+      "placeholderColor": "#111111",
+      "gridSpan": 6,
+      "thumbnailUrl": "images/mercedes-amg-a-class/thumb.webp",
+      "thumbnailType": "image",
+      "description": "A launch campaign for the Mercedes-AMG A Class Hatchback — positioning the most powerful A-Class ever made to drivers who refuse to compromise.",
+      "fullDescription": "The AMG A Class Hatchback was a performance car hiding in everyday clothes. The campaign leaned into that contradiction — the sleeper aesthetic, the everyday silhouette that held something extraordinary underneath. Work that appealed to drivers who know, without having to explain.",
+      "projectTemplate": "prints-side-by-side",
+      "collaterals": [
+        {
+          "type": "image",
+          "url": "images/mercedes-amg-a-class/collateral-1.webp",
+          "caption": "Mercedes-AMG A 45 S 4MATIC+",
+          "orientation": "landscape"
+        }
+      ],
+      "videos": [],
+      "active": true
+    },
+    {
+      "id": "nea-dengue-danger",
+      "brand": "NEA",
+      "title": "Dengue Danger",
+      "subtitle": "A public health campaign that made Singapore take the dengue threat seriously",
+      "award": "",
+      "tags": [
+        "Public Health",
+        "Government",
+        "Integrated",
+        "OOH"
+      ],
+      "placeholderColor": "#1a0a00",
+      "gridSpan": 4,
+      "thumbnailUrl": "images/nea-dengue-danger/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "A public health campaign for the National Environment Agency urging Singaporeans to take dengue prevention seriously — before the next outbreak hits.",
+      "fullDescription": "Dengue Danger had to cut through a famously hard-to-shift public health behaviour. The campaign used urgency without panic, specificity without jargon, and a tone that respected the intelligence of Singaporeans while making the stakes impossible to ignore.",
+      "projectTemplate": "video-left-writeup-right",
+      "collaterals": [],
+      "videos": [
+        {
+          "url": "https://vimeo.com/1191934649",
+          "type": "vimeo",
+          "caption": "NEA — Dengue Danger"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "hsbc-better-is-never-down-to-one-thing",
+      "brand": "HSBC",
+      "title": "Better Is Never Down to One Thing",
+      "subtitle": "A brand platform celebrating the complexity of what it means to live better",
+      "award": "",
+      "tags": [
+        "Brand",
+        "Integrated",
+        "Digital",
+        "OOH"
+      ],
+      "placeholderColor": "#0a1f44",
+      "gridSpan": 6,
+      "thumbnailUrl": "images/hsbc-better-is-never-down-to-one-thing/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "<p>A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.</p>",
+      "fullDescription": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
+      "projectTemplate": "writeup-left-video-right",
+      "collaterals": [],
+      "videos": [
+        {
+          "url": "https://vimeo.com/1191945466",
+          "type": "vimeo",
+          "caption": "HSBC — Better Is Never Down To One Thing"
+        }
+      ],
+      "active": true,
+      "fullDescription2": "",
+      "fullDescription3": "",
+      "quote": "",
+      "openingQuestion": ""
+    },
+    {
       "id": "mha-home-of-the-unexpected",
       "brand": "Ministry of Home Affairs",
       "title": "Home of the Unexpected",
@@ -503,39 +649,6 @@ const PORTFOLIO_DATA = {
           "caption": "Home of the Unexpected — Print 3"
         }
       ]
-    },
-    {
-      "id": "hsbc-better-is-never-down-to-one-thing",
-      "brand": "HSBC",
-      "title": "Better Is Never Down to One Thing",
-      "subtitle": "A brand platform celebrating the complexity of what it means to live better",
-      "award": "",
-      "tags": [
-        "Brand",
-        "Integrated",
-        "Digital",
-        "OOH"
-      ],
-      "placeholderColor": "#0a1f44",
-      "gridSpan": 6,
-      "thumbnailUrl": "images/hsbc-better-is-never-down-to-one-thing/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "<p>A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.</p>",
-      "fullDescription": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
-      "projectTemplate": "writeup-left-video-right",
-      "collaterals": [],
-      "videos": [
-        {
-          "url": "https://vimeo.com/1191945466",
-          "type": "vimeo",
-          "caption": "HSBC — Better Is Never Down To One Thing"
-        }
-      ],
-      "active": true,
-      "fullDescription2": "",
-      "fullDescription3": "",
-      "quote": "",
-      "openingQuestion": ""
     },
     {
       "id": "hsbc-choose-what-you-love",
@@ -609,6 +722,153 @@ const PORTFOLIO_DATA = {
       ],
       "active": true,
       "openingQuestion": "What if your interests could help you choose which credit card suits you best?"
+    },
+    {
+      "id": "mercedes-me-connect",
+      "brand": "Mercedes-Benz",
+      "title": "Mercedes me Connect",
+      "subtitle": "Bringing the intelligence of a connected car into the palm of your hand",
+      "award": "",
+      "tags": [
+        "Digital",
+        "App",
+        "Auto",
+        "Brand"
+      ],
+      "placeholderColor": "#1a1a1a",
+      "gridSpan": 7,
+      "thumbnailUrl": "images/mercedes-me-connect/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "A campaign for Mercedes me Connect — the app that puts the full intelligence of your Mercedes-Benz at your fingertips, wherever you are.",
+      "fullDescription": "Mercedes me Connect extended the luxury experience beyond the car itself. The campaign showed how the app kept drivers connected to their vehicle — remote monitoring, service scheduling, location sharing — in a way that felt less like utility and more like peace of mind.",
+      "projectTemplate": "two-videos-side-by-side",
+      "collaterals": [],
+      "videos": [
+        {
+          "url": "https://vimeo.com/605517069",
+          "type": "vimeo",
+          "caption": "Mercedes me Connect — Rebecca"
+        },
+        {
+          "url": "https://vimeo.com/605516949",
+          "type": "vimeo",
+          "caption": "Mercedes me Connect — Desmond"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "ofnoah-discreet-digital-clinic",
+      "brand": "ofnoah",
+      "title": "The Discreet Digital Clinic For Men",
+      "subtitle": "Destigmatising men's health — making it easy to ask for help, quietly",
+      "award": "",
+      "tags": [
+        "Healthcare",
+        "Digital",
+        "Brand",
+        "Social"
+      ],
+      "placeholderColor": "#0a1a1a",
+      "gridSpan": 5,
+      "thumbnailUrl": "images/ofnoah-discreet-digital-clinic/thumb.webp",
+      "thumbnailType": "image",
+      "description": "Brand and campaign work for ofnoah — Singapore's discreet digital clinic for men's health, making it easy and stigma-free to get the help you need.",
+      "fullDescription": "ofnoah exists because men don't ask for help. The brand and campaign work was built around removing every barrier — the embarrassment, the inconvenience, the fear of judgement — and replacing them with a tone that was direct, warm, and completely judgment-free.",
+      "projectTemplate": "ofnoah",
+      "collaterals": [],
+      "videos": [],
+      "active": true
+    },
+    {
+      "id": "vivo-v15",
+      "brand": "vivo",
+      "title": "vivo V15",
+      "subtitle": "Launching a pop-up camera phone to an audience who lives and breathes content creation",
+      "award": "",
+      "tags": [
+        "Consumer Tech",
+        "Launch",
+        "Digital",
+        "Youth"
+      ],
+      "placeholderColor": "#1a0a2a",
+      "gridSpan": 5,
+      "thumbnailUrl": "images/vivo-v15/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "A product launch campaign for the vivo V15 — introducing its pop-up front camera to a generation for whom self-expression and content creation are a way of life.",
+      "fullDescription": "The vivo V15 had a genuinely novel feature — a motorised pop-up front camera that appeared only when you needed it. The launch campaign made that mechanism feel iconic, building the product's selfie credentials with an audience for whom the front camera is the most important lens on the phone.",
+      "quote": "The launch of the V15",
+      "projectTemplate": "vivo",
+      "collaterals": [],
+      "videos": [
+        {
+          "url": "https://vimeo.com/1191942960",
+          "type": "vimeo",
+          "caption": "vivo V15 — Social film 1"
+        },
+        {
+          "url": "https://vimeo.com/1191942959",
+          "type": "vimeo",
+          "caption": "vivo V15 — Social film 2"
+        },
+        {
+          "url": "https://vimeo.com/1191942958",
+          "type": "vimeo",
+          "caption": "vivo V15 — Social film 3"
+        },
+        {
+          "url": "https://vimeo.com/1191942957",
+          "type": "vimeo",
+          "caption": "vivo V15 — Social film 4"
+        },
+        {
+          "url": "https://vimeo.com/347315855",
+          "type": "vimeo",
+          "caption": "vivo V15 x PUBG — Up Your Game 1"
+        },
+        {
+          "url": "https://vimeo.com/347315817",
+          "type": "vimeo",
+          "caption": "vivo V15 x PUBG — Up Your Game 2"
+        },
+        {
+          "url": "https://vimeo.com/347315773",
+          "type": "vimeo",
+          "caption": "vivo V15 x PUBG — Up Your Game 3"
+        },
+        {
+          "url": "https://vimeo.com/347315715",
+          "type": "vimeo",
+          "caption": "vivo V15 — Elevating Front Camera: Swing"
+        },
+        {
+          "url": "https://vimeo.com/347315669",
+          "type": "vimeo",
+          "caption": "vivo V15 — Elevating Front Camera: Drum"
+        },
+        {
+          "url": "https://vimeo.com/347315631",
+          "type": "vimeo",
+          "caption": "vivo V15 — Elevating Front Camera: Model"
+        },
+        {
+          "url": "https://vimeo.com/347315598",
+          "type": "vimeo",
+          "caption": "vivo V15 Blossom Pink 1"
+        },
+        {
+          "url": "https://vimeo.com/347315553",
+          "type": "vimeo",
+          "caption": "vivo V15 Blossom Pink 2"
+        },
+        {
+          "url": "https://vimeo.com/347315511",
+          "type": "vimeo",
+          "caption": "vivo V15 Blossom Pink 3"
+        }
+      ],
+      "active": true
     },
     {
       "id": "hsbc-revolution-credit-card",
@@ -699,118 +959,6 @@ const PORTFOLIO_DATA = {
       "active": true
     },
     {
-      "id": "mercedes-me-adapter",
-      "brand": "Mercedes-Benz",
-      "title": "Mercedes me Adapter",
-      "subtitle": "Introducing a connected driving experience to Southeast Asia",
-      "award": "",
-      "tags": [
-        "Product Launch",
-        "Digital",
-        "Auto",
-        "Integrated"
-      ],
-      "placeholderColor": "#1a1a1a",
-      "gridSpan": 5,
-      "thumbnailUrl": "images/mercedes-me-adapter/thumb.webp",
-      "thumbnailType": "image",
-      "description": "A product launch campaign for the Mercedes me Adapter — bringing intelligent connectivity to Mercedes-Benz drivers across Southeast Asia.",
-      "fullDescription": "The Mercedes me Adapter turned any Mercedes into a connected car. The launch campaign needed to make a technical product feel genuinely desirable — translating telematics into the language of modern luxury driving.",
-      "projectTemplate": "editorial",
-      "collaterals": [
-        {
-          "type": "image",
-          "url": "images/mercedes-me-adapter/collateral-1.webp",
-          "caption": "Product visual",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/mercedes-me-adapter/collateral-2.webp",
-          "caption": "Feature highlight",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/mercedes-me-adapter/collateral-3.webp",
-          "caption": "Digital execution",
-          "orientation": "square"
-        }
-      ],
-      "videos": [
-        {
-          "url": "https://vimeo.com/606172041",
-          "type": "vimeo",
-          "caption": "Mercedes-Benz — Mercedes me Adapter"
-        }
-      ],
-      "active": false
-    },
-    {
-      "id": "mercedes-me-connect",
-      "brand": "Mercedes-Benz",
-      "title": "Mercedes me Connect",
-      "subtitle": "Bringing the intelligence of a connected car into the palm of your hand",
-      "award": "",
-      "tags": [
-        "Digital",
-        "App",
-        "Auto",
-        "Brand"
-      ],
-      "placeholderColor": "#1a1a1a",
-      "gridSpan": 7,
-      "thumbnailUrl": "images/mercedes-me-connect/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "A campaign for Mercedes me Connect — the app that puts the full intelligence of your Mercedes-Benz at your fingertips, wherever you are.",
-      "fullDescription": "Mercedes me Connect extended the luxury experience beyond the car itself. The campaign showed how the app kept drivers connected to their vehicle — remote monitoring, service scheduling, location sharing — in a way that felt less like utility and more like peace of mind.",
-      "projectTemplate": "two-videos-side-by-side",
-      "collaterals": [],
-      "videos": [
-        {
-          "url": "https://vimeo.com/605517069",
-          "type": "vimeo",
-          "caption": "Mercedes me Connect — Rebecca"
-        },
-        {
-          "url": "https://vimeo.com/605516949",
-          "type": "vimeo",
-          "caption": "Mercedes me Connect — Desmond"
-        }
-      ],
-      "active": true
-    },
-    {
-      "id": "mercedes-amg-a-class",
-      "brand": "Mercedes-AMG",
-      "title": "A Class Hatchback",
-      "subtitle": "The most powerful A-Class ever — a campaign built for a different kind of driver",
-      "award": "",
-      "tags": [
-        "Auto",
-        "Launch",
-        "Digital",
-        "Brand"
-      ],
-      "placeholderColor": "#111111",
-      "gridSpan": 6,
-      "thumbnailUrl": "images/mercedes-amg-a-class/thumb.webp",
-      "thumbnailType": "image",
-      "description": "A launch campaign for the Mercedes-AMG A Class Hatchback — positioning the most powerful A-Class ever made to drivers who refuse to compromise.",
-      "fullDescription": "The AMG A Class Hatchback was a performance car hiding in everyday clothes. The campaign leaned into that contradiction — the sleeper aesthetic, the everyday silhouette that held something extraordinary underneath. Work that appealed to drivers who know, without having to explain.",
-      "projectTemplate": "prints-side-by-side",
-      "collaterals": [
-        {
-          "type": "image",
-          "url": "images/mercedes-amg-a-class/collateral-1.webp",
-          "caption": "Mercedes-AMG A 45 S 4MATIC+",
-          "orientation": "landscape"
-        }
-      ],
-      "videos": [],
-      "active": true
-    },
-    {
       "id": "mercedes-benz-eqc",
       "brand": "Mercedes-Benz",
       "title": "EQC",
@@ -835,292 +983,6 @@ const PORTFOLIO_DATA = {
           "url": "https://vimeo.com/651140992",
           "type": "vimeo",
           "caption": "Mercedes-Benz EQC — Launch film"
-        }
-      ],
-      "active": true
-    },
-    {
-      "id": "nea-dengue-danger",
-      "brand": "NEA",
-      "title": "Dengue Danger",
-      "subtitle": "A public health campaign that made Singapore take the dengue threat seriously",
-      "award": "",
-      "tags": [
-        "Public Health",
-        "Government",
-        "Integrated",
-        "OOH"
-      ],
-      "placeholderColor": "#1a0a00",
-      "gridSpan": 4,
-      "thumbnailUrl": "images/nea-dengue-danger/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "A public health campaign for the National Environment Agency urging Singaporeans to take dengue prevention seriously — before the next outbreak hits.",
-      "fullDescription": "Dengue Danger had to cut through a famously hard-to-shift public health behaviour. The campaign used urgency without panic, specificity without jargon, and a tone that respected the intelligence of Singaporeans while making the stakes impossible to ignore.",
-      "projectTemplate": "video-left-writeup-right",
-      "collaterals": [],
-      "videos": [
-        {
-          "url": "https://vimeo.com/1191934649",
-          "type": "vimeo",
-          "caption": "NEA — Dengue Danger"
-        }
-      ],
-      "active": true
-    },
-    {
-      "id": "nea-good-for-me-good-for-the-environment",
-      "brand": "NEA",
-      "title": "Good for Me, Good for the Environment",
-      "subtitle": "Making sustainable choices feel like the obvious choice for everyday Singaporeans",
-      "award": "",
-      "tags": [
-        "Sustainability",
-        "Government",
-        "Integrated",
-        "Social"
-      ],
-      "placeholderColor": "#0a1a0a",
-      "gridSpan": 4,
-      "thumbnailUrl": "images/nea-good-for-me-good-for-the-environment/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "An NEA campaign reframing sustainable living as something that benefits both individual Singaporeans and the environment they share.",
-      "fullDescription": "Good for Me, Good for the Environment tackled the perception that sustainable choices mean sacrifice. The campaign showed that the best choices for the planet are often the best choices for you — reframing green behaviour as smart behaviour, not moral obligation.",
-      "projectTemplate": "default",
-      "collaterals": [
-        {
-          "type": "image",
-          "url": "images/nea-good-for-me-good-for-the-environment/collateral-1.webp",
-          "caption": "Campaign visual",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/nea-good-for-me-good-for-the-environment/collateral-2.webp",
-          "caption": "Key poster",
-          "orientation": "portrait"
-        },
-        {
-          "type": "image",
-          "url": "images/nea-good-for-me-good-for-the-environment/collateral-3.webp",
-          "caption": "Social asset",
-          "orientation": "square"
-        }
-      ],
-      "videos": [],
-      "active": false
-    },
-    {
-      "id": "bybit-valentines-day",
-      "brand": "Bybit",
-      "title": "Valentine's Day",
-      "subtitle": "Making crypto feel warm — a seasonal campaign that traded on love, not just liquidity",
-      "award": "",
-      "tags": [
-        "Social",
-        "Seasonal",
-        "Crypto",
-        "Content"
-      ],
-      "placeholderColor": "#1a0a1a",
-      "gridSpan": 4,
-      "thumbnailUrl": "images/bybit-valentines-day/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "A Valentine's Day campaign for Bybit that found the human side of a crypto exchange — proving that even in a world of wallets and trades, love is still the strongest currency.",
-      "fullDescription": "Valentine's Day is a tough brief for a crypto exchange. The work found a genuine insight — that the best thing you can give someone you love is a better future — and turned it into a campaign that was warm, witty, and completely on-brand for Bybit's irreverent personality.",
-      "projectTemplate": "default",
-      "collaterals": [
-        {
-          "type": "gif",
-          "url": "images/bybit-valentines-day/collateral-blog-banners.gif",
-          "caption": "Blog banners — 10 markets",
-          "orientation": "landscape"
-        },
-        {
-          "type": "gif",
-          "url": "images/bybit-valentines-day/support-247.gif",
-          "caption": "24/7 Support",
-          "orientation": "landscape"
-        },
-        {
-          "type": "gif",
-          "url": "images/bybit-valentines-day/support-realtime.gif",
-          "caption": "Real-time trading",
-          "orientation": "landscape"
-        },
-        {
-          "type": "gif",
-          "url": "images/bybit-valentines-day/support-reliable.gif",
-          "caption": "Reliable platform",
-          "orientation": "landscape"
-        }
-      ],
-      "videos": [
-        {
-          "url": "https://vimeo.com/718310698",
-          "type": "vimeo",
-          "caption": "Bybit — Valentine's Day (30s)"
-        }
-      ],
-      "active": true
-    },
-    {
-      "id": "ofnoah-discreet-digital-clinic",
-      "brand": "ofnoah",
-      "title": "The Discreet Digital Clinic For Men",
-      "subtitle": "Destigmatising men's health — making it easy to ask for help, quietly",
-      "award": "",
-      "tags": [
-        "Healthcare",
-        "Digital",
-        "Brand",
-        "Social"
-      ],
-      "placeholderColor": "#0a1a1a",
-      "gridSpan": 5,
-      "thumbnailUrl": "images/ofnoah-discreet-digital-clinic/thumb.webp",
-      "thumbnailType": "image",
-      "description": "Brand and campaign work for ofnoah — Singapore's discreet digital clinic for men's health, making it easy and stigma-free to get the help you need.",
-      "fullDescription": "ofnoah exists because men don't ask for help. The brand and campaign work was built around removing every barrier — the embarrassment, the inconvenience, the fear of judgement — and replacing them with a tone that was direct, warm, and completely judgment-free.",
-      "projectTemplate": "ofnoah",
-      "collaterals": [],
-      "videos": [],
-      "active": true
-    },
-    {
-      "id": "trifecta-snow-surf-skate",
-      "brand": "TRIFECTA",
-      "title": "Snow, Surf, Skate",
-      "subtitle": "A content campaign for a lifestyle brand living at the intersection of three disciplines",
-      "award": "",
-      "tags": [
-        "Lifestyle",
-        "Content",
-        "Social",
-        "Brand"
-      ],
-      "placeholderColor": "#0a0a1a",
-      "gridSpan": 7,
-      "thumbnailUrl": "images/trifecta-snow-surf-skate/thumb.webp",
-      "thumbnailType": "image",
-      "description": "Content and campaign work for TRIFECTA — a brand that lives at the meeting point of snow, surf and skate culture.",
-      "fullDescription": "TRIFECTA isn't just a gear brand — it's a community built around the idea that the best athletes move between disciplines. The content campaign captured that fluidity, showing athletes in their element across all three worlds without ever making it feel like a catalogue.",
-      "projectTemplate": "grid",
-      "collaterals": [
-        {
-          "type": "image",
-          "url": "images/trifecta-snow-surf-skate/collateral-1.webp",
-          "caption": "Snow",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/trifecta-snow-surf-skate/collateral-2.webp",
-          "caption": "Surf",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/trifecta-snow-surf-skate/collateral-3.webp",
-          "caption": "Skate",
-          "orientation": "landscape"
-        },
-        {
-          "type": "image",
-          "url": "images/trifecta-snow-surf-skate/collateral-4.webp",
-          "caption": "Brand visual",
-          "orientation": "square"
-        }
-      ],
-      "videos": [],
-      "active": false
-    },
-    {
-      "id": "vivo-v15",
-      "brand": "vivo",
-      "title": "vivo V15",
-      "subtitle": "Launching a pop-up camera phone to an audience who lives and breathes content creation",
-      "award": "",
-      "tags": [
-        "Consumer Tech",
-        "Launch",
-        "Digital",
-        "Youth"
-      ],
-      "placeholderColor": "#1a0a2a",
-      "gridSpan": 5,
-      "thumbnailUrl": "images/vivo-v15/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "A product launch campaign for the vivo V15 — introducing its pop-up front camera to a generation for whom self-expression and content creation are a way of life.",
-      "fullDescription": "The vivo V15 had a genuinely novel feature — a motorised pop-up front camera that appeared only when you needed it. The launch campaign made that mechanism feel iconic, building the product's selfie credentials with an audience for whom the front camera is the most important lens on the phone.",
-      "quote": "The launch of the V15",
-      "projectTemplate": "vivo",
-      "collaterals": [],
-      "videos": [
-        {
-          "url": "https://vimeo.com/1191942960",
-          "type": "vimeo",
-          "caption": "vivo V15 — Social film 1"
-        },
-        {
-          "url": "https://vimeo.com/1191942959",
-          "type": "vimeo",
-          "caption": "vivo V15 — Social film 2"
-        },
-        {
-          "url": "https://vimeo.com/1191942958",
-          "type": "vimeo",
-          "caption": "vivo V15 — Social film 3"
-        },
-        {
-          "url": "https://vimeo.com/1191942957",
-          "type": "vimeo",
-          "caption": "vivo V15 — Social film 4"
-        },
-        {
-          "url": "https://vimeo.com/347315855",
-          "type": "vimeo",
-          "caption": "vivo V15 x PUBG — Up Your Game 1"
-        },
-        {
-          "url": "https://vimeo.com/347315817",
-          "type": "vimeo",
-          "caption": "vivo V15 x PUBG — Up Your Game 2"
-        },
-        {
-          "url": "https://vimeo.com/347315773",
-          "type": "vimeo",
-          "caption": "vivo V15 x PUBG — Up Your Game 3"
-        },
-        {
-          "url": "https://vimeo.com/347315715",
-          "type": "vimeo",
-          "caption": "vivo V15 — Elevating Front Camera: Swing"
-        },
-        {
-          "url": "https://vimeo.com/347315669",
-          "type": "vimeo",
-          "caption": "vivo V15 — Elevating Front Camera: Drum"
-        },
-        {
-          "url": "https://vimeo.com/347315631",
-          "type": "vimeo",
-          "caption": "vivo V15 — Elevating Front Camera: Model"
-        },
-        {
-          "url": "https://vimeo.com/347315598",
-          "type": "vimeo",
-          "caption": "vivo V15 Blossom Pink 1"
-        },
-        {
-          "url": "https://vimeo.com/347315553",
-          "type": "vimeo",
-          "caption": "vivo V15 Blossom Pink 2"
-        },
-        {
-          "url": "https://vimeo.com/347315511",
-          "type": "vimeo",
-          "caption": "vivo V15 Blossom Pink 3"
         }
       ],
       "active": true
@@ -1220,6 +1082,144 @@ const PORTFOLIO_DATA = {
       ],
       "videos": [],
       "active": true
+    },
+    {
+      "id": "nea-good-for-me-good-for-the-environment",
+      "brand": "NEA",
+      "title": "Good for Me, Good for the Environment",
+      "subtitle": "Making sustainable choices feel like the obvious choice for everyday Singaporeans",
+      "award": "",
+      "tags": [
+        "Sustainability",
+        "Government",
+        "Integrated",
+        "Social"
+      ],
+      "placeholderColor": "#0a1a0a",
+      "gridSpan": 4,
+      "thumbnailUrl": "images/nea-good-for-me-good-for-the-environment/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "An NEA campaign reframing sustainable living as something that benefits both individual Singaporeans and the environment they share.",
+      "fullDescription": "Good for Me, Good for the Environment tackled the perception that sustainable choices mean sacrifice. The campaign showed that the best choices for the planet are often the best choices for you — reframing green behaviour as smart behaviour, not moral obligation.",
+      "projectTemplate": "default",
+      "collaterals": [
+        {
+          "type": "image",
+          "url": "images/nea-good-for-me-good-for-the-environment/collateral-1.webp",
+          "caption": "Campaign visual",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/nea-good-for-me-good-for-the-environment/collateral-2.webp",
+          "caption": "Key poster",
+          "orientation": "portrait"
+        },
+        {
+          "type": "image",
+          "url": "images/nea-good-for-me-good-for-the-environment/collateral-3.webp",
+          "caption": "Social asset",
+          "orientation": "square"
+        }
+      ],
+      "videos": [],
+      "active": false
+    },
+    {
+      "id": "trifecta-snow-surf-skate",
+      "brand": "TRIFECTA",
+      "title": "Snow, Surf, Skate",
+      "subtitle": "A content campaign for a lifestyle brand living at the intersection of three disciplines",
+      "award": "",
+      "tags": [
+        "Lifestyle",
+        "Content",
+        "Social",
+        "Brand"
+      ],
+      "placeholderColor": "#0a0a1a",
+      "gridSpan": 7,
+      "thumbnailUrl": "images/trifecta-snow-surf-skate/thumb.webp",
+      "thumbnailType": "image",
+      "description": "Content and campaign work for TRIFECTA — a brand that lives at the meeting point of snow, surf and skate culture.",
+      "fullDescription": "TRIFECTA isn't just a gear brand — it's a community built around the idea that the best athletes move between disciplines. The content campaign captured that fluidity, showing athletes in their element across all three worlds without ever making it feel like a catalogue.",
+      "projectTemplate": "grid",
+      "collaterals": [
+        {
+          "type": "image",
+          "url": "images/trifecta-snow-surf-skate/collateral-1.webp",
+          "caption": "Snow",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/trifecta-snow-surf-skate/collateral-2.webp",
+          "caption": "Surf",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/trifecta-snow-surf-skate/collateral-3.webp",
+          "caption": "Skate",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/trifecta-snow-surf-skate/collateral-4.webp",
+          "caption": "Brand visual",
+          "orientation": "square"
+        }
+      ],
+      "videos": [],
+      "active": false
+    },
+    {
+      "id": "mercedes-me-adapter",
+      "brand": "Mercedes-Benz",
+      "title": "Mercedes me Adapter",
+      "subtitle": "Introducing a connected driving experience to Southeast Asia",
+      "award": "",
+      "tags": [
+        "Product Launch",
+        "Digital",
+        "Auto",
+        "Integrated"
+      ],
+      "placeholderColor": "#1a1a1a",
+      "gridSpan": 5,
+      "thumbnailUrl": "images/mercedes-me-adapter/thumb.webp",
+      "thumbnailType": "image",
+      "description": "A product launch campaign for the Mercedes me Adapter — bringing intelligent connectivity to Mercedes-Benz drivers across Southeast Asia.",
+      "fullDescription": "The Mercedes me Adapter turned any Mercedes into a connected car. The launch campaign needed to make a technical product feel genuinely desirable — translating telematics into the language of modern luxury driving.",
+      "projectTemplate": "editorial",
+      "collaterals": [
+        {
+          "type": "image",
+          "url": "images/mercedes-me-adapter/collateral-1.webp",
+          "caption": "Product visual",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/mercedes-me-adapter/collateral-2.webp",
+          "caption": "Feature highlight",
+          "orientation": "landscape"
+        },
+        {
+          "type": "image",
+          "url": "images/mercedes-me-adapter/collateral-3.webp",
+          "caption": "Digital execution",
+          "orientation": "square"
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://vimeo.com/606172041",
+          "type": "vimeo",
+          "caption": "Mercedes-Benz — Mercedes me Adapter"
+        }
+      ],
+      "active": false
     }
   ],
   "linkedin": "https://www.linkedin.com/in/matthew-ho-4947016a/",
