@@ -90,13 +90,20 @@ nav.scrolled{
 }
 .sec-eyebrow em{color:var(--red);font-style:normal;margin-right:10px}
 
-/* ── GRID: CSS grid — row-first (left→right, top→bottom), natural card heights ── */
+/* ── GRID: 3 independent flex columns, round-robin fill (left→right ordering)
+   Each column packs cards with a consistent gap — no variable row gaps ── */
 .project-grid{
   padding:0 var(--pad);
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+  display:flex;
   gap:var(--card-gap);
-  align-items:start;
+  align-items:flex-start;
+}
+.project-col{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:var(--card-gap);
 }
 
 /* ── CARD ──
@@ -290,7 +297,9 @@ footer{
   .nav-meta-awards{display:none}
   .nav-meta-sep{display:none}
   #work{padding-top:calc(132px + 36px)}
-  .project-grid{grid-template-columns:repeat(2,1fr)}
+  /* Collapse to 2-col grid; project-col becomes invisible so cards flow into grid */
+  .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--card-gap)}
+  .project-col{display:contents}
   .about-grid{grid-template-columns:1fr;gap:64px}
   #about,#awards{padding:80px var(--pad)}
   .awards-cols{grid-template-columns:1fr}
@@ -407,10 +416,18 @@ footer{
     $('exp-list').appendChild(item);
   });
 
-  /* ── GRID: CSS columns (auto-balanced, 3 equal-width verticals) ── */
+  /* ── GRID: 3 independent flex columns, round-robin distribution ── */
   const grid = $('project-grid');
 
-  // Only show active projects on homepage; CMS order = top-down order
+  // Create the three column containers
+  const colEls = [0,1,2].map(() => {
+    const col = document.createElement('div');
+    col.className = 'project-col';
+    grid.appendChild(col);
+    return col;
+  });
+
+  // Only show active projects on homepage; CMS order = left→right, top→bottom
   D.projects.filter(p => p.active !== false).forEach((p, i) => {
     const hasImg = p.thumbnailUrl && p.thumbnailUrl.trim();
     const isGif  = hasImg && (p.thumbnailType==='gif'||p.thumbnailUrl.toLowerCase().endsWith('.gif'));
@@ -422,9 +439,10 @@ footer{
     card.className = 'project-card reveal';
     card.href = `work.html?id=${p.id}`;
     card.style.transitionDelay = `${(i%4)*0.06}s`;
+    card.style.order = String(i); // preserves L→R sequence when cols collapse at breakpoints
     card.innerHTML = `<div class="card-thumb">${thumb}</div><div class="card-body"><div class="card-top"><span class="card-brand">${esc(p.brand)}</span>${p.award?`<span class="card-award">${esc(p.award)}</span>`:''}</div><div class="card-title">${esc(p.title)}</div><div class="card-desc">${renderHtml(p.description)}</div><div class="card-tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div><div class="card-cta">View project <span class="cta-arr">→</span></div></div>`;
 
-    grid.appendChild(card);
+    colEls[i % 3].appendChild(card);
   });
 
   /* ── RECOGNITION: balance by row count ── */
