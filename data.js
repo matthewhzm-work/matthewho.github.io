@@ -293,7 +293,7 @@ const PORTFOLIO_DATA = {
       "id": "lux-in-her-name",
       "brand": "LUX",
       "title": "In Her Name",
-      "subtitle": "A campaign that put women's stories at the centre of one of beauty's biggest platforms",
+      "subtitle": "In a culture that rarely questions itself, we asked one question: what's in a name?",
       "award": "Cannes 2024 · Epica Gold",
       "tags": [
         "Social",
@@ -419,8 +419,8 @@ const PORTFOLIO_DATA = {
     {
       "id": "hsbc-mind-athletes",
       "brand": "HSBC",
-      "title": "Mind Athletes",
-      "subtitle": "Reframing golf as a sport of mental strength — and championing those who play it differently",
+      "title": "Mind Athletes Tournament",
+      "subtitle": "One tournament. One rule. If you have a mind, you're an athlete.",
       "award": "5× MEA Gold 2025",
       "tags": [
         "Experiential",
@@ -432,7 +432,7 @@ const PORTFOLIO_DATA = {
       "gridSpan": 5,
       "thumbnailUrl": "images/hsbc-mind-athletes/thumb.gif",
       "thumbnailType": "gif",
-      "description": "A first-of-its-kind golf experience championing inclusivity in sport. Swept the Marketing Excellence Awards across Event, Experiential, Gaming, Innovation and Sponsorship categories.",
+      "description": "<p>A first-of-its-kind golf experience championing inclusivity in sport. Swept the Marketing Excellence Awards across Event, Experiential, Gaming, Innovation and Sponsorship categories.</p>",
       "fullDescription": "HSBC wanted to do something meaningful with their golf sponsorship beyond the usual tournament hospitality. Mind Athletes reframed golf as a sport of mental strength and created a first-of-its-kind experience for athletes with physical disabilities — sweeping five Gold awards at the Marketing Excellence Awards 2025.",
       "projectTemplate": "hsbc-mind-athletes",
       "collaterals": [
@@ -519,8 +519,8 @@ const PORTFOLIO_DATA = {
         {
           "id": "b201",
           "type": "callout",
-          "text": "The first-ever sports championship won by brain power alone.",
-          "size": "xl",
+          "text": "The first-ever sports championship won by brainpower alone.",
+          "size": "lg",
           "align": "center"
         },
         {
@@ -534,10 +534,10 @@ const PORTFOLIO_DATA = {
         {
           "id": "b203",
           "type": "text",
-          "col1": "<p>HSBC wanted to do something meaningful with their golf sponsorship beyond the usual tournament hospitality. Mind Athletes reframed golf as a sport of mental strength and created a first-of-its-kind experience for athletes with physical disabilities — sweeping five Gold awards at the Marketing Excellence Awards 2025.</p>",
-          "col2": "",
-          "col3": "",
-          "columns": 2,
+          "col1": "<p>HSBC is one of golf's biggest sponsors worldwide. But golf — a sport of skill, focus, and precision — has an access problem. For people with severe physical disabilities, the game has always been out of reach.</p><p>We wanted to change that. Not with a charity initiative. With an actual competition.</p>",
+          "col2": "<p>Thus, the <strong>Mind Athletes Tournament</strong> was created — the world's first sports championship won entirely by brainpower. Using EEG neurofeedback technology, we converted concentration into real-time gameplay, calibrated against 1,000 unique golfing scenarios mapped with professional golfers. No hands. No controllers. Just the power of the mind. </p><p>Debuted as a demonstration at the HSBC Women's World Championship in 2024, the concept proved so compelling it returned in 2025 as a full-blown tournament — 20 competitors, each with different disabilities, competing for the title of <strong>the world's first Mind Athletes Champion</strong>. The event was streamed live on Twitch, drawing a global audience and sparking conversation about the future of sport itself.</p>",
+          "col3": "<p><strong>Results:</strong></p><ul><li>31M+ impressions</li><li>$68M+ worth of PR value</li><li>Global premiere on Twitch</li></ul>",
+          "columns": 3,
           "width": "full"
         },
         {
@@ -585,7 +585,7 @@ const PORTFOLIO_DATA = {
               "caption": "Athlete portrait"
             }
           ],
-          "columns": 5,
+          "columns": 2,
           "gap": "normal",
           "lightbox": true
         },
@@ -911,56 +911,110 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
-      "id": "hsbc-better-is-never-down-to-one-thing",
-      "brand": "HSBC",
-      "title": "Better Is Never Down to One Thing",
-      "subtitle": "A brand platform celebrating the complexity of what it means to live better",
+      "id": "ofnoah-discreet-digital-clinic",
+      "brand": "ofnoah",
+      "title": "The Discreet Digital Clinic For Men",
+      "subtitle": "Destigmatising men's health — making it easy to ask for help, quietly",
       "award": "",
       "tags": [
-        "Brand",
-        "Integrated",
+        "Healthcare",
         "Digital",
-        "OOH"
+        "Brand",
+        "Social"
       ],
-      "placeholderColor": "#0a1f44",
-      "gridSpan": 6,
-      "thumbnailUrl": "images/hsbc-better-is-never-down-to-one-thing/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "<p>A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.</p>",
-      "fullDescription": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
-      "projectTemplate": "writeup-left-video-right",
+      "placeholderColor": "#0a1a1a",
+      "gridSpan": 5,
+      "thumbnailUrl": "images/ofnoah-discreet-digital-clinic/thumb.webp",
+      "thumbnailType": "image",
+      "description": "Brand and campaign work for ofnoah — Singapore's discreet digital clinic for men's health, making it easy and stigma-free to get the help you need.",
+      "fullDescription": "ofnoah exists because men don't ask for help. The brand and campaign work was built around removing every barrier — the embarrassment, the inconvenience, the fear of judgement — and replacing them with a tone that was direct, warm, and completely judgment-free.",
+      "projectTemplate": "ofnoah",
       "collaterals": [],
-      "videos": [
-        {
-          "url": "https://vimeo.com/1191945466",
-          "type": "vimeo",
-          "caption": "HSBC — Better Is Never Down To One Thing"
-        }
-      ],
+      "videos": [],
       "active": true,
-      "fullDescription2": "",
-      "fullDescription3": "",
-      "quote": "",
-      "openingQuestion": "",
       "blocks": [
         {
-          "id": "b701",
-          "type": "split",
-          "ratio": "50-50",
-          "leftType": "text",
-          "leftHtml": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
-          "leftLabel": "About the Work",
-          "leftUrl": "",
-          "leftVideoType": "vimeo",
-          "leftImages": [],
-          "leftLightbox": true,
-          "rightType": "video",
-          "rightUrl": "https://vimeo.com/1191945466",
-          "rightVideoType": "vimeo",
-          "rightLabel": "",
-          "rightHtml": "",
-          "rightImages": [],
-          "rightLightbox": true
+          "id": "ba01",
+          "type": "image",
+          "url": "images/ofnoah-discreet-digital-clinic/mainboard.gif",
+          "width": "full",
+          "lightbox": false,
+          "caption": ""
+        },
+        {
+          "id": "ba02",
+          "type": "text",
+          "col1": "<p>ofnoah exists because men don't ask for help. The brand and campaign work was built around removing every barrier — the embarrassment, the inconvenience, the fear of judgement — and replacing them with a tone that was direct, warm, and completely judgment-free.</p>",
+          "col2": "",
+          "col3": "",
+          "columns": 2,
+          "width": "full"
+        },
+        {
+          "id": "ba03",
+          "type": "image-row",
+          "images": [
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/square1.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/square2.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/square3.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/square4.webp",
+              "caption": ""
+            }
+          ],
+          "columns": 4,
+          "gap": "tight",
+          "lightbox": true
+        },
+        {
+          "id": "ba04",
+          "type": "image-row",
+          "images": [
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/outdoor3.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/vertical-thumb.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/vertical1.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/ofnoah-discreet-digital-clinic/vertical2.webp",
+              "caption": ""
+            }
+          ],
+          "columns": 4,
+          "gap": "tight",
+          "lightbox": true
+        },
+        {
+          "id": "ba06",
+          "type": "image",
+          "url": "images/ofnoah-discreet-digital-clinic/outdoor2.webp",
+          "width": "full",
+          "lightbox": true,
+          "caption": ""
+        },
+        {
+          "id": "ba05",
+          "type": "image",
+          "url": "images/ofnoah-discreet-digital-clinic/standard-banner.gif",
+          "width": "full",
+          "lightbox": false,
+          "caption": ""
         }
       ]
     },
@@ -1101,6 +1155,56 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
+      "id": "mercedes-benz-eqc",
+      "brand": "Mercedes-Benz",
+      "title": "EQC",
+      "subtitle": "Launching Mercedes-Benz's first fully electric SUV into a market ready for something new",
+      "award": "",
+      "tags": [
+        "Auto",
+        "EV",
+        "Launch",
+        "Integrated"
+      ],
+      "placeholderColor": "#1a1a1a",
+      "gridSpan": 6,
+      "thumbnailUrl": "images/mercedes-benz-eqc/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "The Mercedes-Benz EQC launch — introducing the brand's first fully electric SUV to Southeast Asia with a campaign built around the thrill of a new kind of drive.",
+      "fullDescription": "The EQC was Mercedes-Benz's declaration that electric luxury had arrived. The launch campaign balanced the rational case for electric — range, efficiency, charging — with the emotional pull that makes a Mercedes desirable. A car that didn't ask you to sacrifice anything.",
+      "projectTemplate": "writeup-left-video-right",
+      "collaterals": [],
+      "videos": [
+        {
+          "url": "https://vimeo.com/651140992",
+          "type": "vimeo",
+          "caption": "Mercedes-Benz EQC — Launch film"
+        }
+      ],
+      "active": true,
+      "blocks": [
+        {
+          "id": "bf01",
+          "type": "split",
+          "ratio": "50-50",
+          "leftType": "text",
+          "leftHtml": "<p>The EQC was Mercedes-Benz's declaration that electric luxury had arrived. The launch campaign balanced the rational case for electric — range, efficiency, charging — with the emotional pull that makes a Mercedes desirable. A car that didn't ask you to sacrifice anything.</p>",
+          "leftLabel": "About the Work",
+          "leftUrl": "",
+          "leftVideoType": "vimeo",
+          "leftImages": [],
+          "leftLightbox": true,
+          "rightType": "video",
+          "rightUrl": "https://vimeo.com/651140992",
+          "rightVideoType": "vimeo",
+          "rightLabel": "",
+          "rightHtml": "",
+          "rightImages": [],
+          "rightLightbox": true
+        }
+      ]
+    },
+    {
       "id": "mercedes-me-connect",
       "brand": "Mercedes-Benz",
       "title": "Mercedes me Connect",
@@ -1165,110 +1269,144 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
-      "id": "ofnoah-discreet-digital-clinic",
-      "brand": "ofnoah",
-      "title": "The Discreet Digital Clinic For Men",
-      "subtitle": "Destigmatising men's health — making it easy to ask for help, quietly",
+      "id": "hsbc-better-is-never-down-to-one-thing",
+      "brand": "HSBC",
+      "title": "Better Is Never Down to One Thing",
+      "subtitle": "A brand platform celebrating the complexity of what it means to live better",
       "award": "",
       "tags": [
-        "Healthcare",
-        "Digital",
         "Brand",
-        "Social"
+        "Integrated",
+        "Digital",
+        "OOH"
       ],
-      "placeholderColor": "#0a1a1a",
-      "gridSpan": 5,
-      "thumbnailUrl": "images/ofnoah-discreet-digital-clinic/thumb.webp",
-      "thumbnailType": "image",
-      "description": "Brand and campaign work for ofnoah — Singapore's discreet digital clinic for men's health, making it easy and stigma-free to get the help you need.",
-      "fullDescription": "ofnoah exists because men don't ask for help. The brand and campaign work was built around removing every barrier — the embarrassment, the inconvenience, the fear of judgement — and replacing them with a tone that was direct, warm, and completely judgment-free.",
-      "projectTemplate": "ofnoah",
+      "placeholderColor": "#0a1f44",
+      "gridSpan": 6,
+      "thumbnailUrl": "images/hsbc-better-is-never-down-to-one-thing/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "<p>A brand platform for HSBC that pushed back against simple definitions of success — celebrating the idea that living better is always more nuanced than it looks.</p>",
+      "fullDescription": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
+      "projectTemplate": "writeup-left-video-right",
       "collaterals": [],
-      "videos": [],
+      "videos": [
+        {
+          "url": "https://vimeo.com/1191945466",
+          "type": "vimeo",
+          "caption": "HSBC — Better Is Never Down To One Thing"
+        }
+      ],
       "active": true,
+      "fullDescription2": "",
+      "fullDescription3": "",
+      "quote": "",
+      "openingQuestion": "",
       "blocks": [
         {
-          "id": "ba01",
-          "type": "image",
-          "url": "images/ofnoah-discreet-digital-clinic/mainboard.gif",
-          "width": "full",
-          "lightbox": false,
-          "caption": ""
+          "id": "b701",
+          "type": "split",
+          "ratio": "50-50",
+          "leftType": "text",
+          "leftHtml": "<p>Better Is Never Down to One Thing challenged the financial category's habit of reducing life to metrics. The platform gave HSBC a more human voice — one that acknowledged complexity, celebrated multidimensionality, and spoke to people as whole human beings rather than account holders.</p>",
+          "leftLabel": "About the Work",
+          "leftUrl": "",
+          "leftVideoType": "vimeo",
+          "leftImages": [],
+          "leftLightbox": true,
+          "rightType": "video",
+          "rightUrl": "https://vimeo.com/1191945466",
+          "rightVideoType": "vimeo",
+          "rightLabel": "",
+          "rightHtml": "",
+          "rightImages": [],
+          "rightLightbox": true
+        }
+      ]
+    },
+    {
+      "id": "hsbc-revolution-credit-card",
+      "brand": "HSBC",
+      "title": "Revolution Credit Card",
+      "subtitle": "Launching HSBC's most rewarding card to a generation that plays by different rules",
+      "award": "",
+      "tags": [
+        "Launch",
+        "Digital",
+        "Social",
+        "Youth"
+      ],
+      "placeholderColor": "#0a1f44",
+      "gridSpan": 4,
+      "thumbnailUrl": "images/hsbc-revolution-credit-card/thumb.gif",
+      "thumbnailType": "gif",
+      "description": "A product launch campaign for HSBC's Revolution Credit Card, targeting a younger, digitally-native audience with a bold new rewards proposition.",
+      "fullDescription": "The Revolution Credit Card launch needed to cut through in a saturated market. The work spoke directly to how a younger generation actually spends — on experiences, entertainment, and the things that matter to them — rather than defaulting to category clichés.",
+      "projectTemplate": "writeup-left-video-right-row3",
+      "collaterals": [],
+      "videos": [
+        {
+          "url": "https://youtu.be/SDYoHuqEoAs",
+          "type": "youtube",
+          "caption": "HSBC Revolution Credit Card — Main"
         },
         {
-          "id": "ba02",
-          "type": "text",
-          "col1": "<p>ofnoah exists because men don't ask for help. The brand and campaign work was built around removing every barrier — the embarrassment, the inconvenience, the fear of judgement — and replacing them with a tone that was direct, warm, and completely judgment-free.</p>",
-          "col2": "",
-          "col3": "",
-          "columns": 2,
-          "width": "full"
+          "url": "https://youtu.be/tVADyAUtMrk",
+          "type": "youtube",
+          "caption": "Revolution — Film 2"
         },
         {
-          "id": "ba03",
-          "type": "image-row",
-          "images": [
+          "url": "https://youtu.be/tZV3SIV7bgg",
+          "type": "youtube",
+          "caption": "Revolution — Film 3"
+        },
+        {
+          "url": "https://youtu.be/VHT7D30uSUA",
+          "type": "youtube",
+          "caption": "Revolution — Film 4"
+        }
+      ],
+      "active": false,
+      "blocks": [
+        {
+          "id": "bc01",
+          "type": "split",
+          "ratio": "50-50",
+          "leftType": "text",
+          "leftHtml": "<p>The Revolution Credit Card launch needed to cut through in a saturated market. The work spoke directly to how a younger generation actually spends — on experiences, entertainment, and the things that matter to them — rather than defaulting to category clichés.</p>",
+          "leftLabel": "About the Work",
+          "leftUrl": "",
+          "leftVideoType": "vimeo",
+          "leftImages": [],
+          "leftLightbox": true,
+          "rightType": "video",
+          "rightUrl": "https://youtu.be/SDYoHuqEoAs",
+          "rightVideoType": "youtube",
+          "rightLabel": "",
+          "rightHtml": "",
+          "rightImages": [],
+          "rightLightbox": true
+        },
+        {
+          "id": "bc02",
+          "type": "video-row",
+          "videos": [
             {
-              "url": "images/ofnoah-discreet-digital-clinic/square1.webp",
-              "caption": ""
+              "url": "https://youtu.be/tVADyAUtMrk",
+              "videoType": "youtube",
+              "caption": "Revolution — Film 2"
             },
             {
-              "url": "images/ofnoah-discreet-digital-clinic/square2.webp",
-              "caption": ""
+              "url": "https://youtu.be/tZV3SIV7bgg",
+              "videoType": "youtube",
+              "caption": "Revolution — Film 3"
             },
             {
-              "url": "images/ofnoah-discreet-digital-clinic/square3.webp",
-              "caption": ""
-            },
-            {
-              "url": "images/ofnoah-discreet-digital-clinic/square4.webp",
-              "caption": ""
+              "url": "https://youtu.be/VHT7D30uSUA",
+              "videoType": "youtube",
+              "caption": "Revolution — Film 4"
             }
           ],
-          "columns": 4,
-          "gap": "tight",
-          "lightbox": true
-        },
-        {
-          "id": "ba04",
-          "type": "image-row",
-          "images": [
-            {
-              "url": "images/ofnoah-discreet-digital-clinic/outdoor3.webp",
-              "caption": ""
-            },
-            {
-              "url": "images/ofnoah-discreet-digital-clinic/vertical-thumb.webp",
-              "caption": ""
-            },
-            {
-              "url": "images/ofnoah-discreet-digital-clinic/vertical1.webp",
-              "caption": ""
-            },
-            {
-              "url": "images/ofnoah-discreet-digital-clinic/vertical2.webp",
-              "caption": ""
-            }
-          ],
-          "columns": 4,
-          "gap": "tight",
-          "lightbox": true
-        },
-        {
-          "id": "ba06",
-          "type": "image",
-          "url": "images/ofnoah-discreet-digital-clinic/outdoor2.webp",
-          "width": "full",
-          "lightbox": true,
-          "caption": ""
-        },
-        {
-          "id": "ba05",
-          "type": "image",
-          "url": "images/ofnoah-discreet-digital-clinic/standard-banner.gif",
-          "width": "full",
-          "lightbox": false,
-          "caption": ""
+          "columns": 3,
+          "aspectRatio": "16:9"
         }
       ]
     },
@@ -1464,94 +1602,6 @@ const PORTFOLIO_DATA = {
             }
           ],
           "columns": 2,
-          "aspectRatio": "16:9"
-        }
-      ]
-    },
-    {
-      "id": "hsbc-revolution-credit-card",
-      "brand": "HSBC",
-      "title": "Revolution Credit Card",
-      "subtitle": "Launching HSBC's most rewarding card to a generation that plays by different rules",
-      "award": "",
-      "tags": [
-        "Launch",
-        "Digital",
-        "Social",
-        "Youth"
-      ],
-      "placeholderColor": "#0a1f44",
-      "gridSpan": 4,
-      "thumbnailUrl": "images/hsbc-revolution-credit-card/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "A product launch campaign for HSBC's Revolution Credit Card, targeting a younger, digitally-native audience with a bold new rewards proposition.",
-      "fullDescription": "The Revolution Credit Card launch needed to cut through in a saturated market. The work spoke directly to how a younger generation actually spends — on experiences, entertainment, and the things that matter to them — rather than defaulting to category clichés.",
-      "projectTemplate": "writeup-left-video-right-row3",
-      "collaterals": [],
-      "videos": [
-        {
-          "url": "https://youtu.be/SDYoHuqEoAs",
-          "type": "youtube",
-          "caption": "HSBC Revolution Credit Card — Main"
-        },
-        {
-          "url": "https://youtu.be/tVADyAUtMrk",
-          "type": "youtube",
-          "caption": "Revolution — Film 2"
-        },
-        {
-          "url": "https://youtu.be/tZV3SIV7bgg",
-          "type": "youtube",
-          "caption": "Revolution — Film 3"
-        },
-        {
-          "url": "https://youtu.be/VHT7D30uSUA",
-          "type": "youtube",
-          "caption": "Revolution — Film 4"
-        }
-      ],
-      "active": false,
-      "blocks": [
-        {
-          "id": "bc01",
-          "type": "split",
-          "ratio": "50-50",
-          "leftType": "text",
-          "leftHtml": "<p>The Revolution Credit Card launch needed to cut through in a saturated market. The work spoke directly to how a younger generation actually spends — on experiences, entertainment, and the things that matter to them — rather than defaulting to category clichés.</p>",
-          "leftLabel": "About the Work",
-          "leftUrl": "",
-          "leftVideoType": "vimeo",
-          "leftImages": [],
-          "leftLightbox": true,
-          "rightType": "video",
-          "rightUrl": "https://youtu.be/SDYoHuqEoAs",
-          "rightVideoType": "youtube",
-          "rightLabel": "",
-          "rightHtml": "",
-          "rightImages": [],
-          "rightLightbox": true
-        },
-        {
-          "id": "bc02",
-          "type": "video-row",
-          "videos": [
-            {
-              "url": "https://youtu.be/tVADyAUtMrk",
-              "videoType": "youtube",
-              "caption": "Revolution — Film 2"
-            },
-            {
-              "url": "https://youtu.be/tZV3SIV7bgg",
-              "videoType": "youtube",
-              "caption": "Revolution — Film 3"
-            },
-            {
-              "url": "https://youtu.be/VHT7D30uSUA",
-              "videoType": "youtube",
-              "caption": "Revolution — Film 4"
-            }
-          ],
-          "columns": 3,
           "aspectRatio": "16:9"
         }
       ]
@@ -1807,56 +1857,6 @@ const PORTFOLIO_DATA = {
           ],
           "rightLightbox": true,
           "rightLabel": ""
-        }
-      ]
-    },
-    {
-      "id": "mercedes-benz-eqc",
-      "brand": "Mercedes-Benz",
-      "title": "EQC",
-      "subtitle": "Launching Mercedes-Benz's first fully electric SUV into a market ready for something new",
-      "award": "",
-      "tags": [
-        "Auto",
-        "EV",
-        "Launch",
-        "Integrated"
-      ],
-      "placeholderColor": "#1a1a1a",
-      "gridSpan": 6,
-      "thumbnailUrl": "images/mercedes-benz-eqc/thumb.gif",
-      "thumbnailType": "gif",
-      "description": "The Mercedes-Benz EQC launch — introducing the brand's first fully electric SUV to Southeast Asia with a campaign built around the thrill of a new kind of drive.",
-      "fullDescription": "The EQC was Mercedes-Benz's declaration that electric luxury had arrived. The launch campaign balanced the rational case for electric — range, efficiency, charging — with the emotional pull that makes a Mercedes desirable. A car that didn't ask you to sacrifice anything.",
-      "projectTemplate": "writeup-left-video-right",
-      "collaterals": [],
-      "videos": [
-        {
-          "url": "https://vimeo.com/651140992",
-          "type": "vimeo",
-          "caption": "Mercedes-Benz EQC — Launch film"
-        }
-      ],
-      "active": true,
-      "blocks": [
-        {
-          "id": "bf01",
-          "type": "split",
-          "ratio": "50-50",
-          "leftType": "text",
-          "leftHtml": "<p>The EQC was Mercedes-Benz's declaration that electric luxury had arrived. The launch campaign balanced the rational case for electric — range, efficiency, charging — with the emotional pull that makes a Mercedes desirable. A car that didn't ask you to sacrifice anything.</p>",
-          "leftLabel": "About the Work",
-          "leftUrl": "",
-          "leftVideoType": "vimeo",
-          "leftImages": [],
-          "leftLightbox": true,
-          "rightType": "video",
-          "rightUrl": "https://vimeo.com/651140992",
-          "rightVideoType": "vimeo",
-          "rightLabel": "",
-          "rightHtml": "",
-          "rightImages": [],
-          "rightLightbox": true
         }
       ]
     },
