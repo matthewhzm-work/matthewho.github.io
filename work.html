@@ -215,6 +215,11 @@ img{max-width:100%;height:auto;display:block}
 .rte .ql-indent-1{padding-left:2em}
 .rte .ql-indent-2{padding-left:4em}
 
+/* ── BLOCKS (page builder) ── */
+.blk{padding:0 var(--pad) 72px}
+.blk-callout{text-align:center}
+.blk-text-cols{display:grid;gap:48px}
+
 /* ── COLLATERAL GRID (fallback/general) ── */
 .col-section{padding:0 var(--pad) 80px}
 .col-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:16px}
@@ -294,6 +299,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
   .ofnoah-squares-inner img{flex:0 0 calc(50% - 4px)}
   .ofnoah-mixed{grid-template-columns:1fr}
   .ma-writeup-2col{grid-template-columns:1fr}
+  .blk-text-cols{grid-template-columns:1fr!important}
   .ma-thumb-row{display:grid;grid-template-columns:repeat(3,1fr);overflow-x:visible;gap:6px}
   .ma-thumb-item{width:100%;height:auto;aspect-ratio:3/2}
   .proj-rail-inner{grid-template-columns:1fr}
@@ -500,11 +506,86 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);padding
     </div>`;
   }
 
+  // ── BLOCK RENDERER (page-builder output) ──
+  function renderBlocks(blocks) {
+    // Register lightbox pools for image blocks up front
+    blocks.forEach(b => {
+      if(b.type==='image' && b.lightbox && b.url)
+        LB_POOLS['blk_'+b.id] = [{url:b.url, caption:b.caption||''}];
+      if(b.type==='image-row' && b.lightbox)
+        LB_POOLS['blk_'+b.id] = (b.images||[]).filter(im=>im.url).map(im=>({url:im.url,caption:im.caption||''}));
+    });
+    return blocks.map(renderBlock).filter(Boolean).join('');
+  }
+
+  function renderBlock(b) {
+    const mw = w => ({full:'none',wide:'1075px',medium:'720px',narrow:'560px',small:'400px'}[w]||'none');
+    const mwStyle = w => { const v=mw(w); return v!=='none' ? `max-width:${v};margin:0 auto` : ''; };
+
+    switch(b.type) {
+      case 'video': {
+        const v = {url:b.url, type:b.videoType||'vimeo'};
+        const s = src(v);
+        if(!s && b.videoType!=='file') return '';
+        const player = s
+          ? `<div class="vid-wrap">${iframe(v)}</div>`
+          : `<div class="vid-wrap"><video src="${b.url}" controls playsinline></video></div>`;
+        return `<div class="blk"><div style="${mwStyle(b.width||'wide')}">${player}${b.caption?`<p class="vid-cap">${esc(b.caption)}</p>`:''}</div></div>`;
+      }
+      case 'callout': {
+        const sz = {xl:'clamp(28px,4vw,52px)',lg:'clamp(22px,3vw,40px)',md:'clamp(18px,2.5vw,28px)',sm:'18px'};
+        const fs = sz[b.size]||sz.xl;
+        const fw = (b.size==='xl'||b.size==='lg') ? '600' : '500';
+        const al = b.align==='left' ? 'left' : 'center';
+        return `<div class="blk blk-callout" style="text-align:${al}">
+          <p style="font-family:var(--display);font-size:${fs};font-weight:${fw};line-height:1.2;letter-spacing:-0.02em;color:var(--ink);max-width:900px;${al==='center'?'margin:0 auto':''}">${esc(b.text||'')}</p>
+        </div>`;
+      }
+      case 'text': {
+        const cols = Math.min(Math.max(+(b.columns)||1,1),3);
+        const html = renderHtml(b.html||'');
+        let inner;
+        if(cols===1) {
+          inner = `<div class="rte">${html}</div>`;
+        } else {
+          const parts = cols===2 ? splitHtmlCols(html) : splitHtmlThree(html);
+          inner = `<div class="blk-text-cols" style="grid-template-columns:repeat(${cols},1fr)">${parts.map(p=>`<div class="rte">${p}</div>`).join('')}</div>`;
+        }
+        return `<div class="blk"><div style="${mwStyle(b.width||'full')}">${inner}</div></div>`;
+      }
+      case 'image': {
+        if(!b.url) return '';
+        const click = b.lightbox ? `onclick="lbOpen('blk_${b.id}',0)" style="cursor:pointer"` : 'style=""';
+        return `<div class="blk"><div style="${mwStyle(b.width||'full')}">
+          <img src="${b.url}" alt="${esc(b.caption||'')}" ${click} loading="lazy">
+          ${b.caption?`<p class="vid-cap">${esc(b.caption)}</p>`:''}
+        </div></div>`;
+      }
+      case 'image-row': {
+        const imgs = (b.images||[]).filter(im=>im.url);
+        if(!imgs.length) return '';
+        const cols = b.columns||imgs.length;
+        const gap = {tight:'4px',normal:'12px',wide:'32px'}[b.gap]||'12px';
+        const imgsHtml = imgs.map((im,i)=>{
+          const click = b.lightbox ? `onclick="lbOpen('blk_${b.id}',${i})" style="cursor:pointer"` : 'style=""';
+          return `<div><img src="${im.url}" alt="${esc(im.caption||'')}" ${click} loading="lazy" style="width:100%;height:auto;display:block">${im.caption?`<p class="col-cap">${esc(im.caption)}</p>`:''}</div>`;
+        }).join('');
+        return `<div class="blk"><div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:${gap}">${imgsHtml}</div></div>`;
+      }
+      default: return '';
+    }
+  }
+
   // ── BUILD BODY ──
   let body = '';
 
+  /* BLOCKS: page-builder overrides all templates */
+  if (P.blocks && P.blocks.length > 0) {
+    body = renderBlocks(P.blocks);
+  }
+
   /* LUX: video → 3-col writeup → 2-col images */
-  if (tmpl === 'lux') {
+  else if (tmpl === 'lux') {
     const luxPool = [...cols];
     LB_POOLS['cols'] = luxPool;
     let lp1, lp2, lp3;

@@ -7,7 +7,7 @@ const PORTFOLIO_DATA = {
   "tagline": "Creative Direction · Copywriting · Strategy",
   "awardStrip": "Cannes · D&AD · Epica · One Show",
   "bio": [
-    "<p>I’m a Senior Creative with close to a decade of experience building integrated campaigns across finance, beauty, automotive, government, tech, FMCG, and lifestyle brands. My work spans social, experiential, digital, content, and brand storytelling, always with a focus on ideas that connect with people in meaningful ways.&nbsp;</p><p>I believe the best creative ideas should do more than look good on a slide. They should move people, shape culture, and create real impact for brands. That mindset has helped me contribute to award-winning work recognised at the Cannes Lions, Spikes Asia, D&amp;AD, The One Show, and more.</p><p>At my core, I’m a strategic creative who enjoys turning human truths into ideas that are sharp, culturally relevant, and commercially effective. Interested in building ideas beyond the pdf? Let's talk!</p><p><br></p>"
+    "<p>I have close to a decade of experience building integrated campaigns and brand initiatives across finance, beauty, automotive, government, tech, FMCG, and lifestyle industries. My background spans brand strategy, storytelling, social, experiential, digital content, and marketing communications, with a focus on ideas that connect with people in meaningful and commercially effective ways.</p><p>I’ve always believed strong ideas should do more than look good on a slide. They should shape perception, spark conversation, and create real impact. That mindset has allowed me to contribute to award-winning work recognised at the Cannes Lions, Spikes Asia, and The One Show.</p><p>At my core, I enjoy solving problems, understanding people, and turning insights into work that is thoughtful, culturally relevant, and effective. I thrive in collaborative environments where strategy, creativity, and good people come together to build meaningful ideas. Interested in building ideas beyond the pdf? Let's talk!</p>"
   ],
   "experience": [
     {
@@ -19,7 +19,7 @@ const PORTFOLIO_DATA = {
     {
       "company": "Bybit",
       "role": "Senior Copywriter · Marketing Comms Team Lead",
-      "clients": "Global crypto exchange ",
+      "clients": "In-house role in a global crypto exchange ",
       "period": "2021 – 2022"
     },
     {
@@ -42,6 +42,13 @@ const PORTFOLIO_DATA = {
     }
   ],
   "awards": [
+    {
+      "year": "2024",
+      "show": "MOB-EX Awards",
+      "tier": "Gold",
+      "category": "Best Campaign – B2C",
+      "brand": "HSBC"
+    },
     {
       "year": "2025",
       "show": "ADFEST",
@@ -298,8 +305,8 @@ const PORTFOLIO_DATA = {
       "gridSpan": 7,
       "thumbnailUrl": "images/lux-in-her-name/thumb.gif",
       "thumbnailType": "gif",
-      "description": "A social and influencer campaign shortlisted at Cannes Lions 2024 and awarded across Epica, Gong, London International Awards, Spikes Asia and The One Show.",
-      "fullDescription": "LUX tasked us with something culturally resonant — a campaign that spoke to women beyond product benefits. In Her Name put real women's stories at the heart of the work, earning a Cannes shortlist, a Gold at Epica, and recognition across ten international shows.",
+      "description": "<p>A social and influencer campaign shortlisted at Cannes Lions 2024 and awarded across Epica, Gong, London International Awards, Spikes Asia and The One Show.</p>",
+      "fullDescription": "<p>LUX tasked us with something culturally resonant — a campaign that spoke to women beyond product benefits. In Her Name put real women's stories at the heart of the work, earning a Cannes shortlist, a Gold at Epica, and recognition across ten international shows.</p>",
       "projectTemplate": "lux",
       "collaterals": [
         {
@@ -346,7 +353,9 @@ const PORTFOLIO_DATA = {
           "caption": "LUX — In Her Name"
         }
       ],
-      "active": true
+      "active": true,
+      "fullDescription2": "",
+      "fullDescription3": ""
     },
     {
       "id": "hsbc-mind-athletes",
@@ -655,7 +664,7 @@ const PORTFOLIO_DATA = {
       "brand": "HSBC",
       "title": "Choose What You Love",
       "subtitle": "A campaign empowering customers to put their money where their passions are",
-      "award": "",
+      "award": "EFFIES SILVER",
       "tags": [
         "Integrated",
         "Digital",
@@ -666,8 +675,8 @@ const PORTFOLIO_DATA = {
       "gridSpan": 4,
       "thumbnailUrl": "images/hsbc-choose-what-you-love/collateral-2.gif",
       "thumbnailType": "gif",
-      "description": "HSBC Choose What You Love put passion and personal values at the heart of financial decision-making.",
-      "fullDescription": "Choose What You Love repositioned HSBC's rewards proposition around what customers genuinely care about — not just cashback categories, but the things that define how they live. The campaign ran across digital, social and in-branch touchpoints.",
+      "description": "<p>HSBC Choose What You Love put passion and personal values at the heart of financial decision-making.</p>",
+      "fullDescription": "<p>Choose What You Love repositioned HSBC's rewards proposition around what customers genuinely care about — not just cashback categories, but the things that define how they live. The campaign ran across digital, social and in-branch touchpoints.</p>",
       "projectTemplate": "cwyl",
       "collaterals": [
         {

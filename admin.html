@@ -138,6 +138,22 @@ body{background:var(--paper);font-family:var(--body);font-size:14px;color:var(--
   .col-grid{grid-template-columns:1fr 1fr}
 }
 
+/* ── BLOCK EDITOR ── */
+.blk-ed-item{background:var(--paper);border:1.5px solid var(--light);margin-bottom:10px;transition:border-color 0.15s}
+.blk-ed-item:hover{border-color:#bbb}
+.blk-ed-header{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(0,0,0,0.025);border-bottom:1px solid var(--light)}
+.blk-ed-type{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);flex-shrink:0;min-width:88px}
+.blk-ed-preview{font-size:11px;color:var(--mid);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--mono)}
+.blk-ed-acts{display:flex;gap:5px;flex-shrink:0}
+.blk-ed-fields{padding:14px 16px 16px}
+.blk-add-wrap{position:relative;display:inline-block}
+.blk-add-menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--ink);min-width:170px;z-index:100;padding:6px 0;box-shadow:0 8px 24px rgba(0,0,0,0.18)}
+.blk-add-menu button{display:block;width:100%;text-align:left;padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:none;border:none;cursor:pointer;transition:background 0.15s;border-radius:0}
+.blk-add-menu button:hover{background:rgba(255,255,255,0.08);color:#fff}
+.blk-img-sub{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:center;margin-bottom:8px}
+.blk-img-sub input{padding:7px 10px;border:1.5px solid var(--light);font-family:var(--body);font-size:12px;background:var(--paper);outline:none;transition:border-color 0.18s;border-radius:0;width:100%}
+.blk-img-sub input:focus{border-color:var(--red)}
+
 /* ── QUILL RTE ── */
 .ql-container{font-family:var(--body);font-size:13px;border:none}
 .ql-toolbar.ql-snow{border:none;border-bottom:1px solid var(--light);padding:6px 8px;background:#f0efe9}
@@ -258,70 +274,38 @@ body{background:var(--paper);font-family:var(--body);font-size:14px;color:var(--
             <button class="btn btn-secondary btn-sm" onclick="closeEditor()">← Back to list</button>
           </div>
           <div class="tab-bar">
-            <div class="tab active" id="tbb-basic" onclick="switchTab('basic',this)">Basic Info</div>
-            <div class="tab" id="tbb-thumb" onclick="switchTab('thumb',this)">Thumbnail</div>
-            <div class="tab" id="tbb-media" onclick="switchTab('media',this)">Video</div>
-            <div class="tab" id="tbb-cols"  onclick="switchTab('cols',this)">Collaterals</div>
-            <div class="tab" id="tbb-thumbs" onclick="switchTab('thumbs',this)">Gallery Thumbs</div>
+            <div class="tab active" id="tbb-card"    onclick="switchTab('card',this)">Card</div>
+            <div class="tab"        id="tbb-page"    onclick="switchTab('page',this)">Page Content</div>
+            <div class="tab"        id="tbb-gallery" onclick="switchTab('gallery',this)">Gallery</div>
           </div>
-          <div id="tab-basic">
+
+          <!-- ── CARD TAB ── -->
+          <div id="tab-card">
             <div class="g2">
               <div class="fg"><label>Brand / Client</label><input type="text" id="e-brand"></div>
               <div class="fg"><label>Award Label (optional)</label><input type="text" id="e-award" placeholder="e.g. 5× MEA Gold 2025"></div>
               <div class="fg full"><label>Project Title</label><input type="text" id="e-title"></div>
-              <div class="fg full"><label>Subtitle (project page)</label><input type="text" id="e-subtitle"></div>
-              <div class="fg full"><label>Card Description (homepage card)</label><div class="rte-wrap"><div id="e-desc"></div></div></div>
-              <div class="fg full"><label>Write-up — Column 1</label><div class="rte-wrap"><div id="e-fulldesc"></div></div></div>
-              <div class="fg"><label>Project Page Template</label>
-                <select id="e-template" onchange="updateTemplateFields()">
-                  <option value="default">Default — videos → write-up → collaterals</option>
-                  <option value="lux">Lux — video → 3-col write-up → 2-col images</option>
-                  <option value="hsbc-mind-athletes">HSBC Mind Athletes — quote → video → 2-col write-up</option>
-                  <option value="writeup-then-video">Write-up → Video</option>
-                  <option value="writeup-left-video-right">Write-up Left / Video Right</option>
-                  <option value="video-left-writeup-right">Video Left / Write-up Right</option>
-                  <option value="writeup-left-video-right-row3">Write-up L / Video R + 3 below</option>
-                  <option value="video-left-writeup-right-row3">Video L / Write-up R + 3 below</option>
-                  <option value="two-videos-side-by-side">2 Videos Side-by-Side</option>
-                  <option value="prints-side-by-side">Prints Side-by-Side</option>
-                  <option value="mha">MHA — video → 2-col write-up → 3 prints</option>
-                  <option value="cwyl">CWYL — opening question → image viewer → split</option>
-                  <option value="ofnoah">ofNoah — custom layout</option>
-                  <option value="vivo">Vivo V15 — quote → blossom pink → social → PUBG</option>
-                  <option value="vw-prints">VW Prints — write-up left · gallery right</option>
-                </select>
-              </div>
+              <div class="fg full"><label>Subtitle (shown on project page)</label><input type="text" id="e-subtitle"></div>
+              <div class="fg full"><label>Card Description (homepage card only)</label><div class="rte-wrap"><div id="e-desc"></div></div></div>
               <div class="fg full"><label>Tags (comma-separated)</label><input type="text" id="e-tags" placeholder="Social, Integrated, Brand"></div>
             </div>
-            <!-- Extra write-up columns and template-specific fields sit OUTSIDE the grid
-                 to prevent any overlap with grid layout or Quill toolbars -->
-            <div id="wrap-fulldesc2" style="display:none;margin-top:14px">
-              <div class="fg"><label>Write-up — Column 2</label><div class="rte-wrap"><div id="e-fulldesc2"></div></div></div>
-            </div>
-            <div id="wrap-fulldesc3" style="display:none;margin-top:14px">
-              <div class="fg"><label>Write-up — Column 3</label><div class="rte-wrap"><div id="e-fulldesc3"></div></div></div>
-            </div>
-            <div id="field-quote" style="display:none;margin-top:14px">
-              <div class="fg"><label>Opening Quote</label><input type="text" id="e-quote" placeholder="e.g. The launch of the V15…"></div>
-            </div>
-            <div id="field-openingq" style="display:none;margin-top:14px">
-              <div class="fg"><label>Opening Question</label><input type="text" id="e-openingq" placeholder="Campaign quiz question…"></div>
-            </div>
-          </div>
-          <div id="tab-thumb" style="display:none">
+            <div class="divider"></div>
+            <p class="mini-label">Thumbnail</p>
             <div class="g2">
               <div class="fg full">
-                <label>Thumbnail URL</label>
-                <input type="text" id="e-thumburl" placeholder="images/project-thumb.webp  or  https://...">
-                <span class="hint">Relative path (e.g. images/file.webp) or full URL. Leave blank for colour placeholder.</span>
+                <label>Image URL</label>
+                <input type="text" id="e-thumburl" placeholder="images/project/thumb.webp">
+                <span class="hint">Relative path or full URL. Leave blank to use colour placeholder.</span>
               </div>
-              <div class="fg"><label>Thumbnail Type</label>
+              <div class="fg">
+                <label>Type</label>
                 <select id="e-thumbtype">
-                  <option value="image">Image (JPG / WebP / PNG)</option>
+                  <option value="image">Image (WebP / JPG / PNG)</option>
                   <option value="gif">GIF (animated)</option>
                 </select>
               </div>
-              <div class="fg"><label>Fallback Background Colour</label>
+              <div class="fg">
+                <label>Fallback Colour</label>
                 <div class="color-row">
                   <div class="swatch-box" id="e-swatch"><input type="color" id="e-colorpicker" value="#111111" oninput="syncColor(this.value)"></div>
                   <input type="text" id="e-color" value="#111111" oninput="syncSwatch(this.value)" style="flex:1">
@@ -329,24 +313,35 @@ body{background:var(--paper);font-family:var(--body);font-size:14px;color:var(--
               </div>
             </div>
           </div>
-          <div id="tab-media" style="display:none">
-            <p style="font-size:12px;color:var(--mid);margin-bottom:16px;font-family:var(--mono)">Add one or more videos. They display in order — first video appears first on the project page, before the write-up and collaterals.</p>
-            <div id="videos-list"></div>
-            <button class="btn btn-secondary btn-sm" onclick="addVideo()" style="margin-top:8px">+ Add Video</button>
+
+          <!-- ── PAGE CONTENT TAB ── -->
+          <div id="tab-page" style="display:none">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+              <p style="font-size:12px;color:var(--mid);font-family:var(--mono);line-height:1.6">Build the project page block by block. Blocks render in order — header, videos, text, images, callouts.</p>
+              <div class="blk-add-wrap">
+                <button class="btn btn-primary" onclick="toggleAddBlock(event)">+ Add Block ▾</button>
+                <div class="blk-add-menu" id="blk-add-menu" style="display:none">
+                  <button onclick="addBlock('video')">▶&nbsp; Video</button>
+                  <button onclick="addBlock('callout')">"&nbsp; Callout / Quote</button>
+                  <button onclick="addBlock('text')">¶&nbsp; Text Write-up</button>
+                  <button onclick="addBlock('image')">▭&nbsp; Single Image</button>
+                  <button onclick="addBlock('image-row')">▭▭ Image Row / Grid</button>
+                </div>
+              </div>
+            </div>
+            <div id="blocks-list"></div>
           </div>
-          <div id="tab-thumbs" style="display:none">
-            <p style="font-size:12px;color:var(--mid);margin-bottom:16px;font-family:var(--mono)">Toggle individual thumbnails on/off. Active ones appear in the Campaign Gallery row on the project page. Add new ones with a URL and caption.</p>
+
+          <!-- ── GALLERY TAB ── -->
+          <div id="tab-gallery" style="display:none">
+            <p style="font-size:12px;color:var(--mid);margin-bottom:16px;font-family:var(--mono)">Toggle individual thumbnails on/off. Active ones appear in the Campaign Gallery strip on the project page.</p>
             <div id="thumbs-list"></div>
             <button class="btn btn-secondary btn-sm" onclick="addThumb()" style="margin-top:8px">+ Add Thumbnail</button>
           </div>
-          <div id="tab-cols" style="display:none">
-            <p style="font-size:12px;color:var(--mid);margin-bottom:14px;font-family:var(--mono)">Add images, GIFs or short clips. Each opens in a lightbox on the live site.</p>
-            <div id="cols-list"></div>
-            <button class="btn btn-secondary btn-sm" onclick="addCol()" style="margin-top:8px">+ Add Collateral</button>
-          </div>
+
           <div class="btn-group">
             <button class="btn btn-primary" onclick="saveProject()">Save Project</button>
-            <button class="btn btn-danger" onclick="deleteProject()">Delete Project</button>
+            <button class="btn btn-danger"  onclick="deleteProject()">Delete Project</button>
           </div>
         </div>
       </div>
@@ -643,8 +638,7 @@ window.addProject = ()=>{
     id:'project-'+Date.now(), brand:'', title:'New Project', subtitle:'', award:'',
     tags:[], placeholderColor:'#111111', gridSpan:6,
     thumbnailUrl:'', thumbnailType:'image', projectTemplate:'default',
-    description:'', fullDescription:'',
-    videos:[], collaterals:[]
+    description:'', blocks:[]
   });
   editProject(S.projects.length-1);
 };
@@ -655,69 +649,43 @@ window.editProject = i => {
   $('view-list').style.display   = 'none';
   $('view-editor').style.display = 'block';
   $('editor-heading').textContent = 'Editing: ' + (p.title || 'New Project');
-  /* Basic fields */
-  $('e-brand').value     = p.brand           || '';
-  $('e-award').value     = p.award           || '';
-  $('e-title').value     = p.title           || '';
-  $('e-subtitle').value  = p.subtitle        || '';
-  $('e-template').value  = p.projectTemplate || 'default';
+  /* Card tab fields */
+  $('e-brand').value     = p.brand    || '';
+  $('e-award').value     = p.award    || '';
+  $('e-title').value     = p.title    || '';
+  $('e-subtitle').value  = p.subtitle || '';
   $('e-tags').value      = (p.tags||[]).join(', ');
-  /* Write-up RTEs — init col1 always; col2/col3 initialised lazily by updateTemplateFields() */
-  initRTE('e-desc',     p.description     || '', 'Short description shown on the homepage card…');
-  initRTE('e-fulldesc', p.fullDescription || '', 'Write-up — column 1…');
-  /* Template-specific text fields */
-  $('e-quote').value     = p.quote           || '';
-  $('e-openingq').value  = p.openingQuestion || '';
-  /* Show/hide extra fields + lazy-init col2/col3 based on template */
-  updateTemplateFields();
-  /* Thumbnail tab */
-  $('e-thumburl').value  = p.thumbnailUrl    || '';
-  $('e-thumbtype').value = p.thumbnailType   || 'image';
+  initRTE('e-desc', p.description || '', 'Short description shown on the homepage card…');
+  /* Thumbnail */
+  $('e-thumburl').value  = p.thumbnailUrl   || '';
+  $('e-thumbtype').value = p.thumbnailType  || 'image';
   const col = p.placeholderColor || '#111111';
   $('e-color').value = $('e-colorpicker').value = col;
   $('e-swatch').style.background = col;
-  renderVideos();
-  renderCols();
+  /* Tabs */
   renderThumbs();
-  switchTab('basic', $('tbb-basic'));
-};
-
-/* Show/hide write-up columns and template-specific fields based on template */
-const TEMPLATE_COLS = { 'lux':3, 'hsbc-mind-athletes':2, 'mha':2, 'ofnoah':2, 'vivo':2 };
-const TEMPLATE_QUOTE    = ['vivo','hsbc-mind-athletes'];
-const TEMPLATE_OPENINGQ = ['cwyl'];
-window.updateTemplateFields = function(){
-  const tmpl = ($('e-template')||{}).value || '';
-  const cols  = TEMPLATE_COLS[tmpl] || 1;
-  const w2 = $('wrap-fulldesc2'), w3 = $('wrap-fulldesc3');
-  const fq = $('field-quote'),    fo = $('field-openingq');
-  const show2 = cols >= 2, show3 = cols >= 3;
-  if(w2) w2.style.display = show2 ? 'block' : 'none';
-  if(w3) w3.style.display = show3 ? 'block' : 'none';
-  if(fq) fq.style.display = TEMPLATE_QUOTE.includes(tmpl)    ? 'block' : 'none';
-  if(fo) fo.style.display = TEMPLATE_OPENINGQ.includes(tmpl) ? 'block' : 'none';
-  /* Lazy init: only initialise RTE when its container becomes visible */
-  if(show2 && editIdx >= 0){
-    const p2 = S.projects[editIdx];
-    initRTE('e-fulldesc2', p2.fullDescription2 || '', 'Write-up — column 2…');
-  }
-  if(show3 && editIdx >= 0){
-    const p3 = S.projects[editIdx];
-    initRTE('e-fulldesc3', p3.fullDescription3 || '', 'Write-up — column 3…');
-  }
+  switchTab('card', $('tbb-card'));
 };
 
 window.closeEditor = ()=>{
-  /* Reset editIdx BEFORE hiding, so any subsequent flushAll()
-     (e.g. triggered by showSec on section switch) doesn't write
-     stale editor DOM data into the wrong project after a reorder. */
   editIdx = -1;
   $('view-editor').style.display = 'none';
   $('view-list').style.display   = 'block';
   renderList();
 };
 
-/* Read the current project editor state into S.projects[editIdx] */
+/* ── TABS ── */
+window.switchTab = (key, btn) => {
+  ['card','page','gallery'].forEach(t => {
+    const el = $('tab-'+t); if(el) el.style.display = t===key ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab-bar .tab').forEach(t => t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  /* Render blocks when switching to page tab */
+  if(key === 'page') renderBlocksEditor();
+};
+
+/* ── FLUSH PROJECT FROM DOM ── */
 function flushProjectFromDOM(){
   if(editIdx < 0) return;
   const p = S.projects[editIdx];
@@ -725,46 +693,13 @@ function flushProjectFromDOM(){
   p.award            = $('e-award').value.trim();
   p.title            = $('e-title').value.trim();
   p.subtitle         = $('e-subtitle').value.trim();
-  p.description     = getQuillHtml('e-desc');
-  p.fullDescription = getQuillHtml('e-fulldesc');
-  /* Only read extra columns when their containers are visible — prevents stale content from
-     a previously-edited project contaminating a 1-col project */
-  const w2 = $('wrap-fulldesc2'), w3 = $('wrap-fulldesc3');
-  const fq = $('field-quote'),    fo = $('field-openingq');
-  if(w2 && w2.style.display !== 'none') p.fullDescription2 = getQuillHtml('e-fulldesc2');
-  if(w3 && w3.style.display !== 'none') p.fullDescription3 = getQuillHtml('e-fulldesc3');
-  p.projectTemplate = $('e-template').value;
-  if(fq && fq.style.display !== 'none') p.quote            = $('e-quote').value.trim();
-  if(fo && fo.style.display !== 'none') p.openingQuestion  = $('e-openingq').value.trim();
+  p.description      = getQuillHtml('e-desc');
   p.tags             = $('e-tags').value.split(',').map(t=>t.trim()).filter(Boolean);
   p.thumbnailUrl     = $('e-thumburl').value.trim();
   p.thumbnailType    = $('e-thumbtype').value;
   p.placeholderColor = $('e-color').value.trim() || '#111111';
-  /* Videos */
-  const vidRows = document.querySelectorAll('#videos-list .vid-row');
-  if(vidRows.length || p.videos){
-    p.videos = [];
-    vidRows.forEach(row=>{
-      const url = row.querySelector('.vid-url').value.trim();
-      if(url) p.videos.push({url, type:row.querySelector('.vid-type').value, caption:row.querySelector('.vid-cap-inp').value.trim()});
-    });
-  }
-  /* Collaterals */
-  const colRows = document.querySelectorAll('#cols-list .col-row');
-  if(colRows.length || p.collaterals){
-    p.collaterals = [];
-    colRows.forEach(row=>{
-      p.collaterals.push({
-        type:        row.querySelector('.col-type').value,
-        url:         row.querySelector('.col-url').value.trim(),
-        caption:     row.querySelector('.col-cap-inp').value.trim(),
-        orientation: row.querySelector('.col-orient').value
-      });
-    });
-  }
-  /* Thumbnails */
+  flushBlocksFromDOM();
   flushThumbsFromDOM();
-  /* Auto-slug */
   if(!p.id || p.id.startsWith('project-')){
     const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
     if(slug) p.id = slug;
@@ -775,7 +710,7 @@ window.saveProject = ()=>{
   if(editIdx < 0){ toast('No project selected.','error'); return; }
   flushProjectFromDOM();
   $('editor-heading').textContent = 'Editing: ' + S.projects[editIdx].title;
-  toast('Project "' + S.projects[editIdx].title + '" saved — generate data.js to publish.');
+  toast('Project "' + S.projects[editIdx].title + '" saved — export to publish.');
 };
 
 window.deleteProject = ()=>{
@@ -788,118 +723,295 @@ window.deleteProject = ()=>{
 };
 
 /* ═══════════════════════════════════════
-   COLLATERALS
+   BLOCK EDITOR
 ═══════════════════════════════════════ */
-function renderCols(){
-  const cols = editIdx >= 0 ? (S.projects[editIdx].collaterals||[]) : [];
-  $('cols-list').innerHTML = cols.map((c,i) => `
-    <div class="col-row">
-      <div class="col-row-head">
-        <span class="col-row-num">#${i+1}</span>
-        <button class="btn btn-danger btn-sm" onclick="removeCol(${i})">Remove</button>
-      </div>
-      <div class="col-grid">
-        <div class="fg"><label>Type</label>
-          <select class="col-type">
-            <option value="image" ${c.type==='image'?'selected':''}>Image</option>
-            <option value="gif"   ${c.type==='gif'  ?'selected':''}>GIF</option>
-            <option value="video" ${c.type==='video'?'selected':''}>Video clip</option>
-          </select></div>
-        <div class="fg"><label>URL / File Path</label>
-          <input type="text" class="col-url" value="${escA(c.url||'')}" placeholder="images/file.webp"></div>
-        <div class="fg"><label>Caption</label>
-          <input type="text" class="col-cap-inp" value="${escA(c.caption||'')}" placeholder="e.g. Key visual"></div>
-        <div class="fg"><label>Orientation</label>
-          <select class="col-orient">
-            <option value="landscape" ${(c.orientation||'landscape')==='landscape'?'selected':''}>Landscape 16:9</option>
-            <option value="portrait"  ${c.orientation==='portrait' ?'selected':''}>Portrait 4:5</option>
-            <option value="square"    ${c.orientation==='square'   ?'selected':''}>Square 1:1</option>
-          </select></div>
-      </div>
-    </div>`).join('');
+const BLOCK_QUILTS = {};
+
+function initBlockRTE(blkId, html){
+  const el = document.getElementById('blk-rte-'+blkId);
+  if(!el) return;
+  if(BLOCK_QUILTS[blkId]){ BLOCK_QUILTS[blkId].root.innerHTML = html||''; return; }
+  const q = new Quill(el, {theme:'snow', placeholder:'Write here…', modules:{toolbar:QUILL_TOOLBAR}});
+  q.root.innerHTML = html||'';
+  BLOCK_QUILTS[blkId] = q;
+}
+function getBlockRTEHtml(blkId){
+  const q = BLOCK_QUILTS[blkId]; if(!q) return '';
+  const h = q.root.innerHTML;
+  return (h==='<p><br></p>'||h==='<p></p>') ? '' : h;
 }
 
-window.addCol = ()=>{
-  if(editIdx < 0) return;
-  S.projects[editIdx].collaterals.push({type:'image',url:'',caption:'',orientation:'landscape'});
-  renderCols();
-};
-window.removeCol = i=>{
-  if(editIdx < 0) return;
-  /* Read current DOM state first so we don't lose unsaved edits in other rows */
-  document.querySelectorAll('#cols-list .col-row').forEach((row,ri)=>{
-    if(ri < S.projects[editIdx].collaterals.length){
-      S.projects[editIdx].collaterals[ri] = {
-        type:        row.querySelector('.col-type').value,
-        url:         row.querySelector('.col-url').value,
-        caption:     row.querySelector('.col-cap-inp').value,
-        orientation: row.querySelector('.col-orient').value
-      };
-    }
-  });
-  S.projects[editIdx].collaterals.splice(i, 1);
-  renderCols();
-};
+function blkLabel(type){
+  return {video:'▶ Video',callout:'" Callout',text:'¶ Text',image:'▭ Image','image-row':'▭▭ Image Row'}[type]||type;
+}
+function blkPreview(b){
+  if(b.type==='video')     return b.url ? b.url.replace(/https?:\/\//,'').slice(0,50) : '—';
+  if(b.type==='callout')   return b.text ? b.text.slice(0,60)+(b.text.length>60?'…':'') : '—';
+  if(b.type==='text')      return b.html ? b.html.replace(/<[^>]+>/g,'').slice(0,60)+'…' : '—';
+  if(b.type==='image')     return b.url ? b.url.split('/').pop() : '—';
+  if(b.type==='image-row') return `${(b.images||[]).length} image(s)`;
+  return '';
+}
 
-/* ═══════════════════════════════════════
-   VIDEOS
-═══════════════════════════════════════ */
-function renderVideos(){
-  if(editIdx<0){$('videos-list').innerHTML='';return;}
-  const vids=S.projects[editIdx].videos||[];
-  $('videos-list').innerHTML=vids.map((v,i)=>`
-    <div class="vid-row" style="background:var(--paper);padding:12px 14px;margin-bottom:8px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <span style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:0.12em;text-transform:uppercase">Video ${i+1}</span>
-        <button class="btn btn-danger btn-sm" onclick="removeVid(${i})">Remove</button>
-      </div>
+function renderBlockEditorItem(b, bi, total){
+  const id = b.id;
+  const sel = (val, cur) => val===cur ? 'selected' : '';
+  const isFirst = bi===0, isLast = bi===total-1;
+
+  const header = `<div class="blk-ed-header">
+    <span class="blk-ed-type">${blkLabel(b.type)}</span>
+    <span class="blk-ed-preview">${blkPreview(b)}</span>
+    <div class="blk-ed-acts">
+      <button class="btn-move" onclick="moveBlock('${id}',-1)"${isFirst?' disabled':''} title="Move up">↑</button>
+      <button class="btn-move" onclick="moveBlock('${id}',1)"${isLast?' disabled':''} title="Move down">↓</button>
+      <button class="btn btn-danger btn-sm" onclick="removeBlock('${id}')">✕</button>
+    </div>
+  </div>`;
+
+  let fields = '';
+
+  if(b.type==='video'){
+    fields = `<div class="g2" style="margin-top:0">
+      <div class="fg full"><label>Video URL</label><input type="text" id="blk-url-${id}" value="${escA(b.url||'')}" placeholder="https://vimeo.com/… or https://youtu.be/…"></div>
+      <div class="fg"><label>Platform</label><select id="blk-vtype-${id}">
+        <option value="vimeo" ${sel(b.videoType,'vimeo')}>Vimeo</option>
+        <option value="youtube" ${sel(b.videoType,'youtube')}>YouTube</option>
+        <option value="file" ${sel(b.videoType,'file')}>Direct file</option>
+      </select></div>
+      <div class="fg"><label>Width</label><select id="blk-width-${id}">
+        <option value="full" ${sel(b.width||'wide','full')}>Full page</option>
+        <option value="wide" ${sel(b.width||'wide','wide')}>Wide — 1075px</option>
+        <option value="medium" ${sel(b.width,'medium')}>Medium — 720px</option>
+        <option value="narrow" ${sel(b.width,'narrow')}>Narrow — 560px</option>
+      </select></div>
+      <div class="fg full"><label>Caption (optional)</label><input type="text" id="blk-cap-${id}" value="${escA(b.caption||'')}"></div>
+    </div>`;
+  }
+
+  else if(b.type==='callout'){
+    fields = `<div style="margin-top:0">
+      <div class="fg" style="margin-bottom:12px"><label>Text</label>
+        <textarea id="blk-text-${id}" style="min-height:56px;resize:vertical" placeholder="Your callout or quote…">${escA(b.text||'')}</textarea></div>
       <div class="g2">
-        <div class="fg full"><label>URL (Vimeo / YouTube)</label>
-          <input type="text" class="vid-url" value="${escA(v.url||'')}" placeholder="https://vimeo.com/..."></div>
-        <div class="fg"><label>Type</label>
-          <select class="vid-type">
-            <option value="vimeo"   ${v.type==='vimeo'  ?'selected':''}>Vimeo</option>
-            <option value="youtube" ${v.type==='youtube'?'selected':''}>YouTube</option>
-            <option value="file"    ${v.type==='file'   ?'selected':''}>Direct file</option>
-          </select></div>
-        <div class="fg"><label>Caption</label>
-          <input type="text" class="vid-cap-inp" value="${escA(v.caption||'')}" placeholder="Film title or note"></div>
+        <div class="fg"><label>Size</label><select id="blk-size-${id}">
+          <option value="xl" ${sel(b.size||'xl','xl')}>XL — clamp(28→52px)</option>
+          <option value="lg" ${sel(b.size,'lg')}>L — clamp(22→40px)</option>
+          <option value="md" ${sel(b.size,'md')}>M — clamp(18→28px)</option>
+          <option value="sm" ${sel(b.size,'sm')}>S — 18px</option>
+        </select></div>
+        <div class="fg"><label>Alignment</label><select id="blk-align-${id}">
+          <option value="center" ${sel(b.align||'center','center')}>Centre</option>
+          <option value="left" ${sel(b.align,'left')}>Left</option>
+        </select></div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }
+
+  else if(b.type==='text'){
+    fields = `<div style="margin-top:0">
+      <div class="fg" style="margin-bottom:12px"><label>Write-up</label>
+        <div class="rte-wrap"><div id="blk-rte-${id}"></div></div></div>
+      <div class="g2">
+        <div class="fg"><label>Columns</label><select id="blk-cols-${id}">
+          <option value="1" ${sel(+(b.columns||1),1)}>1 column</option>
+          <option value="2" ${sel(+(b.columns),2)}>2 columns</option>
+          <option value="3" ${sel(+(b.columns),3)}>3 columns</option>
+        </select></div>
+        <div class="fg"><label>Max width</label><select id="blk-width-${id}">
+          <option value="full" ${sel(b.width||'full','full')}>Full</option>
+          <option value="wide" ${sel(b.width,'wide')}>Wide — 960px</option>
+          <option value="medium" ${sel(b.width,'medium')}>Medium — 720px</option>
+          <option value="narrow" ${sel(b.width,'narrow')}>Narrow — 560px</option>
+        </select></div>
+      </div>
+    </div>`;
+  }
+
+  else if(b.type==='image'){
+    fields = `<div class="g2" style="margin-top:0">
+      <div class="fg full"><label>Image URL / path</label><input type="text" id="blk-url-${id}" value="${escA(b.url||'')}" placeholder="images/project/image.webp"></div>
+      <div class="fg"><label>Width</label><select id="blk-width-${id}">
+        <option value="full" ${sel(b.width||'full','full')}>Full page</option>
+        <option value="wide" ${sel(b.width,'wide')}>Wide — 1075px</option>
+        <option value="medium" ${sel(b.width,'medium')}>Medium — 720px</option>
+        <option value="small" ${sel(b.width,'small')}>Small — 400px</option>
+      </select></div>
+      <div class="fg" style="display:flex;align-items:center;gap:8px;padding-top:22px">
+        <input type="checkbox" id="blk-lbox-${id}" ${b.lightbox!==false?'checked':''}>
+        <label for="blk-lbox-${id}" style="text-transform:none;letter-spacing:0;font-size:12px;cursor:pointer;margin:0">Open in lightbox</label>
+      </div>
+      <div class="fg full"><label>Caption (optional)</label><input type="text" id="blk-cap-${id}" value="${escA(b.caption||'')}"></div>
+    </div>`;
+  }
+
+  else if(b.type==='image-row'){
+    const imgItems = (b.images||[]).map((im,ii)=>`
+      <div class="blk-img-sub" data-blk-img-id="${id}">
+        <input type="text" class="blk-img-url" value="${escA(im.url||'')}" placeholder="Image URL">
+        <input type="text" class="blk-img-cap" value="${escA(im.caption||'')}" placeholder="Caption (optional)">
+        <button class="btn btn-danger btn-sm" onclick="removeBlockImage('${id}',${ii})">✕</button>
+      </div>`).join('');
+    fields = `<div style="margin-top:0">
+      <div class="g2" style="margin-bottom:14px">
+        <div class="fg"><label>Columns</label><select id="blk-cols-${id}">
+          <option value="2" ${sel(+(b.columns||2),2)}>2</option>
+          <option value="3" ${sel(+(b.columns),3)}>3</option>
+          <option value="4" ${sel(+(b.columns),4)}>4</option>
+        </select></div>
+        <div class="fg"><label>Gap</label><select id="blk-gap-${id}">
+          <option value="tight" ${sel(b.gap,'tight')}>Tight — 4px</option>
+          <option value="normal" ${sel(b.gap||'normal','normal')}>Normal — 12px</option>
+          <option value="wide" ${sel(b.gap,'wide')}>Wide — 32px</option>
+        </select></div>
+        <div class="fg" style="display:flex;align-items:center;gap:8px;padding-top:22px">
+          <input type="checkbox" id="blk-lbox-${id}" ${b.lightbox!==false?'checked':''}>
+          <label for="blk-lbox-${id}" style="text-transform:none;letter-spacing:0;font-size:12px;cursor:pointer;margin:0">Lightbox</label>
+        </div>
+      </div>
+      <p class="mini-label" style="margin-top:0;margin-bottom:8px">Images</p>
+      <div id="blk-imgs-${id}">${imgItems}</div>
+      <button class="btn btn-secondary btn-sm" style="margin-top:6px" onclick="addBlockImage('${id}')">+ Add Image</button>
+    </div>`;
+  }
+
+  return `<div class="blk-ed-item" data-blk-id="${id}">
+    ${header}
+    <div class="blk-ed-fields">${fields}</div>
+  </div>`;
 }
-function flushVideosFromDOM(){
-  if(editIdx<0) return;
-  const rows=[];
-  document.querySelectorAll('#videos-list .vid-row').forEach(row=>{
-    const url=row.querySelector('.vid-url').value.trim();
-    if(url) rows.push({url,type:row.querySelector('.vid-type').value,caption:row.querySelector('.vid-cap-inp').value.trim()});
+
+function renderBlocksEditor(){
+  if(editIdx < 0) return;
+  const p = S.projects[editIdx];
+  const blocks = p.blocks || [];
+  const container = $('blocks-list');
+  if(!container) return;
+
+  if(!blocks.length){
+    container.innerHTML = '<p style="font-size:12px;color:var(--mid);padding:20px 0;font-family:var(--mono);text-align:center">No blocks yet — use "+ Add Block" to start building.</p>';
+    return;
+  }
+
+  container.innerHTML = blocks.map((b,bi) => renderBlockEditorItem(b, bi, blocks.length)).join('');
+
+  /* Init Quill for text blocks after DOM is ready */
+  blocks.forEach(b => {
+    if(b.type==='text') setTimeout(() => initBlockRTE(b.id, b.html||''), 0);
   });
-  S.projects[editIdx].videos=rows;
 }
-window.addVideo=()=>{
-  if(editIdx<0) return;
-  flushVideosFromDOM();
-  if(!S.projects[editIdx].videos) S.projects[editIdx].videos=[];
-  S.projects[editIdx].videos.push({url:'',type:'vimeo',caption:''});
-  renderVideos();
+
+function flushBlockFromDOM(b){
+  const id = b.id;
+  const g  = s => document.getElementById('blk-'+s+'-'+id);
+  switch(b.type){
+    case 'video':
+      if(g('url'))   b.url       = g('url').value.trim();
+      if(g('vtype')) b.videoType = g('vtype').value;
+      if(g('width')) b.width     = g('width').value;
+      if(g('cap'))   b.caption   = g('cap').value.trim();
+      break;
+    case 'callout':
+      if(g('text'))  b.text  = g('text').value.trim();
+      if(g('size'))  b.size  = g('size').value;
+      if(g('align')) b.align = g('align').value;
+      break;
+    case 'text':
+      b.html = getBlockRTEHtml(id);
+      if(g('cols'))  b.columns = +g('cols').value;
+      if(g('width')) b.width   = g('width').value;
+      break;
+    case 'image':
+      if(g('url'))   b.url      = g('url').value.trim();
+      if(g('width')) b.width    = g('width').value;
+      if(g('cap'))   b.caption  = g('cap').value.trim();
+      if(g('lbox'))  b.lightbox = g('lbox').checked;
+      break;
+    case 'image-row':
+      if(g('cols')) b.columns  = +g('cols').value;
+      if(g('gap'))  b.gap      = g('gap').value;
+      if(g('lbox')) b.lightbox = g('lbox').checked;
+      b.images = Array.from(document.querySelectorAll(`[data-blk-img-id="${id}"]`))
+        .map(row => ({
+          url:     (row.querySelector('.blk-img-url')||{}).value||'',
+          caption: (row.querySelector('.blk-img-cap')||{}).value||''
+        })).filter(im => im.url.trim());
+      break;
+  }
+}
+
+function flushBlocksFromDOM(){
+  if(editIdx < 0) return;
+  (S.projects[editIdx].blocks||[]).forEach(b => flushBlockFromDOM(b));
+}
+
+/* Block add menu toggle */
+window.toggleAddBlock = e => {
+  e.stopPropagation();
+  const m = $('blk-add-menu');
+  m.style.display = m.style.display==='none' ? 'block' : 'none';
 };
-window.removeVid=i=>{
-  if(editIdx<0) return;
-  flushVideosFromDOM();
-  S.projects[editIdx].videos.splice(i,1);
-  renderVideos();
+document.addEventListener('click', () => {
+  const m = $('blk-add-menu'); if(m) m.style.display='none';
+});
+
+/* Block CRUD */
+window.addBlock = type => {
+  if(editIdx < 0) return;
+  flushBlocksFromDOM();
+  const id = 'b'+Date.now();
+  const defaults = {
+    video:       {id, type:'video',     url:'', videoType:'vimeo', caption:'', width:'wide'},
+    callout:     {id, type:'callout',   text:'', size:'xl', align:'center'},
+    text:        {id, type:'text',      html:'', columns:1, width:'full'},
+    image:       {id, type:'image',     url:'', caption:'', width:'full', lightbox:true},
+    'image-row': {id, type:'image-row', images:[{url:'',caption:''},{url:'',caption:''}], columns:2, gap:'normal', lightbox:true},
+  };
+  const p = S.projects[editIdx];
+  if(!p.blocks) p.blocks = [];
+  p.blocks.push(defaults[type]||{id,type});
+  $('blk-add-menu').style.display = 'none';
+  renderBlocksEditor();
 };
 
-/* ═══════════════════════════════════════
-   TABS
-═══════════════════════════════════════ */
-window.switchTab = (key, btn)=>{
-  ['basic','thumb','media','cols','thumbs'].forEach(t=>{
-    const el = $('tab-'+t); if(el) el.style.display = t===key ? 'block' : 'none';
-  });
-  document.querySelectorAll('.tab-bar .tab').forEach(t=>t.classList.remove('active'));
-  if(btn) btn.classList.add('active');
+window.removeBlock = blkId => {
+  if(editIdx < 0) return;
+  flushBlocksFromDOM();
+  const p = S.projects[editIdx];
+  p.blocks = (p.blocks||[]).filter(b => b.id !== blkId);
+  renderBlocksEditor();
 };
+
+window.moveBlock = (blkId, dir) => {
+  if(editIdx < 0) return;
+  flushBlocksFromDOM();
+  const blocks = S.projects[editIdx].blocks||[];
+  const i = blocks.findIndex(b => b.id===blkId);
+  if(i < 0) return;
+  const ni = i+dir;
+  if(ni < 0 || ni >= blocks.length) return;
+  [blocks[i], blocks[ni]] = [blocks[ni], blocks[i]];
+  renderBlocksEditor();
+};
+
+window.addBlockImage = blkId => {
+  if(editIdx < 0) return;
+  flushBlocksFromDOM();
+  const b = (S.projects[editIdx].blocks||[]).find(b=>b.id===blkId);
+  if(!b) return;
+  if(!b.images) b.images=[];
+  b.images.push({url:'',caption:''});
+  renderBlocksEditor();
+};
+
+window.removeBlockImage = (blkId, imgIdx) => {
+  if(editIdx < 0) return;
+  flushBlocksFromDOM();
+  const b = (S.projects[editIdx].blocks||[]).find(b=>b.id===blkId);
+  if(!b||!b.images) return;
+  b.images.splice(imgIdx,1);
+  renderBlocksEditor();
+};
+
 
 window.syncColor  = v=>{ $('e-color').value=v; $('e-swatch').style.background=v; };
 window.syncSwatch = v=>{ if(/^#[0-9a-f]{6}$/i.test(v)){ $('e-colorpicker').value=v; $('e-swatch').style.background=v; } };
