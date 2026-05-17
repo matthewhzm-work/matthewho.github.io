@@ -1005,14 +1005,6 @@ const PORTFOLIO_DATA = {
           "layout": "grid"
         },
         {
-          "id": "ba05",
-          "type": "image",
-          "url": "images/ofnoah-discreet-digital-clinic/standard-banner.gif",
-          "width": "full",
-          "lightbox": false,
-          "caption": ""
-        },
-        {
           "id": "ba04",
           "type": "image-row",
           "images": [
@@ -1192,7 +1184,7 @@ const PORTFOLIO_DATA = {
       "id": "mercedes-benz-eqc",
       "brand": "Mercedes-Benz",
       "title": "EQC",
-      "subtitle": "Launching Mercedes-Benz's first fully electric SUV into a market ready for something new",
+      "subtitle": "Life is all about connections that matter.",
       "award": "",
       "tags": [
         "Auto",
@@ -1204,7 +1196,7 @@ const PORTFOLIO_DATA = {
       "gridSpan": 6,
       "thumbnailUrl": "images/mercedes-benz-eqc/thumb.gif",
       "thumbnailType": "gif",
-      "description": "The Mercedes-Benz EQC launch — introducing the brand's first fully electric SUV to Southeast Asia with a campaign built around the thrill of a new kind of drive.",
+      "description": "<p>The Mercedes-Benz EQC launch — introducing the brand's first fully electric SUV to Southeast Asia with a campaign built around the thrill of a new kind of drive.</p>",
       "fullDescription": "The EQC was Mercedes-Benz's declaration that electric luxury had arrived. The launch campaign balanced the rational case for electric — range, efficiency, charging — with the emotional pull that makes a Mercedes desirable. A car that didn't ask you to sacrifice anything.",
       "projectTemplate": "writeup-left-video-right",
       "collaterals": [],
@@ -1222,7 +1214,7 @@ const PORTFOLIO_DATA = {
           "type": "split",
           "ratio": "50-50",
           "leftType": "text",
-          "leftHtml": "<p>The EQC was Mercedes-Benz's declaration that electric luxury had arrived. The launch campaign balanced the rational case for electric — range, efficiency, charging — with the emotional pull that makes a Mercedes desirable. A car that didn't ask you to sacrifice anything.</p>",
+          "leftHtml": "<p>For the Singapore launch of the Mercedes-Benz EQC, we needed to bridge the gap between aspiration and action — and do it in a way that felt human rather than clinical.</p><p>We followed Paul Foster, a known environmental advocate, to show how a life lived with purpose moves differently — and how the EQC moves with it.</p><p>Because the EQC was never just a car. It was a statement about the connections that matter: to the people around you, to the causes you champion, to the world you're trying to leave better than you found it.</p>",
           "leftLabel": "About the Work",
           "leftUrl": "",
           "leftVideoType": "vimeo",
@@ -1231,7 +1223,7 @@ const PORTFOLIO_DATA = {
           "rightType": "video",
           "rightUrl": "https://vimeo.com/651140992",
           "rightVideoType": "vimeo",
-          "rightLabel": "",
+          "rightLabel": "Launch Film",
           "rightHtml": "",
           "rightImages": [],
           "rightLightbox": true
@@ -1254,7 +1246,7 @@ const PORTFOLIO_DATA = {
       "gridSpan": 7,
       "thumbnailUrl": "images/mercedes-me-connect/thumb.gif",
       "thumbnailType": "gif",
-      "description": "A campaign for Mercedes me Connect — the app that puts the full intelligence of your Mercedes-Benz at your fingertips, wherever you are.",
+      "description": "<p>A campaign for Mercedes me Connect — the app that puts the full intelligence of your Mercedes-Benz at your fingertips, wherever you are.</p>",
       "fullDescription": "Mercedes me Connect extended the luxury experience beyond the car itself. The campaign showed how the app kept drivers connected to their vehicle — remote monitoring, service scheduling, location sharing — in a way that felt less like utility and more like peace of mind.",
       "projectTemplate": "two-videos-side-by-side",
       "collaterals": [],
@@ -1294,10 +1286,10 @@ const PORTFOLIO_DATA = {
         {
           "id": "b902",
           "type": "text",
-          "col1": "<p>Mercedes me Connect extended the luxury experience beyond the car itself. The campaign showed how the app kept drivers connected to their vehicle — remote monitoring, service scheduling, location sharing — in a way that felt less like utility and more like peace of mind.</p>",
-          "col2": "",
-          "col3": "",
-          "columns": 1,
+          "col1": "<p>Connectivity features are hard to sell. Lists of specs don't move people. Familiar faces do.</p>",
+          "col2": "<p>We enlisted local celebrities Rebecca Lim and Desmond Tan to show — not tell — how Mercedes Me Connect threads seamlessly through a day. Two people, two lives, one system quietly making everything run smoother.</p><p><br></p>",
+          "col3": "<p>Real moments. Recognisable faces. A product that finally felt like it belonged in your life.</p>",
+          "columns": 3,
           "width": "full"
         }
       ]
