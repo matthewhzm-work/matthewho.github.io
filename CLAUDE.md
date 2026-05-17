@@ -86,7 +86,7 @@ Desktop: ‹ › arrow buttons. Mobile: swipe only (buttons hidden).
 REMOVED everywhere — do not add it back to any file.
 
 ## GitHub Deployment
-Repo: github.com/matthewhzm-work/portfolio. Deploy from main branch via GitHub Pages.
+Repo: github.com/matthewhzm-work/matthewho.github.io. Deploy from main branch via GitHub Pages.
 Images uploaded via GitHub Desktop (not web UI — too slow for bulk).
 Custom domain: matthewho.work
 
