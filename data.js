@@ -1723,8 +1723,8 @@ const PORTFOLIO_DATA = {
     {
       "id": "volkswagen-prints",
       "brand": "Volkswagen",
-      "title": "Prints",
-      "subtitle": "A print campaign that proved a car ad doesn't need a car to sell the feeling",
+      "title": "100 Print Ads",
+      "subtitle": "An exercise in creativity and restraint.",
       "award": "",
       "tags": [
         "Print",
@@ -1736,7 +1736,7 @@ const PORTFOLIO_DATA = {
       "gridSpan": 5,
       "thumbnailUrl": "images/volkswagen-prints/thumb.webp",
       "thumbnailType": "image",
-      "description": "A print campaign for Volkswagen that let the idea do the driving — proving that the best automotive advertising doesn't always need to show the car.",
+      "description": "<p>100 ads. 2 weeks. A selection of the ones worth keeping.</p>",
       "fullDescription": "Volkswagen Prints was a lesson in restraint. The campaign trusted the idea over the asset, letting a strong visual concept carry the brand message without defaulting to the usual glamour shots. Work that rewarded the people paying attention.",
       "projectTemplate": "vw-prints",
       "collaterals": [
@@ -1822,7 +1822,7 @@ const PORTFOLIO_DATA = {
           "ratio": "40-60",
           "leftType": "text",
           "leftLabel": "About the Work",
-          "leftHtml": "<p>Volkswagen Prints was a lesson in restraint. The campaign trusted the idea over the asset, letting a strong visual concept carry the brand message without defaulting to the usual glamour shots. Work that rewarded the people paying attention.</p>",
+          "leftHtml": "<p>Most briefs ask for <strong>one</strong> big idea. This one asked for a <strong>hundred</strong>.</p><p>With Volkswagen pushing out weekly ads, we needed a pre-approved arsenal — 100 executions, 2 weeks, ready to deploy. Less a creative sprint, more a creative marathon.</p><p>Here are a few of my favourites from the pile.</p>",
           "leftUrl": "",
           "leftVideoType": "vimeo",
           "leftImages": [],
