@@ -585,7 +585,7 @@ const PORTFOLIO_DATA = {
               "caption": "Athlete portrait"
             }
           ],
-          "columns": 2,
+          "layout": "scroll",
           "gap": "normal",
           "lightbox": true
         },

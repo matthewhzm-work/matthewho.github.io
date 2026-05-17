@@ -997,6 +997,7 @@ function renderBlockEditorItem(b, bi, total){
   }
 
   else if(b.type==='image-row'){
+    const isScroll = (b.layout||'grid') === 'scroll';
     const imgItems = (b.images||[]).map((im,ii)=>`
       <div class="blk-img-sub" data-blk-img-id="${id}">
         <input type="text" class="blk-img-url" value="${escA(im.url||'')}" placeholder="Image URL">
@@ -1005,15 +1006,21 @@ function renderBlockEditorItem(b, bi, total){
       </div>`).join('');
     fields = `<div style="margin-top:0">
       <div class="g2" style="margin-bottom:14px">
-        <div class="fg"><label>Columns</label><select id="blk-cols-${id}">
-          <option value="2" ${sel(+(b.columns||2),2)}>2</option>
-          <option value="3" ${sel(+(b.columns),3)}>3</option>
-          <option value="4" ${sel(+(b.columns),4)}>4</option>
+        <div class="fg full"><label>Layout</label><select id="blk-layout-${id}" onchange="toggleIRLayout('${id}')">
+          <option value="grid" ${!isScroll?'selected':''}>Grid — fixed column count</option>
+          <option value="scroll" ${isScroll?'selected':''}>Scroll Row — horizontal strip</option>
         </select></div>
+        <div class="fg" id="blk-cols-wrap-${id}" ${isScroll?'style="display:none"':''}>
+          <label>Columns</label><select id="blk-cols-${id}">
+            <option value="2" ${sel(+(b.columns||2),2)}>2</option>
+            <option value="3" ${sel(+(b.columns),3)}>3</option>
+            <option value="4" ${sel(+(b.columns),4)}>4</option>
+          </select>
+        </div>
         <div class="fg"><label>Gap</label><select id="blk-gap-${id}">
           <option value="tight" ${sel(b.gap,'tight')}>Tight — 4px</option>
-          <option value="normal" ${sel(b.gap||'normal','normal')}>Normal — 12px</option>
-          <option value="wide" ${sel(b.gap,'wide')}>Wide — 32px</option>
+          <option value="normal" ${sel(b.gap||'normal','normal')}>Normal — 8px</option>
+          <option value="wide" ${sel(b.gap,'wide')}>Wide — 20px</option>
         </select></div>
         <div class="fg" style="display:flex;align-items:center;gap:8px;padding-top:22px">
           <input type="checkbox" id="blk-lbox-${id}" ${b.lightbox!==false?'checked':''}>
@@ -1122,9 +1129,10 @@ function flushBlockFromDOM(b){
       break;
 
     case 'image-row': {
-      if(g('cols')) b.columns  = +g('cols').value;
-      if(g('gap'))  b.gap      = g('gap').value;
-      if(g('lbox')) b.lightbox = g('lbox').checked;
+      if(g('layout')) b.layout   = g('layout').value;
+      if(g('cols'))   b.columns  = +g('cols').value;
+      if(g('gap'))    b.gap      = g('gap').value;
+      if(g('lbox'))   b.lightbox = g('lbox').checked;
       /* GUARD: only rebuild array when the container exists in DOM.
          Without this, querySelectorAll returns [] and wipes all images.
          No URL filter here — empty placeholder rows are stripped at
@@ -1229,7 +1237,7 @@ window.addBlock = type => {
     callout:        {id, type:'callout',      text:'', size:'xl', align:'center'},
     text:           {id, type:'text',         col1:'', col2:'', col3:'', columns:1, width:'full'},
     image:          {id, type:'image',        url:'', caption:'', width:'full', lightbox:true},
-    'image-row':    {id, type:'image-row',    images:[], columns:2, gap:'normal', lightbox:true},
+    'image-row':    {id, type:'image-row',    images:[], layout:'grid', columns:2, gap:'normal', lightbox:true},
     split:          {id, type:'split',        ratio:'50-50',
                      leftType:'text',  leftHtml:'',  leftLabel:'',  leftUrl:'',  leftVideoType:'vimeo',  leftImages:[],  leftLightbox:true,
                      rightType:'video', rightHtml:'', rightLabel:'', rightUrl:'', rightVideoType:'vimeo', rightImages:[], rightLightbox:true},
@@ -1337,6 +1345,14 @@ window.removeSplitImage = (blkId, side, imgIdx) => {
   if(!b[k]) return;
   b[k].splice(imgIdx, 1);
   renderBlocksEditor(true);
+};
+
+/* Toggle Columns dropdown visibility when image-row layout changes */
+window.toggleIRLayout = id => {
+  const layoutEl   = document.getElementById('blk-layout-'+id);
+  const colsWrapEl = document.getElementById('blk-cols-wrap-'+id);
+  if(layoutEl && colsWrapEl)
+    colsWrapEl.style.display = layoutEl.value === 'scroll' ? 'none' : '';
 };
 
 window.syncColor  = v=>{ $('e-color').value=v; $('e-swatch').style.background=v; };
