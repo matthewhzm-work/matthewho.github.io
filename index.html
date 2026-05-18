@@ -322,7 +322,6 @@ footer{
   }
   .nav-meta-awards{display:none}
   .nav-meta-sep{display:none}
-  #about{padding-top:calc(132px + 24px)}
   #work{padding-top:56px}
   /* Collapse to 2-col grid; project-col becomes invisible so cards flow into grid */
   .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--card-gap)}
@@ -453,6 +452,21 @@ footer{
   window.addEventListener('scroll', () => {
     $('main-nav').classList.toggle('scrolled', window.scrollY > 20);
   }, {passive:true});
+
+  /* ── Mobile bio padding: track actual nav height so #about clears it exactly ── */
+  function fixAboutPad() {
+    const nav = $('main-nav');
+    const about = document.getElementById('about');
+    if (!nav || !about) return;
+    if (window.innerWidth <= 900) {
+      about.style.paddingTop = (nav.offsetHeight + 24) + 'px';
+    } else {
+      about.style.paddingTop = '';
+    }
+  }
+  window.addEventListener('resize', fixAboutPad, {passive:true});
+  document.fonts.ready.then(fixAboutPad);
+  fixAboutPad();
 
   D.bio.forEach(p => {
     const el = document.createElement('div');
