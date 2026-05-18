@@ -86,7 +86,7 @@ nav.scrolled{
 /* ── WORK ── */
 #work{
   padding-top:72px;
-  padding-bottom:120px;
+  padding-bottom:72px;
 }
 .home-divider{margin:0 var(--pad) 36px;height:1px;background:var(--light)}
 .sec-eyebrow{
@@ -260,8 +260,8 @@ nav.scrolled{
 @keyframes festScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── RECOGNITION ── */
-#awards{padding:120px var(--pad)}
-.awards-header{margin-bottom:52px}
+#awards{padding:48px var(--pad) 80px}
+.awards-header{margin-bottom:36px}
 .awards-eyebrow{
   font-family:var(--mono);font-size:10px;letter-spacing:0.2em;
   text-transform:uppercase;color:var(--mid);
@@ -269,7 +269,7 @@ nav.scrolled{
 }
 .awards-eyebrow em{color:var(--red);font-style:normal}
 .awards-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;align-items:start}
-.year-group{margin-bottom:44px}
+.year-group{margin-bottom:28px}
 .year-group:last-child{margin-bottom:0}
 .year-label{
   font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
@@ -278,7 +278,7 @@ nav.scrolled{
 .award-row{
   display:grid;grid-template-columns:90px 1fr auto;
   gap:12px;align-items:baseline;
-  padding:9px 0;border-bottom:1px solid var(--light);font-size:13px;
+  padding:7px 0;border-bottom:1px solid var(--light);font-size:13px;
 }
 .award-row:first-of-type{border-top:1px solid var(--light)}
 .award-tier{font-family:var(--mono);font-size:10px;letter-spacing:0.05em}
@@ -333,7 +333,7 @@ footer{
   .project-col{display:contents}
   .about-grid{grid-template-columns:1fr;gap:64px}
   #about{padding-bottom:64px}
-  #awards{padding:80px var(--pad)}
+  #awards{padding:40px var(--pad) 60px}
   .awards-cols{grid-template-columns:1fr}
   .year-group{grid-column:auto!important}
   .award-row{grid-template-columns:80px 1fr}
@@ -410,12 +410,12 @@ footer{
 </section>
 
 <section id="work">
-  <div class="home-divider"></div>
   <p class="sec-eyebrow"><em>02</em>Selected Work</p>
   <div class="project-grid" id="project-grid"></div>
 </section>
 
 <section id="awards">
+  <div class="home-divider"></div>
   <div class="awards-header reveal">
     <p class="awards-eyebrow"><em>03</em> Recognition</p>
   </div>
