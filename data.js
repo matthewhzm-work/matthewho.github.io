@@ -832,7 +832,7 @@ const PORTFOLIO_DATA = {
       ],
       "placeholderColor": "#111111",
       "gridSpan": 6,
-      "thumbnailUrl": "images/mercedes-amg-a-class/thumb.webp",
+      "thumbnailUrl": "images/mercedes-print-ads/thumb.webp",
       "thumbnailType": "image",
       "description": "<p>A selection of my favourite lines from my stint working on Mercedes-Benz.</p>",
       "fullDescription": "The AMG A Class Hatchback was a performance car hiding in everyday clothes. The campaign leaned into that contradiction — the sleeper aesthetic, the everyday silhouette that held something extraordinary underneath. Work that appealed to drivers who know, without having to explain.",
