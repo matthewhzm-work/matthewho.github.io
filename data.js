@@ -821,7 +821,7 @@ const PORTFOLIO_DATA = {
     {
       "id": "mercedes-amg-a-class",
       "brand": "Mercedes-AMG",
-      "title": "A Class Hatchback",
+      "title": "Prints",
       "subtitle": "The most powerful A-Class ever — a campaign built for a different kind of driver",
       "award": "",
       "tags": [
@@ -834,7 +834,7 @@ const PORTFOLIO_DATA = {
       "gridSpan": 6,
       "thumbnailUrl": "images/mercedes-amg-a-class/thumb.webp",
       "thumbnailType": "image",
-      "description": "<p>A set of prints to launch the Mercedes-AMG A Class Hatchback — positioning the most powerful A-Class ever made to drivers who refuse to compromise.</p>",
+      "description": "<p>A selection of my favourite lines from my stint working on Mercedes-Benz.</p>",
       "fullDescription": "The AMG A Class Hatchback was a performance car hiding in everyday clothes. The campaign leaned into that contradiction — the sleeper aesthetic, the everyday silhouette that held something extraordinary underneath. Work that appealed to drivers who know, without having to explain.",
       "projectTemplate": "prints-side-by-side",
       "collaterals": [
@@ -849,24 +849,6 @@ const PORTFOLIO_DATA = {
       "active": true,
       "blocks": [
         {
-          "id": "b501",
-          "type": "image-row",
-          "images": [
-            {
-              "url": "images/mercedes-amg-a-class/thumb.webp",
-              "caption": "Mercedes-AMG A 45 S 4MATIC+"
-            },
-            {
-              "url": "images/mercedes-amg-a-class/collateral-1.webp",
-              "caption": "Mercedes-AMG A 45 S 4MATIC+"
-            }
-          ],
-          "columns": 2,
-          "gap": "tight",
-          "lightbox": true,
-          "layout": "grid"
-        },
-        {
           "id": "b502",
           "type": "text",
           "col1": "<p>When the images are locked and sent from the global office, the words have to work harder. Here are a few examples where they did.</p><p><br></p>",
@@ -874,6 +856,29 @@ const PORTFOLIO_DATA = {
           "col3": "",
           "columns": 1,
           "width": "medium"
+        },
+        {
+          "id": "bmpc1chft96e",
+          "type": "image-viewer",
+          "images": [
+            {
+              "url": "images/mercedes-print-ads/thumb.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/mercedes-print-ads/print-glc-coupe.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/mercedes-print-ads/collateral-1.webp",
+              "caption": ""
+            },
+            {
+              "url": "images/mercedes-print-ads/print-glc-suv.webp",
+              "caption": ""
+            }
+          ],
+          "lightbox": true
         }
       ]
     },
