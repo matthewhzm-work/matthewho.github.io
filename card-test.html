@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Card Animation Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFAF0;--ink:#1D2540;--red:#D93240;
+  --mid:#1C3059;--light:#E0D8CC;--white:#FFFFFF;
+  --card-gap:8px;
+  --display:'Lexend',sans-serif;
+  --body:'Inter',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  padding:48px 40px 80px;
+}
+
+h1{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mid);
+  margin-bottom:6px;
+}
+p.sub{
+  font-family:var(--body);
+  font-size:13px;
+  color:var(--mid);
+  margin-bottom:36px;
+  line-height:1.5;
+}
+
+/* ── GRID (3-col masonry) ── */
+.project-grid{
+  display:flex;
+  gap:var(--card-gap);
+  align-items:flex-start;
+}
+.project-col{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:var(--card-gap);
+}
+
+/* ── CARD BASE ── */
+.project-card{
+  text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;
+  background:var(--white);
+  position:relative;
+  border-radius:10px;
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  will-change:transform;
+  cursor:pointer;
+}
+.project-card:hover{
+  transform:translateY(-8px) rotate(var(--tilt,0deg));
+}
+
+/* ── THUMBNAIL ── */
+.card-thumb{
+  width:100%;overflow:hidden;background:#111;
+  flex-shrink:0;position:relative;
+  border-radius:10px;               /* full radius — body is hidden by default */
+  transition:border-radius 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.project-card:hover .card-thumb{
+  border-radius:10px 10px 0 0;      /* only lose bottom radius when body appears */
+}
+.card-thumb img{width:100%;height:auto;display:block}
+
+/* award badge pinned to bottom-left of thumbnail */
+.card-award-pin{
+  position:absolute;
+  bottom:12px;left:14px;
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.06em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);
+  padding:3px 8px;white-space:nowrap;
+  z-index:2;
+  transition:opacity 0.2s ease;
+}
+
+/* Dark overlay */
+.project-card::after{
+  content:'';position:absolute;inset:0;
+  background:var(--ink);opacity:0;
+  transition:opacity 0.4s ease;pointer-events:none;
+  border-radius:inherit;
+  z-index:1;
+}
+.project-card:hover::after{opacity:0.22}
+
+/* placeholder (no image) */
+.card-ph{
+  width:100%;aspect-ratio:16/9;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:10px;
+}
+.card-ph-label{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(14px,2.5vw,40px);
+  color:rgba(255,255,255,0.07);
+}
+
+/* ── SLIDE WRAPPER — CSS Grid height trick ── */
+.card-slide{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.project-card:hover .card-slide{
+  grid-template-rows:1fr;
+}
+
+/* ── CARD BODY — falls into place ── */
+/* .card-body must have NO padding — padding leaks through overflow:hidden
+   and creates a white sliver in the resting state. Padding lives on .card-body-inner. */
+.card-body{
+  overflow:hidden;
+}
+.card-body-inner{
+  padding:20px 22px 26px;
+  opacity:0;
+  transform:translateY(-12px);
+  transition:
+    opacity  0.3s ease                         0.06s,
+    transform 0.4s cubic-bezier(0.22,1,0.36,1) 0.04s;
+}
+.project-card:hover .card-body-inner{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card-brand{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--red);font-weight:500;
+  display:block;
+  margin-bottom:9px;
+}
+.card-title{
+  font-family:var(--display);font-size:clamp(15px,1.4vw,19px);
+  font-weight:600;line-height:1.25;letter-spacing:-0.01em;
+  margin-bottom:9px;color:var(--ink);
+}
+.card-desc{font-size:13px;font-weight:400;color:#1C3059;line-height:1.6;margin-bottom:14px}
+.card-desc p{margin:0 0 0.4em}
+.card-desc p:last-child{margin-bottom:0}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.tag{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;
+  border:1px solid var(--light);color:#1C3059;padding:3px 9px;
+}
+.card-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.12em;
+  text-transform:uppercase;color:#1C3059;transition:color 0.22s;
+}
+.project-card:hover .card-cta{color:var(--ink)}
+.cta-arr{display:inline-block;transition:transform 0.22s cubic-bezier(0.22,1,0.36,1)}
+.project-card:hover .cta-arr{transform:translateX(5px)}
+
+@media(max-width:900px){
+  body{padding:32px 20px 60px}
+  .project-grid{flex-direction:column}
+  .project-col{flex-direction:row;flex-wrap:wrap}
+  .project-col .project-card{flex:1 1 calc(50% - 4px)}
+}
+@media(max-width:600px){
+  .project-col .project-card{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+
+<h1>Card animation — hover test</h1>
+<p class="sub">Hover a card to see the body fall into place. Lift + tilt preserved.<br>
+<em style="font-style:normal;color:var(--red)">← This file is not committed. Delete when done.</em></p>
+
+<div class="project-grid" id="project-grid"></div>
+
+<script src="data.js"></script>
+<script>
+const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function renderHtml(html) {
+  if (!html) return '';
+  // strip block tags, keep inline
+  return html.replace(/<\/?(p|div|br)[^>]*>/gi, ' ').trim();
+}
+
+const D = PORTFOLIO_DATA;
+const cols = [
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+];
+cols.forEach(c => { c.className = 'project-col'; document.getElementById('project-grid').appendChild(c); });
+
+const active = D.projects.filter(p => p.active !== false);
+
+active.forEach((p, i) => {
+  const hasImg = p.thumbnailUrl && p.thumbnailUrl.trim();
+  const isGif  = hasImg && (p.thumbnailType === 'gif' || p.thumbnailUrl.toLowerCase().endsWith('.gif'));
+  const thumb  = hasImg
+    ? `<img src="${p.thumbnailUrl}" alt="${esc(p.title)}"${isGif ? '' : ' loading="lazy"'}>`
+    : `<div class="card-ph" style="background:${p.placeholderColor||'#111'}"><span class="card-ph-label">${esc(p.brand)}</span></div>`;
+
+  const tilt = (Math.random() < 0.5 ? '-' : '') + '1.5deg';
+
+  const card = document.createElement('a');
+  card.className = 'project-card';
+  card.href = `work.html?id=${p.id}`;
+  card.style.setProperty('--tilt', tilt);
+
+  card.innerHTML = `
+    <div class="card-thumb">
+      ${thumb}
+      ${p.award ? `<span class="card-award-pin">${esc(p.award)}</span>` : ''}
+    </div>
+    <div class="card-slide">
+      <div class="card-body">
+        <div class="card-body-inner">
+          <span class="card-brand">${esc(p.brand)}</span>
+          <div class="card-title">${esc(p.title)}</div>
+          <div class="card-desc">${renderHtml(p.description)}</div>
+          <div class="card-tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="card-cta">View project <span class="cta-arr">→</span></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  cols[i % 3].appendChild(card);
+});
+</script>
+</body>
+</html>

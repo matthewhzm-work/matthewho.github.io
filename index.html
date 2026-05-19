@@ -124,15 +124,28 @@ nav.scrolled{
   transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
   will-change:transform;
 }
-.project-card:hover{transform:translateY(-8px) rotate(var(--tilt,0deg))}
+.project-card:hover,
+.project-card.revealed{transform:translateY(-8px) rotate(var(--tilt,0deg))}
 
 .card-thumb{
   width:100%;overflow:hidden;background:#111;
   flex-shrink:0;position:relative;
-  border-radius:10px 10px 0 0;
+  border-radius:10px;                /* full radius — body hidden by default */
+  transition:border-radius 0.35s cubic-bezier(0.22,1,0.36,1);
 }
+.project-card:hover .card-thumb,
+.project-card.revealed .card-thumb{border-radius:10px 10px 0 0}
 .card-thumb img{width:100%;height:auto;display:block}
-/* Dark overlay on card hover */
+
+/* Award badge pinned to thumb — visible in resting state */
+.card-award-pin{
+  position:absolute;bottom:12px;left:14px;
+  font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);padding:3px 8px;white-space:nowrap;
+  z-index:2;
+}
+
+/* Dark overlay on hover */
 .project-card::after{
   content:'';position:absolute;inset:0;
   background:var(--ink);opacity:0;
@@ -140,7 +153,9 @@ nav.scrolled{
   border-radius:inherit;
   z-index:1;
 }
-.project-card:hover::after{opacity:0.22}
+.project-card:hover::after,
+.project-card.revealed::after{opacity:0.22}
+
 .card-ph{
   width:100%;aspect-ratio:16/9;
   display:flex;align-items:center;justify-content:center;
@@ -151,15 +166,26 @@ nav.scrolled{
   color:rgba(255,255,255,0.07);
 }
 
-.card-body{padding:20px 22px 26px}
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+/* ── SLIDE WRAPPER: CSS Grid height-to-auto trick ── */
+/* .card-body must have NO padding — padding leaks through overflow:hidden
+   and shows a white sliver in the resting state. Padding lives on .card-body-inner. */
+.card-slide{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.45s cubic-bezier(0.22,1,0.36,1)}
+.project-card:hover .card-slide,
+.project-card.revealed .card-slide{grid-template-rows:1fr}
+.card-body{overflow:hidden}
+.card-body-inner{
+  padding:20px 22px 26px;
+  opacity:0;transform:translateY(-12px);
+  transition:opacity 0.3s ease 0.06s,transform 0.4s cubic-bezier(0.22,1,0.36,1) 0.04s;
+}
+.project-card:hover .card-body-inner,
+.project-card.revealed .card-body-inner{opacity:1;transform:translateY(0)}
+
 .card-brand{
+  display:block;
   font-family:var(--mono);font-size:11px;letter-spacing:0.14em;
   text-transform:uppercase;color:var(--red);font-weight:500;
-}
-.card-award{
-  font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;
-  background:var(--ink);color:var(--paper);padding:3px 8px;flex-shrink:0;white-space:nowrap;
+  margin-bottom:9px;
 }
 .card-title{
   font-family:var(--display);font-size:clamp(15px,1.4vw,19px);
@@ -182,9 +208,11 @@ nav.scrolled{
   font-family:var(--mono);font-size:10px;letter-spacing:0.12em;
   text-transform:uppercase;color:#1C3059;transition:color 0.22s;
 }
-.project-card:hover .card-cta{color:var(--ink)}
+.project-card:hover .card-cta,
+.project-card.revealed .card-cta{color:var(--ink)}
 .cta-arr{display:inline-block;transition:transform 0.22s cubic-bezier(0.22,1,0.36,1)}
-.project-card:hover .cta-arr{transform:translateX(5px)}
+.project-card:hover .cta-arr,
+.project-card.revealed .cta-arr{transform:translateX(5px)}
 
 /* ── ABOUT ── */
 #about{
@@ -310,7 +338,8 @@ footer{
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 /* Card lift — needs higher specificity than .reveal.visible (0,2,0) to win */
-.project-card.visible:hover{transform:translateY(-8px) rotate(var(--tilt,0deg));transition:transform 0.4s cubic-bezier(0.22,1,0.36,1)}
+.project-card.visible:hover,
+.project-card.visible.revealed{transform:translateY(-8px) rotate(var(--tilt,0deg));transition:transform 0.4s cubic-bezier(0.22,1,0.36,1)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -523,10 +552,30 @@ footer{
     card.style.transitionDelay = `${(i%4)*0.06}s`;
     card.style.order = String(i); // preserves L→R sequence when cols collapse at breakpoints
     card.style.setProperty('--tilt', (Math.random() < 0.5 ? '-' : '') + '1.5deg');
-    card.innerHTML = `<div class="card-thumb">${thumb}</div><div class="card-body"><div class="card-top"><span class="card-brand">${esc(p.brand)}</span>${p.award?`<span class="card-award">${esc(p.award)}</span>`:''}</div><div class="card-title">${esc(p.title)}</div><div class="card-desc">${renderHtml(p.description)}</div><div class="card-tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div><div class="card-cta">View project <span class="cta-arr">→</span></div></div>`;
+    card.innerHTML = `<div class="card-thumb">${thumb}${p.award?`<span class="card-award-pin">${esc(p.award)}</span>`:''}</div><div class="card-slide"><div class="card-body"><div class="card-body-inner"><span class="card-brand">${esc(p.brand)}</span><div class="card-title">${esc(p.title)}</div><div class="card-desc">${renderHtml(p.description)}</div><div class="card-tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div><div class="card-cta">View project <span class="cta-arr">→</span></div></div></div></div>`;
 
     colEls[i % 3].appendChild(card);
   });
+
+  /* ── MOBILE TAP-TO-REVEAL ──
+     Touch devices: first tap reveals card body; second tap navigates.
+     Tapping outside any card collapses all revealed cards. */
+  if (window.matchMedia('(hover:none)').matches) {
+    const grid = $('project-grid');
+    grid.addEventListener('click', function(e) {
+      const card = e.target.closest('.project-card');
+      if (!card) {
+        document.querySelectorAll('.project-card.revealed').forEach(c => c.classList.remove('revealed'));
+        return;
+      }
+      if (!card.classList.contains('revealed')) {
+        e.preventDefault();
+        document.querySelectorAll('.project-card.revealed').forEach(c => c.classList.remove('revealed'));
+        card.classList.add('revealed');
+      }
+      // already revealed → let the click navigate naturally
+    }, {capture: false});
+  }
 
   /* ── RECOGNITION: balance by row count ── */
   const byYear = {};
