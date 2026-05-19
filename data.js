@@ -973,7 +973,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "id": "nea-dengue-danger",
-      "brand": "National Environmental Agency",
+      "brand": "National Environment Agency",
       "title": "Dengue Danger",
       "subtitle": "Ditching decades of fear-mongering. Making dengue education something kids actually remember.",
       "award": "",
