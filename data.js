@@ -822,7 +822,7 @@ const PORTFOLIO_DATA = {
       "id": "mercedes-print-ads",
       "brand": "Mercedes-AMG",
       "title": "Prints",
-      "subtitle": "The most powerful A-Class ever — a campaign built for a different kind of driver",
+      "subtitle": "Global assets. Local words. Finding the line that makes it land.",
       "award": "",
       "tags": [
         "Auto",
@@ -858,16 +858,31 @@ const PORTFOLIO_DATA = {
           "rightType": "image-viewer",
           "rightImages": [
             {
+              "url": "images/mercedes-print-ads/thumb.webp",
+              "caption": ""
+            },
+            {
               "url": "images/mercedes-print-ads/print-glc-coupe.webp",
-              "caption": "Silence is Overrated — Mercedes-AMG GLC 43 4MATIC Coupé"
+              "caption": ""
+            },
+            {
+              "url": "images/mercedes-print-ads/collateral-1.webp",
+              "caption": ""
             },
             {
               "url": "images/mercedes-print-ads/print-glc-suv.webp",
-              "caption": "Luxury Takes the Lead — Mercedes-AMG GLC 43 4MATIC SUV"
+              "caption": ""
             }
           ],
           "rightLightbox": true,
-          "rightLabel": ""
+          "rightLabel": "Various Prints",
+          "leftUrl": "",
+          "leftVideoType": "vimeo",
+          "leftLightbox": true,
+          "leftImages": [],
+          "rightUrl": "",
+          "rightVideoType": "vimeo",
+          "rightHtml": ""
         }
       ]
     },
