@@ -8,111 +8,93 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --paper:#FFFAF0;
-  --ink:#1D2540;
-  --red:#D93240;
-  --mid:#1C3059;
-  --light:#E0D8CC;
-  --coral:#E8604C;
-}
+:root{--paper:#FFFAF0;--ink:#1D2540;--red:#D93240;--mid:#1C3059;--light:#E0D8CC}
 html{-webkit-font-smoothing:antialiased}
 body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:68px;display:flex;align-items:center;padding:0 60px;background:var(--paper);z-index:200;gap:20px;transition:background 0.3s}
-nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.nav-name{font-family:'Lexend',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.01em;text-decoration:none;color:var(--ink);white-space:nowrap;flex-shrink:0}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;height:68px;display:flex;align-items:center;padding:0 60px;background:var(--paper);z-index:200;gap:20px;transition:background .3s}
+nav.scrolled{background:rgba(255,250,240,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-name{font-family:'Lexend',sans-serif;font-size:22px;font-weight:700;letter-spacing:.01em;text-decoration:none;color:var(--ink);white-space:nowrap;flex-shrink:0}
 .nav-name em{color:var(--red);font-style:normal}
 .nav-spacer{flex:1}
-.nav-back{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:rgba(28,48,89,0.3);flex-shrink:0;transition:color 0.2s;display:flex;align-items:center;gap:6px}
+.nav-back{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:rgba(28,48,89,.3);flex-shrink:0;transition:color .2s;display:flex;align-items:center;gap:6px}
 .nav-back:hover{color:var(--ink)}
-.nav-back-arrow{display:inline-block;transition:transform 0.2s}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
 .nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
 .nav-icons{display:flex;align-items:center;gap:16px;flex-shrink:0}
-.nav-icon{display:flex;align-items:center;justify-content:center;color:var(--mid);transition:color 0.18s}
+.nav-icon{display:flex;align-items:center;justify-content:center;color:var(--mid);transition:color .18s}
 .nav-icon:hover{color:var(--ink)}
 .nav-icon svg{width:18px;height:18px;display:block}
 
-/* WRAPPER */
+/* ── WRAPPER ── */
 .wrap{max-width:1320px;margin:0 auto;padding:0 60px;padding-top:68px}
 
-/* PAGE HEADER */
-.pg-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(29,37,64,0.38);margin-top:52px;margin-bottom:14px}
-.pg-title{font-family:'Lexend',sans-serif;font-size:clamp(26px,3.8vw,50px);font-weight:700;letter-spacing:-0.025em;line-height:1.06;margin-bottom:14px}
+/* ── PAGE HEADER ── */
+.pg-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(29,37,64,.38);margin-top:52px;margin-bottom:14px}
+.pg-title{font-family:'Lexend',sans-serif;font-size:clamp(26px,3.8vw,50px);font-weight:700;letter-spacing:-.025em;line-height:1.06;margin-bottom:14px}
 .pg-title em{color:var(--red);font-style:normal}
-.pg-sub{font-size:14.5px;color:rgba(29,37,64,0.58);max-width:520px;line-height:1.72;margin-bottom:36px}
+.pg-sub{font-size:14.5px;color:rgba(29,37,64,.58);max-width:520px;line-height:1.72;margin-bottom:36px}
 
-/* BUTTONS */
-.btn-row{display:flex;gap:12px;align-items:center;margin-bottom:18px}
-.btn-qp{font-family:'Lexend',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.04em;background:var(--red);color:var(--paper);border:none;padding:12px 30px;cursor:pointer;transition:transform 0.2s cubic-bezier(0.22,1,0.36,1)}
+/* ── BUTTONS ── */
+.btn-row{display:flex;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+.btn-qp{font-family:'Lexend',sans-serif;font-size:13px;font-weight:700;letter-spacing:.04em;background:var(--red);color:var(--paper);border:none;padding:12px 30px;cursor:pointer;transition:transform .2s cubic-bezier(.22,1,.36,1)}
 .btn-qp:hover{transform:translateY(-4px)}
 .btn-qp:active{transform:translateY(0)}
-.btn-qp:disabled{opacity:0.45;cursor:not-allowed;pointer-events:none}
-.btn-clear{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;background:transparent;color:rgba(29,37,64,0.5);border:1px solid var(--light);padding:12px 20px;cursor:pointer;transition:transform 0.2s,border-color 0.2s,color 0.2s}
+.btn-qp:disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
+.btn-clear{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:rgba(29,37,64,.5);border:1px solid var(--light);padding:12px 20px;cursor:pointer;transition:transform .2s,border-color .2s,color .2s}
 .btn-clear:hover{transform:translateY(-4px);border-color:var(--ink);color:var(--ink)}
-.btn-copy{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;background:transparent;color:rgba(29,37,64,0.5);border:1px solid var(--light);padding:12px 20px;cursor:pointer;transition:transform 0.2s,border-color 0.2s,color 0.2s;display:none;align-items:center;gap:7px}
+.btn-copy{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:rgba(29,37,64,.5);border:1px solid var(--light);padding:12px 20px;cursor:pointer;transition:transform .2s,border-color .2s,color .2s;display:none;align-items:center;gap:7px}
 .btn-copy:hover{transform:translateY(-4px);border-color:var(--ink);color:var(--ink)}
 .btn-copy.show{display:flex}
 .btn-copy.ok{color:var(--mid);border-color:var(--mid)}
 
-/* INSTRUCTIONS above ticket — portfolio UI layer */
-.tk-instr{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--light);margin-bottom:8px}
+/* ── INSTRUCTIONS (portfolio layer) ── */
+.tk-instr{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--light);margin-bottom:8px;line-height:1.6}
 
-/* TICKET SCROLL */
+/* ── TICKET SCROLL (desktop) ── */
 .ticket-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-bottom:30px}
 
-/* ═══════════════════════════════════════════
-   TICKET — Arial Narrow only inside here.
-   Portfolio fonts/colours must not enter.
-   ═══════════════════════════════════════════ */
-.ticket{
-  width:100%;min-width:860px;
-  background:#fff;border:2px solid #ADADAD;
-  display:flex;
-  font-family:'Arial Narrow',Arial,sans-serif;
-  user-select:none;
-}
+/* ════════════════════════════════════════════
+   TICKET — Arial Narrow + #E8604C only.
+   No portfolio fonts or colours inside here.
+   ════════════════════════════════════════════ */
+.ticket{width:100%;min-width:860px;background:#fff;border:2px solid #ADADAD;display:flex;font-family:'Arial Narrow',Arial,sans-serif;user-select:none}
 
 /* Left sidebar */
-.tl{width:92px;flex-shrink:0;border-right:2px solid #ADADAD;display:flex;flex-direction:column}
-.tl-hd{background:#E8604C;color:#fff;font-size:7.5px;font-weight:700;text-align:center;padding:5px 4px;letter-spacing:0.05em;text-transform:uppercase;line-height:1.5;font-family:'Arial Narrow',Arial,sans-serif}
-.tl-body{flex:1;padding:5px 0 3px;font-family:'Arial Narrow',Arial,sans-serif}
-.tl-label{padding:2.5px 9px;font-size:9px;font-weight:700;color:#1A1A1A;line-height:1.6}
-.tl-sep{border-top:1px solid #DDD;margin:4px 0 3px}
+.tl{width:96px;flex-shrink:0;border-right:2px solid #ADADAD;display:flex;flex-direction:column;font-family:'Arial Narrow',Arial,sans-serif}
+.tl-hd{background:#E8604C;color:#fff;font-size:7px;font-weight:700;text-align:center;padding:5px 4px;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.tl-body{flex:1;padding:4px 0 3px}
+.tl-row{display:flex;justify-content:space-between;align-items:center;padding:2.5px 7px 2.5px 8px;font-size:8.5px;font-weight:700;color:#1A1A1A;line-height:1.55;cursor:pointer}
+.tl-row:hover{background:#FFF5F3}
+.tl-row.active{color:#E8604C}
+.tl-row[data-type="ordinary"]{font-size:7.5px;color:#999;cursor:default;font-style:italic}
+.tl-row[data-type="ordinary"]:hover{background:none}
+.tl-row[data-type="ordinary"].active{color:#E8604C}
+.tl-sep{border-top:1px solid #DDD;margin:4px 7px}
+.cb-box{width:9px;height:9px;border:1.5px solid #E8604C;background:#fff;flex-shrink:0;display:inline-block}
+.tl-row.active .cb-box{background:#E8604C}
 
 /* Main area */
 .tm{flex:1;padding:5px 6px 5px 5px;display:flex;flex-direction:column;gap:4px;min-width:0}
 .tm-instr{font-size:8px;color:#666;border-bottom:1px solid #E8E8E8;padding-bottom:5px;margin-bottom:3px;line-height:1.45;font-family:'Arial Narrow',Arial,sans-serif}
 
-/* 3×2 panel grid */
+/* 3x2 panel grid */
 .panels{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4px;flex:1}
-
-/* Individual panel */
 .panel{border:1px solid #C0C0C0;padding:3px 3px 4px;display:flex;flex-direction:column;gap:2px}
 .pnl-hdr{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:3px;border-bottom:1px solid #EBEBEB;margin-bottom:2px}
 .pnl-id{font-size:13px;font-weight:700;color:#E8604C;font-family:'Arial Narrow',Arial,sans-serif}
 .pnl-type{font-size:7.5px;color:#AAA;font-family:'Arial Narrow',Arial,sans-serif}
 
-/* Numbers — rows of 9 */
+/* Number grid — rows of 9 */
 .pnl-nums{display:grid;grid-template-columns:repeat(9,1fr);gap:2px;flex:1}
-.nb{
-  aspect-ratio:1;border-radius:50%;
-  border:1px solid #C8C8C8;
-  display:flex;align-items:center;justify-content:center;
-  font-size:8.5px;font-weight:700;color:#2A2A2A;
-  font-family:'Arial Narrow',Arial,sans-serif;
-  line-height:1;
-}
-@keyframes nbPop{
-  0%{transform:scale(0.1);opacity:0}
-  65%{transform:scale(1.22)}
-  100%{transform:scale(1);opacity:1}
-}
-.nb.on{
-  background:#E8604C;border-color:#E8604C;color:#fff;
-  animation:nbPop 0.22s cubic-bezier(0.34,1.56,0.64,1) both;
-}
+.nb{aspect-ratio:1;border-radius:50%;border:1px solid #C8C8C8;display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;color:#2A2A2A;font-family:'Arial Narrow',Arial,sans-serif;line-height:1;position:relative}
+@keyframes nbPop{0%{transform:scale(.1);opacity:0}65%{transform:scale(1.22)}100%{transform:scale(1);opacity:1}}
+.nb.on{background:#E8604C;border-color:#E8604C;color:#fff;animation:nbPop .22s cubic-bezier(.34,1.56,.64,1) both}
+.nb.roll-nb{background:#fff;border:1.5px solid #E8604C;color:#E8604C;animation:nbPop .22s cubic-bezier(.34,1.56,.64,1) both}
+.nb-n{line-height:1}
+.nb-star{display:none;font-size:6px;position:absolute;top:0;right:1px;line-height:1;color:#E8604C}
+.nb.roll-nb .nb-star{display:block}
 
 /* QP / VOID */
 .pnl-ft{display:flex;gap:4px;justify-content:flex-end;padding-top:3px}
@@ -120,51 +102,76 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
 .pnl-void{font-size:8px;font-weight:700;border:1px solid #C0C0C0;color:#C0C0C0;border-radius:2px;padding:2px 8px;font-family:'Arial Narrow',Arial,sans-serif}
 
 /* Right coral sidebar */
-.tr{
-  width:50px;flex-shrink:0;
-  background:#E8604C;border-left:2px solid #ADADAD;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:space-between;
-  padding:10px 0 12px;
-}
+.tr{width:50px;flex-shrink:0;background:#E8604C;border-left:2px solid #ADADAD;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:10px 0 12px}
 .tr-logo{width:34px;height:34px;flex-shrink:0}
-.tr-toto{
-  writing-mode:vertical-rl;
-  font-family:Arial,sans-serif;
-  font-size:22px;font-weight:700;
-  color:#fff;letter-spacing:0.12em;
-  flex:1;display:flex;align-items:center;justify-content:center;
-}
-.tr-tagline{
-  writing-mode:vertical-rl;transform:rotate(180deg);
-  font-family:Arial,sans-serif;
-  font-size:5.5px;color:rgba(255,255,255,0.6);
-  letter-spacing:0.08em;text-align:center;padding:0 3px;
-}
+.tr-toto{writing-mode:vertical-rl;font-family:Arial,sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:.12em;flex:1;display:flex;align-items:center;justify-content:center}
+.tr-tagline{writing-mode:vertical-rl;transform:rotate(180deg);font-family:Arial,sans-serif;font-size:5.5px;color:rgba(255,255,255,.6);letter-spacing:.08em;text-align:center;padding:0 3px}
 
-/* COMMENTARY */
+/* ── COMMENTARY (portfolio layer) ── */
 .commentary{min-height:52px;margin-bottom:6px}
-.cm-q{font-family:'Inter',sans-serif;font-size:14px;font-style:italic;color:rgba(29,37,64,0.55);opacity:0;transform:translateY(7px);transition:opacity 0.5s ease,transform 0.5s ease;margin-bottom:6px}
+.cm-q{font-family:'Inter',sans-serif;font-size:14px;font-style:italic;color:rgba(29,37,64,.55);opacity:0;transform:translateY(7px);transition:opacity .5s ease,transform .5s ease;margin-bottom:6px}
 .cm-q.vis{opacity:1;transform:translateY(0)}
-.cm-m{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(29,37,64,0.28);opacity:0;transition:opacity 0.4s ease 0.28s}
+.cm-m{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(29,37,64,.28);opacity:0;transition:opacity .4s ease .28s}
 .cm-m.vis{opacity:1}
 
-/* FOOTER */
-.pg-ft{margin-top:48px;padding:18px 0 64px;border-top:1px solid var(--light);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(29,37,64,0.25);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.pg-ft a{color:rgba(29,37,64,0.35);text-decoration:underline;text-underline-offset:3px}
+/* ── FOOTER ── */
+.pg-ft{margin-top:48px;padding:18px 0 64px;border-top:1px solid var(--light);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(29,37,64,.25);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.pg-ft a{color:rgba(29,37,64,.35);text-decoration:underline;text-underline-offset:3px}
 
+/* ════════════════════════════════════════════
+   MOBILE TICKET
+   ════════════════════════════════════════════ */
+.mob-outer{display:none;margin-bottom:30px}
+
+/* Mobile ticket shell — Arial Narrow only */
+.mob-ticket{background:#fff;border-top:2px solid #ADADAD;border-bottom:2px solid #ADADAD;font-family:'Arial Narrow',Arial,sans-serif;user-select:none}
+
+/* SP|TOTO brand (replaces coral right sidebar) */
+.mob-brand{font-family:'Arial Narrow',Arial,sans-serif;font-size:10px;font-weight:700;color:#E8604C;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:5px 0 3px;border-bottom:1px solid #E8E8E8}
+
+/* Mobile sidebar rows */
+.mob-hd{padding:0 4px}
+.mob-sidebar-row{display:flex;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:3px 0}
+.mob-sidebar-row::-webkit-scrollbar{display:none}
+.mob-opt{display:flex;align-items:center;gap:4px;padding:2px 7px 2px 5px;font-size:8.5px;font-weight:700;color:#1A1A1A;white-space:nowrap;cursor:pointer;flex-shrink:0;border-right:1px solid #F0F0F0}
+.mob-opt:last-child{border-right:none}
+.mob-opt.active{color:#E8604C}
+.mob-opt[data-type="ordinary"]{color:#999;font-style:italic;cursor:default}
+.mob-opt[data-type="ordinary"].active{color:#E8604C}
+.mob-opt.active .cb-box{background:#E8604C}
+.mob-sep{border-top:2px solid #E8604C;margin:0}
+
+/* Mobile carousel */
+.mob-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.mob-carousel::-webkit-scrollbar{display:none}
+.mob-board{min-width:100%;width:100%;scroll-snap-align:start;padding:4px;display:flex;flex-direction:column;gap:3px;position:relative}
+.mob-pnl-hdr{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:3px;border-bottom:1px solid #EBEBEB;margin-bottom:2px}
+.mob-pnl-type{font-size:7.5px;color:#AAA;font-family:'Arial Narrow',Arial,sans-serif}
+.mob-pnl-id{font-size:15px;font-weight:700;color:#E8604C;font-family:'Arial Narrow',Arial,sans-serif}
+.mob-nums{display:grid;grid-template-columns:repeat(9,1fr);gap:2px}
+
+/* Swipe hint + dots (portfolio layer) */
+.swipe-hint{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--light);text-align:center;padding:8px 0 4px}
+.mob-dots{display:flex;justify-content:center;gap:7px;padding:4px 0 8px}
+.mob-dot{width:6px;height:6px;border-radius:50%;background:var(--light)}
+.mob-dot.active{background:var(--red)}
+
+/* ── RESPONSIVE ── */
 @media(max-width:768px){
-  nav{padding-left:24px;padding-right:24px;gap:12px}
-  .wrap{padding-left:24px;padding-right:24px}
+  nav{padding-left:20px;padding-right:20px;gap:10px}
+  nav .nav-icons{display:none}
+  .wrap{padding-left:0;padding-right:0}
+  .pg-eyebrow,.pg-title,.pg-sub,.btn-row,.tk-instr,.commentary,.pg-ft{padding-left:20px;padding-right:20px}
   .pg-title{font-size:clamp(22px,7vw,34px)}
-  .nav-icons{display:none}
+  .ticket-scroll{display:none}
+  .mob-outer{display:block}
 }
 </style>
 </head>
 <body>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-name">Matthew Ho <em>—</em></a>
+  <a href="index.html" class="nav-name">Matthew Ho <em>&#8212;</em></a>
   <div class="nav-spacer"></div>
   <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Back to Site</a>
   <div class="nav-icons">
@@ -181,7 +188,7 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
 
   <p class="pg-eyebrow">Lucky Numbers Generator</p>
   <h1 class="pg-title">The odds are 1 in 13,983,816.<br><em>I've seen worse briefs.</em></h1>
-  <p class="pg-sub">Six panels. Forty-nine numbers. One shot at early retirement — or at least a good story for the next pitch. Quick Pick does the thinking. You do the hoping.</p>
+  <p class="pg-sub">Six panels. Forty-nine numbers. One shot at early retirement &#8212; or at least a good story for the next pitch. Quick Pick does the thinking. You do the hoping.</p>
 
   <div class="btn-row">
     <button class="btn-qp" id="btn-qp">Quick Pick</button>
@@ -189,30 +196,32 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
     <button class="btn-copy" id="btn-copy">Copy Numbers</button>
   </div>
 
-  <p class="tk-instr">Ask for iTOTO. Mark QP box for Quick Pick. Mark VOID box to cancel board.</p>
+  <p class="tk-instr" id="tk-instr">Mark six numbers per board.</p>
 
+  <!-- ── DESKTOP TICKET ── -->
   <div class="ticket-scroll">
     <div class="ticket">
 
       <div class="tl">
-        <div class="tl-hd">System<br>Roll &amp;<br>Group</div>
+        <div class="tl-hd">Bet Type</div>
         <div class="tl-body">
-          <div class="tl-label">Sys 7</div>
-          <div class="tl-label">Sys 8</div>
-          <div class="tl-label">Sys 9</div>
-          <div class="tl-label">Sys 10</div>
-          <div class="tl-label">Sys 11</div>
-          <div class="tl-label">Sys 12</div>
-          <div class="tl-label">Sys Roll</div>
+          <div class="tl-row" data-type="ordinary">Ordinary Entry</div>
+          <div class="tl-row" data-type="7">Sys 7<span class="cb-box"></span></div>
+          <div class="tl-row" data-type="8">Sys 8<span class="cb-box"></span></div>
+          <div class="tl-row" data-type="9">Sys 9<span class="cb-box"></span></div>
+          <div class="tl-row" data-type="10">Sys 10<span class="cb-box"></span></div>
+          <div class="tl-row" data-type="11">Sys 11<span class="cb-box"></span></div>
+          <div class="tl-row" data-type="12">Sys 12<span class="cb-box"></span></div>
+          <div class="tl-row" data-type="roll">Sys Roll<span class="cb-box"></span></div>
           <div class="tl-sep"></div>
-          <div class="tl-label">2 Draws</div>
-          <div class="tl-label">4 Draws</div>
-          <div class="tl-label">Group TOTO</div>
+          <div class="tl-row" data-draw="2">2 Draws<span class="cb-box"></span></div>
+          <div class="tl-row" data-draw="4">4 Draws<span class="cb-box"></span></div>
+          <div class="tl-row" data-group="1">Group TOTO<span class="cb-box"></span></div>
         </div>
       </div>
 
       <div class="tm">
-        <div class="tm-instr">Mark the numbers you wish to select or choose QP (Quick Pick). Select 6 numbers from 1 to 49 for each panel. Each board costs $1.00.</div>
+        <div class="tm-instr" id="tm-instr">Mark the numbers you wish to select or choose QP (Quick Pick). Select 6 numbers from 1 to 49 for each panel. Each board costs $1.00.</div>
         <div class="panels" id="panels"></div>
       </div>
 
@@ -221,15 +230,53 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
           <circle cx="16" cy="16" r="15" fill="white"/>
           <circle cx="16" cy="16" r="10.5" fill="none" stroke="#E8604C" stroke-width="2"/>
           <circle cx="16" cy="16" r="4" fill="#E8604C"/>
-          <line x1="16" y1="4"  x2="16" y2="10.5" stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
-          <line x1="16" y1="21.5" x2="16" y2="28" stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
-          <line x1="4"  y1="16" x2="10.5" y2="16" stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
-          <line x1="21.5" y1="16" x2="28" y2="16" stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="4"    x2="16"   y2="10.5" stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="21.5" x2="16"   y2="28"   stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4"  y1="16"   x2="10.5" y2="16"   stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
+          <line x1="21.5" y1="16" x2="28"   y2="16"   stroke="#E8604C" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <div class="tr-toto">TOTO</div>
         <div class="tr-tagline">Please save the trees. Use only what you need.</div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ── MOBILE TICKET ── -->
+  <div class="mob-outer" id="mob-outer">
+    <div class="mob-ticket">
+
+      <div class="mob-hd">
+        <div class="mob-brand">SP &#124; TOTO</div>
+        <div class="mob-sidebar-row" id="mob-row1">
+          <div class="mob-opt" data-type="ordinary">Ordinary</div>
+          <div class="mob-opt" data-type="7">Sys 7<span class="cb-box"></span></div>
+          <div class="mob-opt" data-type="8">Sys 8<span class="cb-box"></span></div>
+          <div class="mob-opt" data-type="9">Sys 9<span class="cb-box"></span></div>
+          <div class="mob-opt" data-type="10">Sys 10<span class="cb-box"></span></div>
+          <div class="mob-opt" data-type="11">Sys 11<span class="cb-box"></span></div>
+          <div class="mob-opt" data-type="12">Sys 12<span class="cb-box"></span></div>
+          <div class="mob-opt" data-type="roll">Sys Roll<span class="cb-box"></span></div>
+        </div>
+        <div class="mob-sidebar-row" id="mob-row2">
+          <div class="mob-opt" data-draw="2">2 Draws<span class="cb-box"></span></div>
+          <div class="mob-opt" data-draw="4">4 Draws<span class="cb-box"></span></div>
+          <div class="mob-opt" data-group="1">Group TOTO<span class="cb-box"></span></div>
+        </div>
+        <div class="mob-sep"></div>
+      </div>
+
+      <div class="mob-carousel" id="mob-carousel"></div>
+
+    </div>
+    <div class="swipe-hint" id="swipe-hint">&#8592; Swipe to see all boards &#8594;</div>
+    <div class="mob-dots" id="mob-dots">
+      <span class="mob-dot active"></span>
+      <span class="mob-dot"></span>
+      <span class="mob-dot"></span>
+      <span class="mob-dot"></span>
+      <span class="mob-dot"></span>
+      <span class="mob-dot"></span>
     </div>
   </div>
 
@@ -239,7 +286,7 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
   </div>
 
   <div class="pg-ft">
-    <span>For entertainment only &nbsp;&middot;&nbsp; TOTO jackpot odds: 1 in 13,983,816 &nbsp;&middot;&nbsp; Please gamble responsibly</span>
+    <span>For entertainment only &nbsp;&#183;&nbsp; TOTO jackpot odds: 1 in 13,983,816 &nbsp;&#183;&nbsp; Please gamble responsibly</span>
     <a href="index.html">&#8592; Portfolio</a>
   </div>
 
@@ -248,23 +295,23 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
 <script src="data.js"></script>
 <script>
 (function(){
+
+  /* ── Data.js integration ── */
   var TP = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.totoPage) ? PORTFOLIO_DATA.totoPage : {};
   var D  = (typeof PORTFOLIO_DATA !== 'undefined') ? PORTFOLIO_DATA : {};
-
   if(TP.eyebrow)  document.querySelector('.pg-eyebrow').textContent = TP.eyebrow;
   if(TP.title)    document.querySelector('.pg-title').innerHTML     = TP.title;
   if(TP.subtitle) document.querySelector('.pg-sub').textContent     = TP.subtitle;
-
   if(D.linkedin){ var li=document.getElementById('nav-li'); if(li) li.href=D.linkedin; }
   if(D.email)   { var em=document.getElementById('nav-em'); if(em) em.href='mailto:'+D.email; }
+  window.addEventListener('scroll',function(){
+    document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>10);
+  },{passive:true});
 
-  window.addEventListener('scroll', function(){
-    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
-  }, {passive:true});
-
+  /* ── Constants ── */
   var PANELS = ['A','B','C','D','E','F'];
-
-  var QUIPS = (TP.quips && TP.quips.length) ? TP.quips : [
+  var WORD   = {'7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve'};
+  var QUIPS  = (TP.quips && TP.quips.length) ? TP.quips : [
     "Statistically, you have better odds of winning a Cannes Grand Prix.",
     "Six numbers locked. No revisions. First time for everything.",
     "In advertising, we call this a long-term awareness play.",
@@ -282,151 +329,321 @@ nav.scrolled{background:rgba(255,250,240,0.96);backdrop-filter:blur(14px);-webki
     "Committed to all six. No overthinking. A new personal best."
   ];
 
-  var draws   = 0;
-  var busy    = false;
-  var current = {};
-  PANELS.forEach(function(p){ current[p] = []; });
+  /* ── State ── */
+  var betType   = 'ordinary';
+  var drawDays  = 1;
+  var groupToto = false;
+  var draws     = 0;
+  var busy      = false;
+  var hasSwiped = false;
+  var scrollTimer;
+  var current   = {};
+  PANELS.forEach(function(p){ current[p] = {nums:[], roll:null}; });
 
-  var qBtn  = document.getElementById('btn-qp');
-  var cBtn  = document.getElementById('btn-clear');
-  var cpBtn = document.getElementById('btn-copy');
+  /* ── DOM refs ── */
+  var qBtn   = document.getElementById('btn-qp');
+  var cBtn   = document.getElementById('btn-clear');
+  var cpBtn  = document.getElementById('btn-copy');
+  var carousel = document.getElementById('mob-carousel');
 
+  /* ── Build desktop panels ── */
   var panelsEl = document.getElementById('panels');
   PANELS.forEach(function(p){
     var panel = document.createElement('div');
     panel.className = 'panel';
-
     var hdr = document.createElement('div');
     hdr.className = 'pnl-hdr';
-    var id = document.createElement('span');
-    id.className = 'pnl-id';
-    id.textContent = p;
-    var type = document.createElement('span');
-    type.className = 'pnl-type';
-    type.textContent = 'Ordinary Entry';
-    hdr.appendChild(id);
-    hdr.appendChild(type);
-
+    var pid = document.createElement('span');
+    pid.className = 'pnl-id';
+    pid.textContent = p;
+    var pty = document.createElement('span');
+    pty.className = 'pnl-type';
+    pty.textContent = 'Ordinary Entry';
+    hdr.appendChild(pid); hdr.appendChild(pty);
     var grid = document.createElement('div');
     grid.className = 'pnl-nums';
-    for(var n=1; n<=49; n++){
+    for(var n=1;n<=49;n++){
       var nb = document.createElement('div');
-      nb.className = 'nb';
-      nb.id = 'nb-'+p+'-'+n;
-      nb.textContent = n;
+      nb.className = 'nb'; nb.id = 'nb-'+p+'-'+n;
+      nb.innerHTML = '<span class="nb-n">'+n+'</span><span class="nb-star">★</span>';
       grid.appendChild(nb);
     }
-
     var ft = document.createElement('div');
     ft.className = 'pnl-ft';
-    var qp = document.createElement('div');
-    qp.className = 'pnl-qp';
-    qp.textContent = 'QP';
-    var vo = document.createElement('div');
-    vo.className = 'pnl-void';
-    vo.textContent = 'VOID';
-    ft.appendChild(qp);
-    ft.appendChild(vo);
-
-    panel.appendChild(hdr);
-    panel.appendChild(grid);
-    panel.appendChild(ft);
+    ft.innerHTML = '<div class="pnl-qp">QP</div><div class="pnl-void">VOID</div>';
+    panel.appendChild(hdr); panel.appendChild(grid); panel.appendChild(ft);
     panelsEl.appendChild(panel);
   });
 
-  function pickN(n){
-    var pool = [];
-    for(var i=1; i<=49; i++) pool.push(i);
-    var out = [];
-    while(out.length < n){
-      var idx = Math.floor(Math.random() * pool.length);
-      out.push(pool.splice(idx,1)[0]);
+  /* ── Build mobile boards ── */
+  PANELS.forEach(function(p){
+    var board = document.createElement('div');
+    board.className = 'mob-board'; board.id = 'mob-board-'+p;
+    var hdr = document.createElement('div');
+    hdr.className = 'mob-pnl-hdr';
+    var pty = document.createElement('span');
+    pty.className = 'mob-pnl-type';
+    pty.textContent = 'Ordinary Entry';
+    var pid = document.createElement('span');
+    pid.className = 'mob-pnl-id';
+    pid.textContent = p;
+    hdr.appendChild(pty); hdr.appendChild(pid);
+    var grid = document.createElement('div');
+    grid.className = 'mob-nums';
+    for(var n=1;n<=49;n++){
+      var nb = document.createElement('div');
+      nb.className = 'nb'; nb.id = 'mnb-'+p+'-'+n;
+      nb.innerHTML = '<span class="nb-n">'+n+'</span><span class="nb-star">★</span>';
+      grid.appendChild(nb);
     }
-    return out.sort(function(a,b){ return a-b; });
+    var ft = document.createElement('div');
+    ft.className = 'pnl-ft';
+    ft.innerHTML = '<div class="pnl-qp">QP</div><div class="pnl-void">VOID</div>';
+    board.appendChild(hdr); board.appendChild(grid); board.appendChild(ft);
+    carousel.appendChild(board);
+  });
+
+  /* ── Helpers ── */
+  function pickN(n){
+    var pool=[]; for(var i=1;i<=49;i++) pool.push(i);
+    var out=[];
+    while(out.length<n){ var idx=Math.floor(Math.random()*pool.length); out.push(pool.splice(idx,1)[0]); }
+    return out.sort(function(a,b){return a-b;});
   }
 
-  function clearAll(){
-    if(busy) return;
+  function pickForPanel(){
+    if(betType==='roll'){
+      var pool=[]; for(var i=1;i<=49;i++) pool.push(i);
+      var normal=[];
+      while(normal.length<5){ var idx=Math.floor(Math.random()*pool.length); normal.push(pool.splice(idx,1)[0]); }
+      var ridx=Math.floor(Math.random()*pool.length);
+      var roll=pool[ridx];
+      return {nums:normal.sort(function(a,b){return a-b;}),roll:roll};
+    }
+    var n=(betType==='ordinary')?6:parseInt(betType);
+    return {nums:pickN(n),roll:null};
+  }
+
+  function animNb(id,isRoll){
+    var el=document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('on','roll-nb');
+    void el.offsetWidth;
+    el.classList.add(isRoll?'roll-nb':'on');
+  }
+
+  function pad(n){ return n<10?'0'+n:''+n; }
+
+  function pnlTypeLabel(){
+    if(betType==='ordinary') return 'Ordinary Entry';
+    if(betType==='roll')     return 'System Roll';
+    return 'System '+betType;
+  }
+
+  function totalNums(){
+    if(betType==='roll'||betType==='ordinary') return 6;
+    return parseInt(betType);
+  }
+
+  /* ── Update UI ── */
+  function updateUI(){
+    /* Bet type rows */
+    var btRows=document.querySelectorAll('[data-type]');
+    for(var i=0;i<btRows.length;i++){
+      var el=btRows[i]; var t=el.dataset.type;
+      el.classList.toggle('active', betType===t);
+    }
+    /* Draw rows */
+    var drRows=document.querySelectorAll('[data-draw]');
+    for(var i=0;i<drRows.length;i++){
+      var el=drRows[i]; var d=parseInt(el.dataset.draw);
+      el.classList.toggle('active', drawDays===d);
+    }
+    /* Group rows */
+    var grRows=document.querySelectorAll('[data-group]');
+    for(var i=0;i<grRows.length;i++){
+      grRows[i].classList.toggle('active', groupToto);
+    }
+    /* Panel type labels */
+    var label=pnlTypeLabel();
+    var ptEls=document.querySelectorAll('.pnl-type,.mob-pnl-type');
+    for(var i=0;i<ptEls.length;i++) ptEls[i].textContent=label;
+    /* Ticket instruction */
+    var tmInstr=document.getElementById('tm-instr');
+    if(tmInstr) tmInstr.textContent=buildTicketInstr();
+    /* Instructions above ticket */
+    updateInstr();
+  }
+
+  function buildTicketInstr(){
+    if(betType==='ordinary') return 'Mark the numbers you wish to select or choose QP (Quick Pick). Select 6 numbers from 1 to 49 for each panel. Each board costs $1.00.';
+    if(betType==='roll')     return 'Select 5 numbers for each panel. The 6th number (Sys Roll) plays all remaining 44 numbers automatically.';
+    return 'Select '+WORD[betType]+' numbers for each panel. System '+betType+' generates multiple Ordinary Entry combinations.';
+  }
+
+  function updateInstr(){
+    var base;
+    if(betType==='ordinary') base='Mark six numbers per board.';
+    else if(betType==='roll') base='Mark five numbers. The sixth is a System Roll — all remaining numbers play automatically.';
+    else base='Mark '+WORD[betType]+' numbers per board.';
+    var suffix='';
+    if(drawDays===2) suffix+=' Bet covers two consecutive draws.';
+    if(drawDays===4) suffix+=' Bet covers four consecutive draws.';
+    if(groupToto)    suffix+=' Group TOTO selected — bet will be divided among group members.';
+    var el=document.getElementById('tk-instr');
+    if(el) el.textContent=base+suffix;
+  }
+
+  /* ── Clear numbers only ── */
+  function clearNums(){
     PANELS.forEach(function(p){
-      current[p] = [];
-      for(var n=1; n<=49; n++){
-        var el = document.getElementById('nb-'+p+'-'+n);
-        if(el) el.classList.remove('on');
+      current[p]={nums:[],roll:null};
+      for(var n=1;n<=49;n++){
+        var d=document.getElementById('nb-'+p+'-'+n);
+        if(d) d.classList.remove('on','roll-nb');
+        var m=document.getElementById('mnb-'+p+'-'+n);
+        if(m) m.classList.remove('on','roll-nb');
       }
     });
-    var q = document.getElementById('cm-q');
-    var m = document.getElementById('cm-m');
-    q.classList.remove('vis');
-    m.classList.remove('vis');
+    document.getElementById('cm-q').classList.remove('vis');
+    document.getElementById('cm-m').classList.remove('vis');
     cpBtn.classList.remove('show','ok');
-    cpBtn.textContent = 'Copy Numbers';
+    cpBtn.textContent='Copy Numbers';
   }
 
+  /* ── Clear all ── */
+  function clearAll(){
+    if(busy) return;
+    clearNums();
+    betType='ordinary'; drawDays=1; groupToto=false;
+    updateUI();
+    /* Reset mobile carousel */
+    if(carousel) carousel.scrollLeft=0;
+    updateDots(0);
+    hasSwiped=false;
+    var sh=document.getElementById('swipe-hint');
+    if(sh) sh.style.display='';
+  }
+
+  /* ── Quick Pick ── */
   function quickPick(){
     if(busy) return;
-    clearAll();
-    busy = true;
-    draws++;
-    qBtn.disabled = true;
-
-    var sets = {};
+    clearNums();
+    busy=true; draws++;
+    qBtn.disabled=true;
+    PANELS.forEach(function(p){ current[p]=pickForPanel(); });
+    var last=(totalNums()-1)*110;
     PANELS.forEach(function(p){
-      sets[p] = pickN(6);
-      current[p] = sets[p];
-    });
-
-    var lastDelay = 5 * 110;
-    PANELS.forEach(function(p){
-      sets[p].forEach(function(num, i){
+      var data=current[p];
+      var seq=data.nums.slice();
+      if(data.roll!==null) seq.push(data.roll);
+      seq.forEach(function(num,i){
         setTimeout(function(){
-          var el = document.getElementById('nb-'+p+'-'+num);
-          if(!el) return;
-          el.classList.remove('on');
-          void el.offsetWidth;
-          el.classList.add('on');
-        }, i * 110);
+          var isRoll=(num===data.roll);
+          animNb('nb-'+p+'-'+num, isRoll);
+          animNb('mnb-'+p+'-'+num, isRoll);
+        }, i*110);
       });
     });
-
     setTimeout(function(){
-      busy = false;
-      qBtn.disabled = false;
+      busy=false; qBtn.disabled=false;
       showQuip();
       cpBtn.classList.add('show');
-    }, lastDelay + 280);
+    }, last+280);
   }
 
+  /* ── Quip ── */
   function showQuip(){
     if(!QUIPS.length) return;
-    var q = document.getElementById('cm-q');
-    var m = document.getElementById('cm-m');
-    q.textContent = '“' + QUIPS[(draws-1) % QUIPS.length] + '” — Matt';
-    m.textContent = 'Quick pick #' + draws;
+    var q=document.getElementById('cm-q'), m=document.getElementById('cm-m');
+    q.textContent='“'+QUIPS[(draws-1)%QUIPS.length]+'” — Matt';
+    m.textContent='Quick pick #'+draws;
     q.classList.remove('vis'); m.classList.remove('vis');
     void q.offsetWidth;
     q.classList.add('vis'); m.classList.add('vis');
   }
 
+  /* ── Copy ── */
   function copyNumbers(){
-    var lines = PANELS.map(function(p){
-      return p + '.  ' + current[p].map(function(n){
-        return n < 10 ? '0'+n : ''+n;
-      }).join('  ');
+    var lines=PANELS.map(function(p){
+      var data=current[p];
+      if(data.roll!==null){
+        var all=data.nums.concat([data.roll]).sort(function(a,b){return a-b;});
+        var parts=all.map(function(n){ return pad(n)+(n===data.roll?' ★':''); });
+        return p+'.  '+parts.join('  ');
+      }
+      return p+'.  '+data.nums.map(pad).join('  ');
     });
-    var text = lines.join('\n') + '\n\nGenerated on matthewho.work';
+    var text=lines.join('\n')+'\n\nGenerated on matthewho.work';
     navigator.clipboard.writeText(text).then(function(){
-      cpBtn.textContent = 'Copied ✓';
-      cpBtn.classList.add('ok');
-      setTimeout(function(){ cpBtn.textContent='Copy Numbers'; cpBtn.classList.remove('ok'); }, 2000);
+      cpBtn.textContent='Copied ✓'; cpBtn.classList.add('ok');
+      setTimeout(function(){ cpBtn.textContent='Copy Numbers'; cpBtn.classList.remove('ok'); },2000);
     }).catch(function(){
-      cpBtn.textContent = 'Copy failed';
-      setTimeout(function(){ cpBtn.textContent='Copy Numbers'; }, 2000);
+      cpBtn.textContent='Copy failed';
+      setTimeout(function(){ cpBtn.textContent='Copy Numbers'; },2000);
     });
   }
 
+  /* ── Mobile dots ── */
+  function updateDots(idx){
+    var dots=document.querySelectorAll('.mob-dot');
+    for(var i=0;i<dots.length;i++) dots[i].classList.toggle('active',i===idx);
+  }
+
+  /* ── Sidebar click handler ── */
+  function handleRowClick(el){
+    var t=el.dataset.type;
+    var d=el.dataset.draw;
+    var g=el.dataset.group;
+    if(t!==undefined){
+      if(t==='ordinary'){ if(betType!=='ordinary'){ betType='ordinary'; clearNums(); updateUI(); } return; }
+      betType=(betType===t)?'ordinary':t;
+      clearNums(); updateUI();
+    } else if(d!==undefined){
+      var dv=parseInt(d);
+      drawDays=(drawDays===dv)?1:dv;
+      updateUI();
+    } else if(g!==undefined){
+      groupToto=!groupToto;
+      updateUI();
+    }
+  }
+
+  /* ── Event listeners ── */
   qBtn.addEventListener('click', quickPick);
   cBtn.addEventListener('click', clearAll);
   cpBtn.addEventListener('click', copyNumbers);
+
+  /* Desktop sidebar */
+  document.querySelector('.tl').addEventListener('click',function(e){
+    var row=e.target.closest('[data-type],[data-draw],[data-group]');
+    if(row) handleRowClick(row);
+  });
+
+  /* Mobile sidebar rows */
+  document.getElementById('mob-row1').addEventListener('click',function(e){
+    var opt=e.target.closest('[data-type]');
+    if(opt) handleRowClick(opt);
+  });
+  document.getElementById('mob-row2').addEventListener('click',function(e){
+    var opt=e.target.closest('[data-draw],[data-group]');
+    if(opt) handleRowClick(opt);
+  });
+
+  /* Mobile carousel scroll */
+  carousel.addEventListener('scroll',function(){
+    if(!hasSwiped){
+      hasSwiped=true;
+      var sh=document.getElementById('swipe-hint');
+      if(sh) sh.style.display='none';
+    }
+    clearTimeout(scrollTimer);
+    scrollTimer=setTimeout(function(){
+      var idx=Math.round(carousel.scrollLeft/carousel.offsetWidth);
+      updateDots(idx);
+    },120);
+  },{passive:true});
+
 })();
 </script>
 </body>
