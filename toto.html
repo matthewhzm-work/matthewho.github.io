@@ -89,7 +89,7 @@ nav.scrolled{background:rgba(255,250,240,.96);backdrop-filter:blur(14px);-webkit
 
 /* Number grid — rows of 9 */
 .pnl-nums{display:grid;grid-template-columns:repeat(9,1fr);gap:2px;flex:1;min-height:0}
-.nb{aspect-ratio:1;border-radius:50%;border:1px solid #C8C8C8;display:flex;align-items:center;justify-content:center;font-size:clamp(5px,1.1vh,8.5px);font-weight:700;color:#2A2A2A;font-family:'Arial Narrow',Arial,sans-serif;line-height:1;position:relative;min-height:0;min-width:0;width:100%}
+.nb{aspect-ratio:1;border-radius:50%;border:1px solid #C8C8C8;display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;color:#2A2A2A;font-family:'Arial Narrow',Arial,sans-serif;line-height:1;position:relative;width:100%}
 @keyframes nbPop{0%{transform:scale(.1);opacity:0}65%{transform:scale(1.22)}100%{transform:scale(1);opacity:1}}
 .nb.on{background:#E8604C;border-color:#E8604C;color:#fff;animation:nbPop .22s cubic-bezier(.34,1.56,.64,1) both}
 .nb.roll-nb{background:#fff;border:1.5px solid #E8604C;color:#E8604C;animation:nbPop .22s cubic-bezier(.34,1.56,.64,1) both}
@@ -169,21 +169,7 @@ nav.scrolled{background:rgba(255,250,240,.96);backdrop-filter:blur(14px);-webkit
 @media(min-height:700px){
   .wrap{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
   .ticket-scroll{flex:1;min-height:0;overflow-y:hidden;padding-bottom:0;margin-bottom:0}
-  .ticket{height:100%}
-  .pnl-nums{align-content:space-evenly}
   .pg-ft{margin-top:0;padding:clamp(6px,1vh,18px) 0;flex-shrink:0}
-}
-
-/* ── VIEWPORT FIT — mobile tall ── */
-@media(max-width:768px) and (min-height:700px){
-  .mob-outer{display:flex;flex-direction:column;flex:1;min-height:0}
-  .mob-ticket{display:flex;flex-direction:column;flex:1;min-height:0}
-  .mob-hd{flex-shrink:0}
-  .mob-carousel{flex:1;min-height:0}
-  .mob-board{min-height:0}
-  .mob-nums{flex:1;min-height:0;align-content:space-evenly}
-  .swipe-hint{flex-shrink:0}
-  .mob-dots{flex-shrink:0}
 }
 </style>
 </head>
