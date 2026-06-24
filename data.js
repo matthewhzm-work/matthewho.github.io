@@ -14,7 +14,7 @@ const PORTFOLIO_DATA = {
       "company": "VML Singapore",
       "role": "Senior Copywriter",
       "clients": "HSBC, LUX, ACUVUE, Caltex, MHA, Temasek, Zespri, Scoot, SC Johnson",
-      "period": "2023 – Present"
+      "period": "2023 – 2026"
     },
     {
       "company": "Bybit",
@@ -2151,9 +2151,9 @@ const PORTFOLIO_DATA = {
   "bioHeadline": "My never-quite-ending",
   "bioHeadlineAccent": "search for screen time",
   "totoPage": {
-    "eyebrow": "Feeling lucky?",
-    "title": "The odds are 1 in 13,983,816.<br><em>So, you know, same as winning a pitch?</em>",
-    "subtitle": "If you're reading this, either I'm getting lucky with a job, or you're getting lucky with a win. Give it a shot — worst case, you still have a great portfolio to look at.",
+    "eyebrow": "",
+    "title": "",
+    "subtitle": "",
     "quips": [
       "Statistically, you have better odds of winning a Cannes Grand Prix.",
       "If you don't like these numbers, then get like an awards-hungry-hippo and try again.",
