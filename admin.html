@@ -1402,11 +1402,16 @@ window.syncSwatch = v=>{ if(/^#[0-9a-f]{6}$/i.test(v)){ $('e-colorpicker').value
    read them back reliably from the DOM, not from oninput closures.
 ═══════════════════════════════════════ */
 function renderExp(){
+  const n = (S.experience||[]).length;
   $('exp-cms').innerHTML = (S.experience||[]).map((e,i) => `
     <div style="background:var(--paper);padding:16px;margin-bottom:10px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
         <span style="font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:0.12em;text-transform:uppercase">Role ${i+1}</span>
-        <button class="btn btn-danger btn-sm" onclick="removeExp(${i})">Remove</button>
+        <div style="display:flex;gap:6px;align-items:center">
+          <button class="btn btn-secondary btn-sm" onclick="moveExp(${i},-1)" ${i===0?'disabled':''} title="Move up">↑</button>
+          <button class="btn btn-secondary btn-sm" onclick="moveExp(${i},1)" ${i===n-1?'disabled':''} title="Move down">↓</button>
+          <button class="btn btn-danger btn-sm" onclick="removeExp(${i})">Remove</button>
+        </div>
       </div>
       <div class="g3">
         <div class="fg"><label>Company</label>
@@ -1430,6 +1435,15 @@ window.addExp = ()=>{
 window.removeExp = i=>{
   flushExpFromDOM();
   S.experience.splice(i,1);
+  renderExp();
+};
+
+window.moveExp = (i, d)=>{
+  flushExpFromDOM();
+  const arr = S.experience;
+  const j = i + d;
+  if(j < 0 || j >= arr.length) return;
+  [arr[i], arr[j]] = [arr[j], arr[i]];
   renderExp();
 };
 
